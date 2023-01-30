@@ -1,0 +1,27 @@
+[build-system]
+requires = ["flit_core >=2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "xpystac"
+author = "Julia Signell"
+author-email = "jsignell@azavea.com"
+classifiers = [ "License :: OSI Approved :: MIT License",]
+dependencies = [
+    "xarray",
+    "pystac>=1.0.0b3",
+]
+requires-python = ">=3.8"
+description = "Extend xarray.open_dataset to accept pystac objects"
+license = {text = "MIT"}
+readme = "README.md"
+dynamic = ["version"]
+
+[project.optional-dependencies]
+dev = [
+  "pytest",
+  "pre-commit",
+]
+
+[project.entry-points."xarray.backends"]
+stac = "xpystac.xarray_plugin:STACBackend"
