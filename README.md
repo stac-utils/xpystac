@@ -27,4 +27,4 @@ pip install git+https://github.com/jsignell/xpystac
 
 ## Prior Art
 
-This work is inspired by https://github.com/TomAugspurger/staccontainers
+This work is inspired by https://github.com/TomAugspurger/staccontainers and the discussion in https://github.com/stac-utils/pystac/issues/846
