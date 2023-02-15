@@ -1,4 +1,4 @@
-name: xpystac
+name: xpystac-dev
 channels:
   - conda-forge
   - nodefaults
@@ -10,7 +10,7 @@ dependencies:
   # optional
   - fsspec
   - planetary-computer
-  - pystack-client
+  - pystac-client
   - requests
   - rioxarray
   - stackstac
