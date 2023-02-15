@@ -1,0 +1,47 @@
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: "20 22 * * 0"
+
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash -l {0}
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.8", "3.9", "3.10", "3.11"]
+        environment-file: ["environment.yaml"]
+    defaults:
+      run:
+        shell: bash -l {0}
+
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v3.3.0
+
+      - name: setup micromamba
+        uses: mamba-org/provision-with-micromamba@main
+        with:
+          environment-file: ${{ matrix.environment-file }}
+          micromamba-version: "latest"
+          channel-priority: "flexible"
+
+      - name: install xpystac
+        run: pip install .
+
+      - name: run tests
+        id: status
+        run: pytest -v .

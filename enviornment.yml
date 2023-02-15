@@ -1,0 +1,19 @@
+name: xpystac
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python
+  # required
+  - pystac
+  - xarray
+  # optional
+  - fsspec
+  - planetary-computer
+  - pystack-client
+  - requests
+  - rioxarray
+  - stackstac
+  - zarr
+  # testing
+  - pytest
