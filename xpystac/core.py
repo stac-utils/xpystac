@@ -1,5 +1,5 @@
 import functools
-from typing import Union
+from typing import List, Union
 
 import pystac
 import xarray
@@ -20,7 +20,7 @@ def to_xarray(item, **kwargs) -> xarray.Dataset:
 @to_xarray.register(pystac.ItemCollection)
 def _(
     obj: Union[pystac.Item, pystac.ItemCollection],
-    drop_variables: Union[str, list[str]] = None,
+    drop_variables: Union[str, List[str]] = None,
     **kwargs,
 ) -> xarray.Dataset:
     stackstac = _import_optional_dependency("stackstac")
