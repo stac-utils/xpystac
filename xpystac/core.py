@@ -1,9 +1,10 @@
 import functools
+from typing import List, Union
 
 import pystac
 import xarray
 
-from .utils import _import_optional_dependency
+from xpystac.utils import _import_optional_dependency
 
 
 @functools.singledispatch
@@ -18,8 +19,8 @@ def to_xarray(item, **kwargs) -> xarray.Dataset:
 @to_xarray.register(pystac.Item)
 @to_xarray.register(pystac.ItemCollection)
 def _(
-    obj: pystac.Item | pystac.ItemCollection,
-    drop_variables: str | list[str] = None,
+    obj: Union[pystac.Item, pystac.ItemCollection],
+    drop_variables: Union[str, List[str]] = None,
     **kwargs,
 ) -> xarray.Dataset:
     stackstac = _import_optional_dependency("stackstac")

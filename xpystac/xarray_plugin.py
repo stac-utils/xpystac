@@ -1,7 +1,9 @@
+from typing import List, Union
+
 import pystac
 from xarray.backends import BackendEntrypoint
 
-from .core import to_xarray
+from xpystac.core import to_xarray
 
 
 class STACBackend(BackendEntrypoint):
@@ -9,7 +11,7 @@ class STACBackend(BackendEntrypoint):
         self,
         obj,
         *,
-        drop_variables: str | list[str] = None,
+        drop_variables: Union[str, List[str]] = None,
         **kwargs,
     ):
         return to_xarray(obj, drop_variables=drop_variables, **kwargs)
