@@ -22,6 +22,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        os: [ubuntu-latest]
         python-version: ["3.8", "3.9", "3.10", "3.11"]
         environment-file: ["environment.yaml"]
     defaults:
@@ -37,6 +38,7 @@ jobs:
         with:
           environment-file: ${{ matrix.environment-file }}
           micromamba-version: "latest"
+          extra-specs: python=${{ matrix.python-version }}
           channel-priority: "flexible"
 
       - name: install xpystac
