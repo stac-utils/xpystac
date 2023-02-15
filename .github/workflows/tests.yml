@@ -18,6 +18,7 @@ defaults:
 
 jobs:
   test:
+    name: ${{ matrix.python-version }}
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
