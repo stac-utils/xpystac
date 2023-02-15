@@ -1,10 +1,25 @@
 
 repos:
+-   repo: https://github.com/MarcoGorelli/absolufy-imports
+    rev: v0.3.1
+    hooks:
+      - id: absolufy-imports
+        name: absolufy-imports
+-   repo: https://github.com/pycqa/isort
+    rev: 5.12.0
+    hooks:
+      - id: isort
+        language_version: python3
+-   repo: https://github.com/asottile/pyupgrade
+    rev: v3.2.2
+    hooks:
+      - id: pyupgrade
+        args:
+          - --py38-plus
 -   repo: https://github.com/psf/black
-    rev: "22.12.0"
+    rev: "23.1.0"
     hooks:
     -   id: black
-        additional_dependencies: ['click==8.0.4']
 -   repo: https://github.com/pycqa/flake8
     rev: 6.0.0
     hooks:

@@ -1,5 +1,5 @@
-import pytest
 import pystac
+import pytest
 
 
 @pytest.fixture(scope="module")
