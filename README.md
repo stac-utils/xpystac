@@ -1,5 +1,7 @@
 # xpystac
-For extending `xarray.open_dataset` to accept pystac objects
+xpystac provides the glue that allows `xarray.open_dataset` to accept pystac objects.
+
+The goal is that as long as this library is in your env, you should never need to think about it.
 
 ## Example
 
@@ -24,6 +26,12 @@ xr.open_dataset(search, engine="stac")
 ```bash
 pip install git+https://github.com/jsignell/xpystac
 ```
+
+## How it works
+
+When you call ``xarray.open_dataset(object, engine="stac")`` this library maps that open call to the correct library.
+Depending on the ``type`` of ``object`` that might be [stackstac](https://github.com/gjoseph92/stackstac)
+or back to ``xarray.open_dataset`` itself but with the engine and other options pulled from the pystac object.
 
 ## Prior Art
 
