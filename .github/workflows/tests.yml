@@ -47,4 +47,4 @@ jobs:
 
       - name: run tests
         id: status
-        run: pytest -v .
+        run: pytest -v --cov xpystac --cov-report term-missing --vcr-record=none .

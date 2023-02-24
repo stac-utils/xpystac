@@ -10,9 +10,10 @@ from xpystac.utils import _import_optional_dependency
 @functools.singledispatch
 def to_xarray(item, **kwargs) -> xarray.Dataset:
     """Given a pystac object return an xarray dataset"""
-    if hasattr(item, "get_all_items"):
-        item_collection = item.get_all_items()
-        return to_xarray(item_collection)
+    is_pystac_client_obj = hasattr(item, "item_collection")
+    if is_pystac_client_obj:
+        item_collection = item.item_collection()
+        return to_xarray(item_collection, **kwargs)
     raise TypeError
 
 

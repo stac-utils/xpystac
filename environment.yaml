@@ -17,3 +17,5 @@ dependencies:
   - zarr
   # testing
   - pytest
+  - pytest-cov
+  - pytest-vcr
