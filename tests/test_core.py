@@ -1,10 +1,23 @@
-import pystac
+import pytest
 
 from xpystac.core import to_xarray
 
 
-def test_asset_to_xarray(simple_item):
-    asset = simple_item.assets["visual"]
-    assert asset.media_type == pystac.MediaType.COG
-    ds = to_xarray(asset)
+def test_to_xarray_with_cog_asset(simple_cog):
+    ds = to_xarray(simple_cog)
     assert ds
+
+
+def test_to_xarray_with_pystac_client_search(simple_search):
+    ds = to_xarray(simple_search)
+    assert ds
+
+
+def test_to_xarray_with_drop_variables_raises(simple_search):
+    with pytest.raises(KeyError, match="not implemented for pystac items"):
+        to_xarray(simple_search, drop_variables=["B0"])
+
+
+def test_to_xarray_with_bad_type():
+    with pytest.raises(TypeError):
+        to_xarray("foo")
