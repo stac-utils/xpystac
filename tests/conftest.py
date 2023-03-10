@@ -1,3 +1,4 @@
+import planetary_computer
 import pystac
 import pystac_client
 import pytest
@@ -13,7 +14,7 @@ STAC_URLS = {
 
 @pytest.fixture(scope="module")
 def simple_item() -> pystac.Item:
-    path = "https://raw.githubusercontent.com/stac-utils/pystac/2.0/tests/data-files/examples/1.0.0/simple-item.json"
+    path = "https://raw.githubusercontent.com/stac-utils/pystac/v1.7.0/tests/data-files/examples/1.0.0/simple-item.json"
     return pystac.Item.from_file(path)
 
 
@@ -33,3 +34,14 @@ def simple_search() -> pystac_client.ItemSearch:
             collections=["sentinel-s2-l2a-cogs"],
             datetime="2020-05-01",
         )
+
+
+@pytest.fixture(scope="module")
+def simple_reference_file() -> pystac.Asset:
+    with vcr.use_cassette("tests/cassettes/fixtures/simple_reference_file.yaml"):
+        client = pystac_client.Client.open(
+            STAC_URLS["PLANETARY-COMPUTER"],
+            modifier=planetary_computer.sign_inplace,
+        )
+        collection = client.get_collection("nasa-nex-gddp-cmip6")
+        return collection.assets["ACCESS-CM2.historical"]

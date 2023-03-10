@@ -21,3 +21,8 @@ def test_to_xarray_with_drop_variables_raises(simple_search):
 def test_to_xarray_with_bad_type():
     with pytest.raises(TypeError):
         to_xarray("foo")
+
+
+def test_to_xarray_reference_file(simple_reference_file):
+    ds = to_xarray(simple_reference_file)
+    assert ds

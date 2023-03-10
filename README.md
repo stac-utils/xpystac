@@ -5,14 +5,18 @@ The goal is that as long as this library is in your env, you should never need t
 
 ## Example
 
+Search collection of COGs example:
+
 ```python
-from pystac_client import Client
+import pystac_client
 import xarray as xr
 
 
-client = Client.open("https://earth-search.aws.element84.com/v0")
+catalog = pystac_client.Client.open(
+    "https://earth-search.aws.element84.com/v0"
+)
 
-search = client.search(
+search = catalog.search(
     intersects=dict(type="Point", coordinates=[-105.78, 35.79]),
     collections=['sentinel-s2-l2a-cogs'],
     datetime="2020-04-01/2020-05-01",
@@ -20,6 +24,26 @@ search = client.search(
 
 xr.open_dataset(search, engine="stac")
 ```
+
+Reference file example:
+
+```python
+import planetary_computer
+import xarray as xr
+import pystac_client
+
+
+catalog = pystac_client.Client.open(
+    "https://planetarycomputer.microsoft.com/api/stac/v1",
+    modifier=planetary_computer.sign_inplace,
+)
+
+collection = catalog.get_collection("nasa-nex-gddp-cmip6")
+asset = collection.assets["ACCESS-CM2.historical"]
+
+xr.open_dataset(asset)
+```
+
 
 ## Install
 
