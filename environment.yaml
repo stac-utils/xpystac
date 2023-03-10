@@ -8,6 +8,7 @@ dependencies:
   - pystac
   - xarray
   # optional
+  - adlfs
   - aiohttp
   - fsspec
   - planetary-computer

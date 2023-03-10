@@ -45,3 +45,14 @@ def simple_reference_file() -> pystac.Asset:
         )
         collection = client.get_collection("nasa-nex-gddp-cmip6")
         return collection.assets["ACCESS-CM2.historical"]
+
+
+@pytest.fixture(scope="module")
+def simple_zarr() -> pystac.Asset:
+    with vcr.use_cassette("tests/cassettes/fixtures/simple_zarr.yaml"):
+        catalog = pystac_client.Client.open(
+            STAC_URLS["PLANETARY-COMPUTER"],
+            modifier=planetary_computer.sign_inplace,
+        )
+        collection = catalog.get_collection("daymet-daily-hi")
+        return collection.assets["zarr-abfs"]
