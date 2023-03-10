@@ -5,7 +5,7 @@ The goal is that as long as this library is in your env, you should never need t
 
 ## Example
 
-Search collection of COGs example:
+Search collection of COGs:
 
 ```python
 import pystac_client
@@ -25,25 +25,42 @@ search = catalog.search(
 xr.open_dataset(search, engine="stac")
 ```
 
-Reference file example:
+Here are a few examples from the [Planetary Computer Docs](https://planetarycomputer.microsoft.com/docs/overview/about)
+
 
 ```python
 import planetary_computer
-import xarray as xr
 import pystac_client
+import xarray as xr
 
 
 catalog = pystac_client.Client.open(
     "https://planetarycomputer.microsoft.com/api/stac/v1",
     modifier=planetary_computer.sign_inplace,
 )
+```
+
+Read from a reference file:
+
+```python
 
 collection = catalog.get_collection("nasa-nex-gddp-cmip6")
 asset = collection.assets["ACCESS-CM2.historical"]
 
 xr.open_dataset(asset)
 ```
+ref: https://planetarycomputer.microsoft.com/dataset/nasa-nex-gddp-cmip6#Example-Notebook
 
+Read from a zarr file:
+
+```python
+
+collection = catalog.get_collection("daymet-daily-hi")
+asset = collection.assets["zarr-abfs"]
+
+xr.open_dataset(asset)
+```
+ref: https://planetarycomputer.microsoft.com/docs/quickstarts/reading-zarr-data/
 
 ## Install
 
