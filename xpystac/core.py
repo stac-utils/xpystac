@@ -34,7 +34,9 @@ def _(
 def _(obj: pystac.Asset, **kwargs) -> xarray.Dataset:
     open_kwargs = obj.extra_fields.get("xarray:open_kwargs", {})
 
-    if obj.media_type == pystac.MediaType.JSON and "index" in obj.roles:
+    if obj.media_type == pystac.MediaType.JSON and {"index", "references"}.intersection(
+        obj.roles
+    ):
         requests = _import_optional_dependency("requests")
         fsspec = _import_optional_dependency("fsspec")
         r = requests.get(obj.href)
