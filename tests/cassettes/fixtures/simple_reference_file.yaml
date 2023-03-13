@@ -79,13 +79,13 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Fri, 10 Mar 2023 14:41:21 GMT
+      - Mon, 13 Mar 2023 17:42:59 GMT
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Vary:
       - Accept-Encoding
       X-Azure-Ref:
-      - 0kUELZAAAAAATcXAcuTQLQp/r1/NbCoVPTU5aMjIxMDYwNjEzMDUzADkyN2FiZmE2LTE5ZjYtNGFmMS1hMDlkLWM5NTlkOWExZTY0NA==
+      - 0o2APZAAAAAChwds5zqelR4QRbTn5fSNWRVdSMzBFREdFMDYxNwA5MjdhYmZhNi0xOWY2LTRhZjEtYTA5ZC1jOTU5ZDlhMWU2NDQ=
       X-Cache:
       - CONFIG_NOCACHE
     status:
@@ -191,13 +191,13 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Fri, 10 Mar 2023 14:41:21 GMT
+      - Mon, 13 Mar 2023 17:42:59 GMT
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Vary:
       - Accept-Encoding
       X-Azure-Ref:
-      - 0kUELZAAAAAChLP4T1qYvS4/mixJSqKBhTU5aMjIxMDYwNjEzMDUzADkyN2FiZmE2LTE5ZjYtNGFmMS1hMDlkLWM5NTlkOWExZTY0NA==
+      - 0pGAPZAAAAAD80WYvhVz1QZI84un+NQvWRVdSMzBFREdFMDYxNwA5MjdhYmZhNi0xOWY2LTRhZjEtYTA5ZC1jOTU5ZDlhMWU2NDQ=
       X-Cache:
       - CONFIG_NOCACHE
     status:
@@ -218,20 +218,20 @@ interactions:
     uri: https://planetarycomputer.microsoft.com/api/sas/v1/token/nasagddp/nex-gddp-cmip6-references
   response:
     body:
-      string: '{"msft:expiry":"2023-03-10T15:26:22Z","token":"st=2023-03-09T14%3A41%3A22Z&se=2023-03-10T15%3A26%3A22Z&sp=rl&sv=2021-06-08&sr=c&skoid=c85c15d6-d1ae-42d4-af60-e2ca0f81359b&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2023-03-10T14%3A41%3A21Z&ske=2023-03-17T14%3A41%3A21Z&sks=b&skv=2021-06-08&sig=CLzwCkCFODmCPycaEIvkGOmEsgKy1SR%2BKFB8t055CcI%3D"}'
+      string: '{"msft:expiry":"2023-03-13T18:28:00Z","token":"st=2023-03-12T17%3A43%3A00Z&se=2023-03-13T18%3A28%3A00Z&sp=rl&sv=2021-06-08&sr=c&skoid=c85c15d6-d1ae-42d4-af60-e2ca0f81359b&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2023-03-10T15%3A03%3A45Z&ske=2023-03-17T15%3A03%3A45Z&sks=b&skv=2021-06-08&sig=nS2bzAQi/0rKi0/IJf8zmCEL4C1Y7im%2BcH0bDW71DVA%3D"}'
     headers:
       Content-Length:
       - '347'
       Content-Type:
       - application/json
       Date:
-      - Fri, 10 Mar 2023 14:41:22 GMT
+      - Mon, 13 Mar 2023 17:43:00 GMT
       Request-Context:
       - appId=cid-v1:75161b1b-6883-4b66-9410-715040c44427
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       X-Azure-Ref:
-      - 0kUELZAAAAADYm+fYCwU1Q7linTDfMrVCTU5aMjIxMDYwNjEzMDI3ADkyN2FiZmE2LTE5ZjYtNGFmMS1hMDlkLWM5NTlkOWExZTY0NA==
+      - 0pGAPZAAAAAAsZ6wA6NQVQK0hTxt70kLdRVdSMzBFREdFMDYwNgA5MjdhYmZhNi0xOWY2LTRhZjEtYTA5ZC1jOTU5ZDlhMWU2NDQ=
       X-Cache:
       - CONFIG_NOCACHE
     status:
@@ -252,22 +252,26 @@ interactions:
     uri: https://planetarycomputer.microsoft.com/api/sas/v1/token/pcstacitems/items
   response:
     body:
-      string: '{"msft:expiry":"2023-03-10T15:26:23Z","token":"st=2023-03-09T14%3A41%3A23Z&se=2023-03-10T15%3A26%3A23Z&sp=rl&sv=2021-06-08&sr=c&skoid=c85c15d6-d1ae-42d4-af60-e2ca0f81359b&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2023-03-10T05%3A08%3A48Z&ske=2023-03-17T05%3A08%3A48Z&sks=b&skv=2021-06-08&sig=JENqm24/FVlU0sbnJk4F9f6IYLlGIRmYr1OYGiWW/KE%3D"}'
+      string: '{"msft:expiry":"2023-03-13T18:28:01Z","token":"st=2023-03-12T17%3A43%3A01Z&se=2023-03-13T18%3A28%3A01Z&sp=rl&sv=2021-06-08&sr=c&skoid=c85c15d6-d1ae-42d4-af60-e2ca0f81359b&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2023-03-13T06%3A31%3A23Z&ske=2023-03-20T06%3A31%3A23Z&sks=b&skv=2021-06-08&sig=RZas6nnA8wWqcuaaztwhxzK8ct483vgLeWqyPDmfMQc%3D"}'
     headers:
+      Accept-Ranges:
+      - bytes
+      Connection:
+      - keep-alive
       Content-Length:
       - '345'
       Content-Type:
       - application/json
       Date:
-      - Fri, 10 Mar 2023 14:41:22 GMT
+      - Mon, 13 Mar 2023 17:43:01 GMT
       Request-Context:
       - appId=cid-v1:75161b1b-6883-4b66-9410-715040c44427
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
-      X-Azure-Ref:
-      - 0kkELZAAAAADPAvNJCHu/Sa0MqBtpJWmDTU5aMjIxMDYwNjE0MDIxADkyN2FiZmE2LTE5ZjYtNGFmMS1hMDlkLWM5NTlkOWExZTY0NA==
       X-Cache:
       - CONFIG_NOCACHE
+      x-azure-ref:
+      - 20230313T174301Z-dq5bdp1dv96rffyfvc1uzxvz2c00000002e000000001gn4u
     status:
       code: 200
       message: OK
