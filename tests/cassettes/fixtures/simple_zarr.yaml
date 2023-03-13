@@ -68,26 +68,30 @@ interactions:
         dqgk6z1bQp2sjaf29yFjazT8carFqMI75tBxqI4byLgDrJhOHNnt8iuGvgvQXm/vdOaveXTL3oHb
         S03vOXSrC+SIw6yaVPzyn18A
     headers:
+      Accept-Ranges:
+      - bytes
       Access-Control-Allow-Credentials:
       - 'true'
       Access-Control-Allow-Origin:
       - '*'
-      Content-Encoding:
-      - br
+      Connection:
+      - keep-alive
       Content-Length:
       - '2925'
       Content-Type:
       - application/json
       Date:
-      - Mon, 13 Mar 2023 17:42:44 GMT
+      - Mon, 13 Mar 2023 19:19:01 GMT
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
-      Vary:
-      - Accept-Encoding
-      X-Azure-Ref:
-      - 0lGAPZAAAAAC2hZZJBhqdQpgwUoWe4x6FRVdSMzBFREdFMDUxNQA5MjdhYmZhNi0xOWY2LTRhZjEtYTA5ZC1jOTU5ZDlhMWU2NDQ=
       X-Cache:
       - CONFIG_NOCACHE
+      content-encoding:
+      - br
+      vary:
+      - Accept-Encoding
+      x-azure-ref:
+      - 20230313T191901Z-dqw0kas6rx1g302fg8t3n3f5rw00000002m0000000008x50
     status:
       code: 200
       message: OK
@@ -157,64 +161,30 @@ interactions:
         ST/ttYsj7cLiDq4rTz1eoyi1lGUqj9uSUDftuTw1D97OocRRQnxokHAr+aggDLmKPiZpG/NY9x/2
         z+PgBugQfskYgKAu7gY4Jmd7UTHN7MRH6jnkmbPwlOLIuAA=
     headers:
+      Accept-Ranges:
+      - bytes
       Access-Control-Allow-Credentials:
       - 'true'
       Access-Control-Allow-Origin:
       - '*'
-      Content-Encoding:
-      - br
+      Connection:
+      - keep-alive
       Content-Length:
       - '2771'
       Content-Type:
       - application/json
       Date:
-      - Mon, 13 Mar 2023 17:42:44 GMT
+      - Mon, 13 Mar 2023 19:19:01 GMT
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
-      Vary:
+      X-Cache:
+      - CONFIG_NOCACHE
+      content-encoding:
+      - br
+      vary:
       - Accept-Encoding
-      X-Azure-Ref:
-      - 0lWAPZAAAAAAhAgjLIa9JRInbQjw3kBw+RVdSMzBFREdFMDUxNQA5MjdhYmZhNi0xOWY2LTRhZjEtYTA5ZC1jOTU5ZDlhMWU2NDQ=
-      X-Cache:
-      - CONFIG_NOCACHE
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate, br
-      Connection:
-      - keep-alive
-      User-Agent:
-      - python-requests/2.28.2
-    method: GET
-    uri: https://planetarycomputer.microsoft.com/api/sas/v1/token/daymeteuwest/daymet-zarr
-  response:
-    body:
-      string: '{"msft:expiry":"2023-03-13T18:27:46Z","token":"st=2023-03-12T17%3A42%3A45Z&se=2023-03-13T18%3A27%3A46Z&sp=rl&sv=2021-06-08&sr=c&skoid=c85c15d6-d1ae-42d4-af60-e2ca0f81359b&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2023-03-13T17%3A42%3A44Z&ske=2023-03-20T17%3A42%3A44Z&sks=b&skv=2021-06-08&sig=S49ZE9wvUZOklQ46l6cftC7Eb%2BVYAxOLycOu3rr59Tw%3D"}'
-    headers:
-      Accept-Ranges:
-      - bytes
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '347'
-      Content-Type:
-      - application/json
-      Date:
-      - Mon, 13 Mar 2023 17:42:46 GMT
-      Request-Context:
-      - appId=cid-v1:75161b1b-6883-4b66-9410-715040c44427
-      Strict-Transport-Security:
-      - max-age=15724800; includeSubDomains
-      X-Cache:
-      - CONFIG_NOCACHE
       x-azure-ref:
-      - 20230313T174245Z-bmpq73ce4p00b721t6x6p6ebw000000002eg00000001vq0v
+      - 20230313T191901Z-dqw0kas6rx1g302fg8t3n3f5rw00000002m0000000008x7x
     status:
       code: 200
       message: OK

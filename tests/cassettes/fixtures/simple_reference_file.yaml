@@ -68,26 +68,30 @@ interactions:
         dqgk6z1bQp2sjaf29yFjazT8carFqMI75tBxqI4byLgDrJhOHNnt8iuGvgvQXm/vdOaveXTL3oHb
         S03vOXSrC+SIw6yaVPzyn18A
     headers:
+      Accept-Ranges:
+      - bytes
       Access-Control-Allow-Credentials:
       - 'true'
       Access-Control-Allow-Origin:
       - '*'
-      Content-Encoding:
-      - br
+      Connection:
+      - keep-alive
       Content-Length:
       - '2925'
       Content-Type:
       - application/json
       Date:
-      - Mon, 13 Mar 2023 17:42:59 GMT
+      - Mon, 13 Mar 2023 19:18:55 GMT
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
-      Vary:
-      - Accept-Encoding
-      X-Azure-Ref:
-      - 0o2APZAAAAAChwds5zqelR4QRbTn5fSNWRVdSMzBFREdFMDYxNwA5MjdhYmZhNi0xOWY2LTRhZjEtYTA5ZC1jOTU5ZDlhMWU2NDQ=
       X-Cache:
       - CONFIG_NOCACHE
+      content-encoding:
+      - br
+      vary:
+      - Accept-Encoding
+      x-azure-ref:
+      - 20230313T191855Z-vx4w76h9zt7nm2q48szpm161t400000002n000000000nym8
     status:
       code: 200
       message: OK
@@ -180,98 +184,30 @@ interactions:
         tuyi3Vo92o0/O23kLnnChkBWOLd9faPdOJ3AkF6RMJ72jtfW5c89010b0+NR6zY+xHW5T6JXvPea
         UbrKQBNkNgW0GLgu1V/ds0Qegu8ZTw==
     headers:
+      Accept-Ranges:
+      - bytes
       Access-Control-Allow-Credentials:
       - 'true'
       Access-Control-Allow-Origin:
       - '*'
-      Content-Encoding:
-      - br
+      Connection:
+      - keep-alive
       Content-Length:
       - '4069'
       Content-Type:
       - application/json
       Date:
-      - Mon, 13 Mar 2023 17:42:59 GMT
+      - Mon, 13 Mar 2023 19:18:55 GMT
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
-      Vary:
+      X-Cache:
+      - CONFIG_NOCACHE
+      content-encoding:
+      - br
+      vary:
       - Accept-Encoding
-      X-Azure-Ref:
-      - 0pGAPZAAAAAD80WYvhVz1QZI84un+NQvWRVdSMzBFREdFMDYxNwA5MjdhYmZhNi0xOWY2LTRhZjEtYTA5ZC1jOTU5ZDlhMWU2NDQ=
-      X-Cache:
-      - CONFIG_NOCACHE
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate, br
-      Connection:
-      - keep-alive
-      User-Agent:
-      - python-requests/2.28.2
-    method: GET
-    uri: https://planetarycomputer.microsoft.com/api/sas/v1/token/nasagddp/nex-gddp-cmip6-references
-  response:
-    body:
-      string: '{"msft:expiry":"2023-03-13T18:28:00Z","token":"st=2023-03-12T17%3A43%3A00Z&se=2023-03-13T18%3A28%3A00Z&sp=rl&sv=2021-06-08&sr=c&skoid=c85c15d6-d1ae-42d4-af60-e2ca0f81359b&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2023-03-10T15%3A03%3A45Z&ske=2023-03-17T15%3A03%3A45Z&sks=b&skv=2021-06-08&sig=nS2bzAQi/0rKi0/IJf8zmCEL4C1Y7im%2BcH0bDW71DVA%3D"}'
-    headers:
-      Content-Length:
-      - '347'
-      Content-Type:
-      - application/json
-      Date:
-      - Mon, 13 Mar 2023 17:43:00 GMT
-      Request-Context:
-      - appId=cid-v1:75161b1b-6883-4b66-9410-715040c44427
-      Strict-Transport-Security:
-      - max-age=15724800; includeSubDomains
-      X-Azure-Ref:
-      - 0pGAPZAAAAAAsZ6wA6NQVQK0hTxt70kLdRVdSMzBFREdFMDYwNgA5MjdhYmZhNi0xOWY2LTRhZjEtYTA5ZC1jOTU5ZDlhMWU2NDQ=
-      X-Cache:
-      - CONFIG_NOCACHE
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate, br
-      Connection:
-      - keep-alive
-      User-Agent:
-      - python-requests/2.28.2
-    method: GET
-    uri: https://planetarycomputer.microsoft.com/api/sas/v1/token/pcstacitems/items
-  response:
-    body:
-      string: '{"msft:expiry":"2023-03-13T18:28:01Z","token":"st=2023-03-12T17%3A43%3A01Z&se=2023-03-13T18%3A28%3A01Z&sp=rl&sv=2021-06-08&sr=c&skoid=c85c15d6-d1ae-42d4-af60-e2ca0f81359b&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2023-03-13T06%3A31%3A23Z&ske=2023-03-20T06%3A31%3A23Z&sks=b&skv=2021-06-08&sig=RZas6nnA8wWqcuaaztwhxzK8ct483vgLeWqyPDmfMQc%3D"}'
-    headers:
-      Accept-Ranges:
-      - bytes
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '345'
-      Content-Type:
-      - application/json
-      Date:
-      - Mon, 13 Mar 2023 17:43:01 GMT
-      Request-Context:
-      - appId=cid-v1:75161b1b-6883-4b66-9410-715040c44427
-      Strict-Transport-Security:
-      - max-age=15724800; includeSubDomains
-      X-Cache:
-      - CONFIG_NOCACHE
       x-azure-ref:
-      - 20230313T174301Z-dq5bdp1dv96rffyfvc1uzxvz2c00000002e000000001gn4u
+      - 20230313T191855Z-vx4w76h9zt7nm2q48szpm161t400000002n000000000nyn6
     status:
       code: 200
       message: OK
