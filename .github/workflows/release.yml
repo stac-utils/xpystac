@@ -25,7 +25,7 @@ jobs:
           python -m build
 
       - name: Publish distribution to PyPI
-        uses: pypa/gh-action-pypi-publish@release/v1.6.4
+        uses: pypa/gh-action-pypi-publish@release/v1
         with:
           # Password is set in GitHub UI to an API secret for pypi
           user: __token__
