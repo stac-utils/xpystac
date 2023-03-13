@@ -4,8 +4,9 @@ build-backend = "flit_core.buildapi"
 
 [project]
 name = "xpystac"
-author = "Julia Signell"
-author-email = "jsignell@azavea.com"
+authors = [
+    {name = "Julia Signell", email = "jsignell@element84.com"}
+]
 classifiers = [ "License :: OSI Approved :: MIT License",]
 dependencies = [
     "xarray",
