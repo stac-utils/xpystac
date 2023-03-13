@@ -79,13 +79,13 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Fri, 10 Mar 2023 15:01:33 GMT
+      - Mon, 13 Mar 2023 17:42:44 GMT
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Vary:
       - Accept-Encoding
       X-Azure-Ref:
-      - 0TkYLZAAAAAA+mnRemjJDT5tx8W62wh7OTU5aMjIxMDYwNjE0MDQ5ADkyN2FiZmE2LTE5ZjYtNGFmMS1hMDlkLWM5NTlkOWExZTY0NA==
+      - 0lGAPZAAAAAC2hZZJBhqdQpgwUoWe4x6FRVdSMzBFREdFMDUxNQA5MjdhYmZhNi0xOWY2LTRhZjEtYTA5ZC1jOTU5ZDlhMWU2NDQ=
       X-Cache:
       - CONFIG_NOCACHE
     status:
@@ -168,13 +168,13 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Fri, 10 Mar 2023 15:01:34 GMT
+      - Mon, 13 Mar 2023 17:42:44 GMT
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Vary:
       - Accept-Encoding
       X-Azure-Ref:
-      - 0TkYLZAAAAAA9mTCMbEWPRpsnVV+LDuuRTU5aMjIxMDYwNjE0MDQ5ADkyN2FiZmE2LTE5ZjYtNGFmMS1hMDlkLWM5NTlkOWExZTY0NA==
+      - 0lWAPZAAAAAAhAgjLIa9JRInbQjw3kBw+RVdSMzBFREdFMDUxNQA5MjdhYmZhNi0xOWY2LTRhZjEtYTA5ZC1jOTU5ZDlhMWU2NDQ=
       X-Cache:
       - CONFIG_NOCACHE
     status:
@@ -195,22 +195,26 @@ interactions:
     uri: https://planetarycomputer.microsoft.com/api/sas/v1/token/daymeteuwest/daymet-zarr
   response:
     body:
-      string: '{"msft:expiry":"2023-03-10T15:46:35Z","token":"st=2023-03-09T15%3A01%3A35Z&se=2023-03-10T15%3A46%3A35Z&sp=rl&sv=2021-06-08&sr=c&skoid=c85c15d6-d1ae-42d4-af60-e2ca0f81359b&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2023-03-04T03%3A47%3A09Z&ske=2023-03-11T03%3A47%3A09Z&sks=b&skv=2021-06-08&sig=awHouLOuDvbjcE1YNRnYrTGx7hjrVouJfY4KI/DNzz8%3D"}'
+      string: '{"msft:expiry":"2023-03-13T18:27:46Z","token":"st=2023-03-12T17%3A42%3A45Z&se=2023-03-13T18%3A27%3A46Z&sp=rl&sv=2021-06-08&sr=c&skoid=c85c15d6-d1ae-42d4-af60-e2ca0f81359b&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2023-03-13T17%3A42%3A44Z&ske=2023-03-20T17%3A42%3A44Z&sks=b&skv=2021-06-08&sig=S49ZE9wvUZOklQ46l6cftC7Eb%2BVYAxOLycOu3rr59Tw%3D"}'
     headers:
+      Accept-Ranges:
+      - bytes
+      Connection:
+      - keep-alive
       Content-Length:
-      - '345'
+      - '347'
       Content-Type:
       - application/json
       Date:
-      - Fri, 10 Mar 2023 15:01:35 GMT
+      - Mon, 13 Mar 2023 17:42:46 GMT
       Request-Context:
       - appId=cid-v1:75161b1b-6883-4b66-9410-715040c44427
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
-      X-Azure-Ref:
-      - 0T0YLZAAAAACOgRrebyhLRLr48Zi9kqy+TU5aMjIxMDYwNjEzMDI5ADkyN2FiZmE2LTE5ZjYtNGFmMS1hMDlkLWM5NTlkOWExZTY0NA==
       X-Cache:
       - CONFIG_NOCACHE
+      x-azure-ref:
+      - 20230313T174245Z-bmpq73ce4p00b721t6x6p6ebw000000002eg00000001vq0v
     status:
       code: 200
       message: OK

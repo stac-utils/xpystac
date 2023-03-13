@@ -38,7 +38,8 @@ def simple_search() -> pystac_client.ItemSearch:
 
 @pytest.fixture(scope="module")
 def simple_reference_file() -> pystac.Asset:
-    with vcr.use_cassette("tests/cassettes/fixtures/simple_reference_file.yaml"):
+    _vcr = vcr.VCR(match_on=["uri", "method"])
+    with _vcr.use_cassette("tests/cassettes/fixtures/simple_reference_file.yaml"):
         client = pystac_client.Client.open(
             STAC_URLS["PLANETARY-COMPUTER"],
             modifier=planetary_computer.sign_inplace,
@@ -49,7 +50,8 @@ def simple_reference_file() -> pystac.Asset:
 
 @pytest.fixture(scope="module")
 def simple_zarr() -> pystac.Asset:
-    with vcr.use_cassette("tests/cassettes/fixtures/simple_zarr.yaml"):
+    _vcr = vcr.VCR(match_on=["uri", "method"])
+    with _vcr.use_cassette("tests/cassettes/fixtures/simple_zarr.yaml"):
         catalog = pystac_client.Client.open(
             STAC_URLS["PLANETARY-COMPUTER"],
             modifier=planetary_computer.sign_inplace,
