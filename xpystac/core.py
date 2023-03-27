@@ -55,14 +55,14 @@ def _(obj: pystac.Asset, **kwargs) -> xarray.Dataset:
         default_kwargs = {"engine": "zarr", "consolidated": False, "chunks": {}}
         return xarray.open_dataset(mapper, **default_kwargs, **open_kwargs, **kwargs)
 
-    if obj.media_type == pystac.MediaType.COG:
-        _import_optional_dependency("rioxarray")
-        default_kwargs = {"engine": "rasterio"}
-    elif obj.media_type == "application/vnd+zarr":
-        _import_optional_dependency("zarr")
-        default_kwargs = {"engine": "zarr"}
-    else:
-        default_kwargs = {}
+    default_kwargs = {}
+    if open_kwargs.get("engine") is None:
+        if obj.media_type == pystac.MediaType.COG:
+            _import_optional_dependency("rioxarray")
+            default_kwargs["engine"] = "rasterio"
+        elif obj.media_type == "application/vnd+zarr":
+            _import_optional_dependency("zarr")
+            default_kwargs["engine"] = "zarr"
 
     ds = xarray.open_dataset(obj.href, **default_kwargs, **open_kwargs, **kwargs)
     return ds
