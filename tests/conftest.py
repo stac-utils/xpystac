@@ -49,3 +49,9 @@ def simple_zarr() -> pystac.Asset:
         catalog = pystac_client.Client.open(STAC_URLS["PLANETARY-COMPUTER"])
         collection = catalog.get_collection("daymet-daily-hi")
         return collection.assets["zarr-abfs"]
+
+
+@pytest.fixture(scope="module")
+def complex_zarr(simple_zarr) -> pystac.Asset:
+    simple_zarr.extra_fields["xarray:open_kwargs"]["engine"] = "zarr"
+    return simple_zarr

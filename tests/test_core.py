@@ -30,4 +30,9 @@ def test_to_xarray_reference_file(simple_reference_file):
 
 def test_to_xarray_zarr(simple_zarr):
     ds = to_xarray(simple_zarr)
-    ds
+    assert ds
+
+
+def test_to_xarray_zarr_with_open_kwargs_engine(complex_zarr):
+    ds = to_xarray(complex_zarr)
+    assert ds

@@ -64,5 +64,5 @@ def _(obj: pystac.Asset, **kwargs) -> xarray.Dataset:
     else:
         default_kwargs = {}
 
-    ds = xarray.open_dataset(obj.href, **default_kwargs, **open_kwargs, **kwargs)
+    ds = xarray.open_dataset(obj.href, **{**default_kwargs, **open_kwargs, **kwargs})
     return ds
