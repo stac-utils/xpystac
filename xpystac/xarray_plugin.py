@@ -23,4 +23,4 @@ class STACBackend(BackendEntrypoint):
 
     description = "Open pystac objects in Xarray"
 
-    url = "https://github.com/jsignell/xpystac"
+    url = "https://github.com/stac-utils/xpystac"

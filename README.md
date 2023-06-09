@@ -65,7 +65,7 @@ ref: https://planetarycomputer.microsoft.com/docs/quickstarts/reading-zarr-data/
 ## Install
 
 ```bash
-pip install git+https://github.com/jsignell/xpystac
+pip install git+https://github.com/stac-utils/xpystac
 ```
 
 ## How it works
