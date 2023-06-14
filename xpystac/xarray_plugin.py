@@ -1,4 +1,4 @@
-from typing import List, Union
+from typing import Any, Iterable, Union
 
 import pystac
 from xarray.backends import BackendEntrypoint
@@ -7,20 +7,19 @@ from xpystac.core import to_xarray
 
 
 class STACBackend(BackendEntrypoint):
+    description = "Open pystac objects in Xarray"
+    open_dataset_parameters = ("filename_or_obj", "drop_variables")
+    url = "https://github.com/stac-utils/xpystac"
+
     def open_dataset(
         self,
-        obj,
-        *,
-        drop_variables: Union[str, List[str]] = None,
+        filename_or_obj: Any,
+        drop_variables: Union[str, Iterable[str], None] = None,
         **kwargs,
     ):
-        return to_xarray(obj, drop_variables=drop_variables, **kwargs)
+        return to_xarray(filename_or_obj, drop_variables=drop_variables, **kwargs)
 
-    open_dataset_parameters = ["obj", "drop_variables"]
-
-    def guess_can_open(self, obj):
-        return isinstance(obj, (pystac.Asset, pystac.Item, pystac.ItemCollection))
-
-    description = "Open pystac objects in Xarray"
-
-    url = "https://github.com/stac-utils/xpystac"
+    def guess_can_open(self, filename_or_obj: Any):
+        return isinstance(
+            filename_or_obj, (pystac.Asset, pystac.Item, pystac.ItemCollection)
+        )
