@@ -6,7 +6,7 @@ import vcr  # type: ignore
 # copied from https://github.com/stac-utils/pystac-client/blob/v0.6.0/tests/helpers.py#L7-L11
 STAC_URLS = {
     "PLANETARY-COMPUTER": "https://planetarycomputer.microsoft.com/api/stac/v1",
-    "EARTH-SEARCH": "https://earth-search.aws.element84.com/v0",
+    "EARTH-SEARCH": "https://earth-search.aws.element84.com/v1",
     "MLHUB": "https://api.radiant.earth/mlhub/v1",
 }
 
@@ -30,7 +30,7 @@ def simple_search() -> pystac_client.ItemSearch:
         client = pystac_client.Client.open(STAC_URLS["EARTH-SEARCH"])
         return client.search(
             intersects=dict(type="Point", coordinates=[-105.78, 35.79]),
-            collections=["sentinel-s2-l2a-cogs"],
+            collections=["sentinel-2-l2a"],
             datetime="2020-05-01",
         )
 
