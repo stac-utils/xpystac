@@ -1,1 +1,7 @@
-__version__ = "0.1.2"
+from importlib.metadata import PackageNotFoundError, version
+
+try:
+    __version__ = version("xpystac")
+except PackageNotFoundError:  # noqa
+    # package is not installed
+    pass
