@@ -1,6 +1,6 @@
 [build-system]
-requires = ["flit_core >=2,<4"]
-build-backend = "flit_core.buildapi"
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "xpystac"
@@ -10,13 +10,17 @@ authors = [
 classifiers = [ "License :: OSI Approved :: MIT License",]
 dependencies = [
     "xarray",
-    "pystac>=1.0.0b3",
+    "pystac>=1.0.1",
 ]
 requires-python = ">=3.8"
 description = "Extend xarray.open_dataset to accept pystac objects"
 license = {text = "MIT"}
 readme = "README.md"
 dynamic = ["version"]
+
+[project.urls]
+Home = "https://github.com/stac-utils/xpystac"
+Repository = "https://github.com/stac-utils/xpystac"
 
 [project.optional-dependencies]
 dev = [
@@ -26,6 +30,11 @@ dev = [
 
 [project.entry-points."xarray.backends"]
 stac = "xpystac.xarray_plugin:STACBackend"
+
+[tool.setuptools.packages.find]
+include = [
+    "xpystac",
+]
 
 [tool.ruff]
 line-length = 88
