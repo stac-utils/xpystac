@@ -11,11 +11,11 @@ dependencies:
   - adlfs
   - aiohttp
   - fsspec
+  - odc-stac
   - planetary-computer
   - pystac-client
   - requests
   - rioxarray
-  - stackstac
   - urllib3<2 # temporary pin https://github.com/stac-utils/pystac-client/issues/509
   - zarr
   # testing

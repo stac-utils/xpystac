@@ -23,10 +23,15 @@ def _(
     drop_variables: Union[str, List[str], None] = None,
     **kwargs,
 ) -> xarray.Dataset:
-    stackstac = _import_optional_dependency("stackstac")
+    odc_stac = _import_optional_dependency("odc.stac")
+    default_kwargs: Mapping = {"chunks": {"x": 1024, "y": 1024}}
     if drop_variables is not None:
         raise KeyError("``drop_variables`` not implemented for pystac items")
-    return stackstac.stack(obj, **kwargs).to_dataset(dim="band", promote_attrs=True)
+    if isinstance(obj, pystac.Item):
+        items = [obj]
+    else:
+        items = [i for i in obj]
+    return odc_stac.load(items, **{**default_kwargs, **kwargs})
 
 
 @to_xarray.register
