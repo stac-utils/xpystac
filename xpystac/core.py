@@ -4,14 +4,13 @@ from typing import List, Mapping, Union
 import pystac
 import xarray
 
-from xpystac.utils import _import_optional_dependency
+from xpystac.utils import _import_optional_dependency, _is_item_search
 
 
 @functools.singledispatch
 def to_xarray(obj, **kwargs) -> xarray.Dataset:
     """Given a pystac object return an xarray dataset"""
-    is_pystac_client_obj = hasattr(obj, "item_collection")
-    if is_pystac_client_obj:
+    if _is_item_search(obj):
         item_collection = obj.item_collection()
         return to_xarray(item_collection, **kwargs)
     raise TypeError

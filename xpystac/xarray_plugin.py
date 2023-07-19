@@ -4,6 +4,7 @@ import pystac
 from xarray.backends import BackendEntrypoint
 
 from xpystac.core import to_xarray
+from xpystac.utils import _is_item_search
 
 
 class STACBackend(BackendEntrypoint):
@@ -22,4 +23,4 @@ class STACBackend(BackendEntrypoint):
     def guess_can_open(self, filename_or_obj: Any):
         return isinstance(
             filename_or_obj, (pystac.Asset, pystac.Item, pystac.ItemCollection)
-        )
+        ) or _is_item_search(filename_or_obj)
