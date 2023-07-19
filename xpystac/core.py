@@ -32,7 +32,7 @@ def _(
 
 @to_xarray.register
 def _(obj: pystac.Asset, **kwargs) -> xarray.Dataset:
-    default_kwargs: Mapping
+    default_kwargs: Mapping = {"chunks": {}}
     open_kwargs = obj.extra_fields.get("xarray:open_kwargs", {})
 
     storage_options = obj.extra_fields.get("xarray:storage_options", None)
@@ -52,11 +52,12 @@ def _(obj: pystac.Asset, **kwargs) -> xarray.Dataset:
             refs = planetary_computer.sign(r.json())
         except ImportError:
             refs = r.json()
+
         mapper = fsspec.get_mapper("reference://", fo=refs)
         default_kwargs = {
+            **default_kwargs,
             "engine": "zarr",
             "consolidated": False,
-            "chunks": {},
         }
         return xarray.open_dataset(
             mapper, **{**default_kwargs, **open_kwargs, **kwargs}
@@ -64,12 +65,10 @@ def _(obj: pystac.Asset, **kwargs) -> xarray.Dataset:
 
     if obj.media_type == pystac.MediaType.COG:
         _import_optional_dependency("rioxarray")
-        default_kwargs = {"engine": "rasterio"}
+        default_kwargs = {**default_kwargs, "engine": "rasterio"}
     elif obj.media_type == "application/vnd+zarr":
         _import_optional_dependency("zarr")
-        default_kwargs = {"engine": "zarr"}
-    else:
-        default_kwargs = {}
+        default_kwargs = {**default_kwargs, "engine": "zarr"}
 
     ds = xarray.open_dataset(obj.href, **{**default_kwargs, **open_kwargs, **kwargs})
     return ds
