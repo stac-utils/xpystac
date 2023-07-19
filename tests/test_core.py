@@ -21,7 +21,7 @@ def test_to_xarray_returns_dask_backed_object(simple_search):
 
 
 def test_to_xarray_with_pystac_client_search_passes_kwargs_through(simple_search):
-    ds = to_xarray(simple_search, assets=["red", "green", "blue"], chunks={})
+    ds = to_xarray(simple_search, bands=["red", "green", "blue"], chunks={})
     assert list(ds.data_vars) == ["red", "green", "blue"]
     assert ds.blue.data.npartitions == 1
 
