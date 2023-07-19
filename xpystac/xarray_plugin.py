@@ -1,4 +1,4 @@
-from typing import Any, Iterable, Literal, Union
+from typing import Any, Callable, Iterable, Literal, Union
 
 import pystac
 from xarray.backends import BackendEntrypoint
@@ -17,6 +17,7 @@ class STACBackend(BackendEntrypoint):
         filename_or_obj: Any,
         drop_variables: Union[str, Iterable[str], None] = None,
         stacking_library: Union[Literal["odc.stac", "stackstac"], None] = None,
+        patch_urls: Union[None, Callable[[str], str]] = None,
         **kwargs,
     ):
         """Given a PySTAC object return an xarray dataset
@@ -39,11 +40,16 @@ class STACBackend(BackendEntrypoint):
         stacking_library : "odc.stac", "stackstac", optional
             When stacking multiple items, this argument determines which library
             to use. Defaults to ``odc.stac`` if available and otherwise ``stackstac``.
+        patch_urls : Callable, optional
+            Function that takes a string and returns an altered string. Normally used 
+            to sign urls before trying to read data from them. For instance when working
+            with Planetary Computer this argument should be set to ``pc.sign``.
         """
         return to_xarray(
             filename_or_obj,
             drop_variables=drop_variables,
             stacking_library=stacking_library,
+            patch_urls=patch_urls,
             **kwargs,
         )
 
