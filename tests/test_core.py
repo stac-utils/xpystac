@@ -26,11 +26,16 @@ def test_to_xarray_with_bad_type():
 def test_to_xarray_reference_file(simple_reference_file):
     ds = to_xarray(simple_reference_file)
     assert ds
+    for da in ds.data_vars.values():
+        if da.ndim >= 2:
+            assert hasattr(da.data, "dask")
 
 
 def test_to_xarray_zarr(simple_zarr):
     ds = to_xarray(simple_zarr)
-    assert ds
+    for da in ds.data_vars.values():
+        if da.ndim >= 2:
+            assert hasattr(da.data, "dask"), da.name
 
 
 def test_to_xarray_zarr_with_open_kwargs_engine(complex_zarr):
