@@ -1,5 +1,5 @@
 import functools
-from typing import List, Mapping, Union
+from typing import List, Literal, Mapping, Union
 
 import pystac
 import xarray
@@ -8,11 +8,20 @@ from xpystac.utils import _import_optional_dependency, _is_item_search
 
 
 @functools.singledispatch
-def to_xarray(obj, **kwargs) -> xarray.Dataset:
-    """Given a pystac object return an xarray dataset"""
+def to_xarray(
+    obj,
+    stacking_library: Union[Literal["odc.stac", "stackstac"], None] = None,
+    **kwargs,
+) -> xarray.Dataset:
+    """Given a pystac object return an xarray dataset
+
+    When stacking multiple items, an optional ``stacking_library`` argument
+    is accepted. It defaults to ``odc.stac`` if available and otherwise ``stackstac``.
+    Control the behavior by setting ``stacking_library``
+    """
     if _is_item_search(obj):
         item_collection = obj.item_collection()
-        return to_xarray(item_collection, **kwargs)
+        return to_xarray(item_collection, stacking_library=stacking_library, **kwargs)
     raise TypeError
 
 
@@ -21,21 +30,40 @@ def to_xarray(obj, **kwargs) -> xarray.Dataset:
 def _(
     obj: Union[pystac.Item, pystac.ItemCollection],
     drop_variables: Union[str, List[str], None] = None,
+    stacking_library: Union[Literal["odc.stac", "stackstac"], None] = None,
     **kwargs,
 ) -> xarray.Dataset:
-    odc_stac = _import_optional_dependency("odc.stac")
-    default_kwargs: Mapping = {"chunks": {"x": 1024, "y": 1024}}
     if drop_variables is not None:
         raise KeyError("``drop_variables`` not implemented for pystac items")
-    if isinstance(obj, pystac.Item):
-        items = [obj]
-    else:
-        items = [i for i in obj]
-    return odc_stac.load(items, **{**default_kwargs, **kwargs})
+
+    if stacking_library is None:
+        try:
+            _import_optional_dependency("odc.stac")
+            stacking_library = "odc.stac"
+        except ImportError:
+            _import_optional_dependency("stackstac")
+            stacking_library = "stackstac"
+    elif stacking_library not in ["odc.stac", "stackstac"]:
+        raise ValueError(f"{stacking_library=} is not a valid option")
+
+    if stacking_library == "odc.stac":
+        odc_stac = _import_optional_dependency("odc.stac")
+        if isinstance(obj, pystac.Item):
+            items = [obj]
+        else:
+            items = [i for i in obj]
+        return odc_stac.load(items, **{"chunks": {"x": 1024, "y": 1024}, **kwargs})
+    elif stacking_library == "stackstac":
+        stackstac = _import_optional_dependency("stackstac")
+        return stackstac.stack(obj, **kwargs).to_dataset(dim="band", promote_attrs=True)
 
 
 @to_xarray.register
-def _(obj: pystac.Asset, **kwargs) -> xarray.Dataset:
+def _(
+    obj: pystac.Asset,
+    stacking_library: Union[Literal["odc.stac", "stackstac"], None] = None,
+    **kwargs,
+) -> xarray.Dataset:
     default_kwargs: Mapping = {"chunks": {}}
     open_kwargs = obj.extra_fields.get("xarray:open_kwargs", {})
 

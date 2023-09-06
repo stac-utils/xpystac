@@ -1,5 +1,6 @@
 import dask.array
 import pytest
+import xarray as xr
 
 from xpystac.core import to_xarray
 
@@ -24,6 +25,12 @@ def test_to_xarray_with_pystac_client_search_passes_kwargs_through(simple_search
     ds = to_xarray(simple_search, bands=["red", "green", "blue"], chunks={})
     assert list(ds.data_vars) == ["red", "green", "blue"]
     assert ds.blue.data.npartitions == 1
+
+
+@pytest.mark.parametrize("stacking_library", ["odc.stac", "stackstac"])
+def test_to_xarray_with_different_stacking_library(simple_search, stacking_library):
+    ds = to_xarray(simple_search, stacking_library=stacking_library)
+    assert isinstance(ds, xr.Dataset)
 
 
 def test_to_xarray_with_drop_variables_raises(simple_search):
