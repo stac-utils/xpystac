@@ -70,8 +70,9 @@ pip install git+https://github.com/stac-utils/xpystac
 
 ## How it works
 
-When you call ``xarray.open_dataset(object, engine="stac")`` this library maps that open call to the correct library.
-Depending on the ``type`` of ``object`` that might be [odc-stac](https://github.com/opendatacube/odc-stac)
+When you call ``xarray.open_dataset(object, engine="stac")`` this library maps that `open` call to the correct library.
+Depending on the ``type`` of ``object`` that might be a stacking library (either
+[odc-stac](https://github.com/opendatacube/odc-stac) or [stackstac](https://github.com/gjoseph92/stackstac))
 or back to ``xarray.open_dataset`` itself but with the engine and other options pulled from the pystac object.
 
 ## Prior Art
