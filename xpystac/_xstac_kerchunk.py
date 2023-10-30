@@ -1,10 +1,10 @@
 import json
-from typing import Any
+from typing import Any, Dict
 
 import pystac
 
 
-def _stac_to_kerchunk(item: pystac.Item, kerchunk_version: int = 1) -> dict[str, Any]:
+def _stac_to_kerchunk(item: pystac.Item, kerchunk_version: int = 1) -> Dict[str, Any]:
     """
     Copied from xstac to support python < 3.10
     ref: https://github.com/stac-utils/xstac/blob/1.2.0/xstac/_kerchunk.py
