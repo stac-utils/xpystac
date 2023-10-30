@@ -4,6 +4,7 @@ from typing import List, Literal, Mapping, Union
 import pystac
 import xarray
 
+from xpystac._xstac_kerchunk import _stac_to_kerchunk
 from xpystac.utils import _import_optional_dependency, _is_item_search
 
 
@@ -53,16 +54,15 @@ def _(
         is_kerchunked = any("kerchunk:" in k for k in first_obj.properties.keys())
         if is_kerchunked:
             kerchunk_combine = _import_optional_dependency("kerchunk.combine")
-            xstac = _import_optional_dependency("xstac")
             fsspec = _import_optional_dependency("fsspec")
 
             if isinstance(obj, (list, pystac.ItemCollection)):
                 refs = kerchunk_combine.MultiZarrToZarr(
-                    [xstac.kerchunk.stac_to_kerchunk(item) for item in obj],
+                    [_stac_to_kerchunk(item) for item in obj],
                     concat_dims=kwargs.get("concat_dims", "time"),
                 ).translate()
             else:
-                refs = xstac.kerchunk.stac_to_kerchunk(obj)
+                refs = _stac_to_kerchunk(obj)
 
             mapper = fsspec.filesystem("reference", fo=refs).get_mapper()
             default_kwargs = {

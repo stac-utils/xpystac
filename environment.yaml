@@ -19,7 +19,6 @@ dependencies:
   - rioxarray
   - stackstac
   - urllib3<2 # temporary pin https://github.com/stac-utils/pystac-client/issues/509
-  - xstac
   - zarr
   # testing
   - pytest
