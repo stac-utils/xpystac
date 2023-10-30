@@ -57,3 +57,9 @@ def simple_zarr() -> pystac.Asset:
 def complex_zarr(simple_zarr) -> pystac.Asset:
     simple_zarr.extra_fields["xarray:open_kwargs"]["engine"] = "zarr"
     return simple_zarr
+
+
+@pytest.fixture(scope="module")
+def data_cube_kerchunk() -> pystac.ItemCollection:
+    path = "tests/data/data-cube-kerchunk-item-collection.json"
+    return pystac.ItemCollection.from_file(path)

@@ -1,4 +1,4 @@
-name: xpystac-broken
+name: xpystac
 channels:
   - conda-forge
   - nodefaults
@@ -11,6 +11,7 @@ dependencies:
   - adlfs
   - aiohttp
   - fsspec
+  - kerchunk
   - odc-stac
   - planetary-computer
   - pystac-client
@@ -18,6 +19,7 @@ dependencies:
   - rioxarray
   - stackstac
   - urllib3<2 # temporary pin https://github.com/stac-utils/pystac-client/issues/509
+  - xstac
   - zarr
   # testing
   - pytest
