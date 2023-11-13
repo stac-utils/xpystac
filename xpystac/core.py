@@ -13,11 +13,26 @@ def to_xarray(
     stacking_library: Union[Literal["odc.stac", "stackstac"], None] = None,
     **kwargs,
 ) -> xarray.Dataset:
-    """Given a pystac object return an xarray dataset
+    """Given a PySTAC object return an xarray dataset.
 
-    When stacking multiple items, an optional ``stacking_library`` argument
-    is accepted. It defaults to ``odc.stac`` if available and otherwise ``stackstac``.
-    Control the behavior by setting ``stacking_library``
+    The behavior of this method depends on the type of PySTAC object:
+
+    * Asset: if the asset points to a kerchunk file or a zarr file,
+      reads the metadata in that file to construct the coordinates of the
+      dataset. If the asset points to a COG, read that.
+    * Item: stacks all the assets into a dataset with 1 more dimension than
+      any given asset.
+    * ItemCollection (output of pystac_client.search): stacks all the
+      assets in all the items into a dataset with 2 more dimensions than
+      any given asset.
+
+    Parameters
+    ----------
+    obj : PySTAC object (Item, ItemCollection, Asset)
+        The object from which to read data.
+    stacking_library : "odc.stac", "stackstac", optional
+        When stacking multiple items, this argument determines which library
+        to use. Defaults to ``odc.stac`` if available and otherwise ``stackstac``.
     """
     if _is_item_search(obj):
         item_collection = obj.item_collection()
