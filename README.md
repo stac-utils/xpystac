@@ -36,7 +36,6 @@ import xarray as xr
 
 catalog = pystac_client.Client.open(
     "https://planetarycomputer.microsoft.com/api/stac/v1",
-    modifier=planetary_computer.sign_inplace,
 )
 ```
 
@@ -47,7 +46,7 @@ Read from a reference file:
 collection = catalog.get_collection("nasa-nex-gddp-cmip6")
 asset = collection.assets["ACCESS-CM2.historical"]
 
-xr.open_dataset(asset)
+xr.open_dataset(asset, patch_url=planetary_computer.sign)
 ```
 ref: https://planetarycomputer.microsoft.com/dataset/nasa-nex-gddp-cmip6#Example-Notebook
 
@@ -58,7 +57,7 @@ Read from a zarr file:
 collection = catalog.get_collection("daymet-daily-hi")
 asset = collection.assets["zarr-abfs"]
 
-xr.open_dataset(asset)
+xr.open_dataset(asset, patch_url=planetary_computer.sign)
 ```
 ref: https://planetarycomputer.microsoft.com/docs/quickstarts/reading-zarr-data/
 
