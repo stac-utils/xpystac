@@ -36,6 +36,17 @@ def simple_search() -> pystac_client.ItemSearch:
 
 
 @pytest.fixture(scope="module")
+def simple_signed_search() -> pystac_client.ItemSearch:
+    with vcr.use_cassette("tests/cassettes/fixtures/simple_signed_search.yaml"):
+        client = pystac_client.Client.open(STAC_URLS["PLANETARY-COMPUTER"])
+        return client.search(
+            intersects=dict(type="Point", coordinates=[-105.78, 35.79]),
+            collections=["sentinel-2-l2a"],
+            datetime="2020-05-01",
+        )
+
+
+@pytest.fixture(scope="module")
 def simple_reference_file() -> pystac.Asset:
     with vcr.use_cassette("tests/cassettes/fixtures/simple_reference_file.yaml"):
         client = pystac_client.Client.open(STAC_URLS["PLANETARY-COMPUTER"])

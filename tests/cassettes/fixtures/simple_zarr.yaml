@@ -9,7 +9,7 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - python-requests/2.28.2
+      - python-requests/2.31.0
     method: GET
     uri: https://planetarycomputer.microsoft.com/api/stac/v1
   response:
@@ -74,30 +74,26 @@ interactions:
         YyCWcCI8+LWakWaRezxyHGg5GcWu+S3YoZLMCJ1Nncy4qvxuqu7kP0yn6SZKX699x6E6rGHBg2BW
         cX5NRsp/21C3AAP1cqUzf82ja/YOuBZqes8hkppja+5i1aTi///+Pw==
     headers:
-      Accept-Ranges:
-      - bytes
       Access-Control-Allow-Credentials:
       - 'true'
       Access-Control-Allow-Origin:
       - '*'
-      Connection:
-      - keep-alive
+      Content-Encoding:
+      - br
       Content-Length:
       - '3289'
       Content-Type:
       - application/json
       Date:
-      - Wed, 14 Jun 2023 16:32:07 GMT
+      - Mon, 13 Nov 2023 22:06:17 GMT
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
+      Vary:
+      - Accept-Encoding
+      X-Azure-Ref:
+      - 02Z1SZQAAAACP8xDwrF4cQr2G9Ogns/cDRVdSMzBFREdFMDUxNwA5MjdhYmZhNi0xOWY2LTRhZjEtYTA5ZC1jOTU5ZDlhMWU2NDQ=
       X-Cache:
       - CONFIG_NOCACHE
-      content-encoding:
-      - br
-      vary:
-      - Accept-Encoding
-      x-azure-ref:
-      - 20230614T163207Z-9khwnpca1h4qb8vkkchd1eunes00000002bg00000000q7mz
     status:
       code: 200
       message: OK
@@ -111,7 +107,7 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - python-requests/2.28.2
+      - python-requests/2.31.0
     method: GET
     uri: https://planetarycomputer.microsoft.com/api/stac/v1/
   response:
@@ -176,30 +172,26 @@ interactions:
         YyCWcCI8+LWakWaRezxyHGg5GcWu+S3YoZLMCJ1Nncy4qvxuqu7kP0yn6SZKX699x6E6rGHBg2BW
         cX5NRsp/21C3AAP1cqUzf82ja/YOuBZqes8hkppja+5i1aTi///+Pw==
     headers:
-      Accept-Ranges:
-      - bytes
       Access-Control-Allow-Credentials:
       - 'true'
       Access-Control-Allow-Origin:
       - '*'
-      Connection:
-      - keep-alive
+      Content-Encoding:
+      - br
       Content-Length:
       - '3289'
       Content-Type:
       - application/json
       Date:
-      - Wed, 14 Jun 2023 16:32:07 GMT
+      - Mon, 13 Nov 2023 22:06:17 GMT
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
+      Vary:
+      - Accept-Encoding
+      X-Azure-Ref:
+      - 02p1SZQAAAAC4iByMJP+vQqTlYp3CLQJ3RVdSMzBFREdFMDUxNwA5MjdhYmZhNi0xOWY2LTRhZjEtYTA5ZC1jOTU5ZDlhMWU2NDQ=
       X-Cache:
       - CONFIG_NOCACHE
-      content-encoding:
-      - br
-      vary:
-      - Accept-Encoding
-      x-azure-ref:
-      - 20230614T163207Z-9khwnpca1h4qb8vkkchd1eunes00000002bg00000000q7pq
     status:
       code: 200
       message: OK
@@ -213,7 +205,7 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - python-requests/2.28.2
+      - python-requests/2.31.0
     method: GET
     uri: https://planetarycomputer.microsoft.com/api/stac/v1/collections/daymet-daily-hi
   response:
@@ -269,30 +261,26 @@ interactions:
         ST/ttYsj7cLiDq4rTz1eoyi1lGUqj9uSUDftuTw1D97OocRRQnxokHAr+aggDLmKPiZpG/NY9x/2
         z+PgBugQfskYgKAu7gY4Jmd7UTHN7MRH6jnkmbPwlOLIuAA=
     headers:
-      Accept-Ranges:
-      - bytes
       Access-Control-Allow-Credentials:
       - 'true'
       Access-Control-Allow-Origin:
       - '*'
-      Connection:
-      - keep-alive
+      Content-Encoding:
+      - br
       Content-Length:
       - '2771'
       Content-Type:
       - application/json
       Date:
-      - Wed, 14 Jun 2023 16:32:07 GMT
+      - Mon, 13 Nov 2023 22:06:17 GMT
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
+      Vary:
+      - Accept-Encoding
+      X-Azure-Ref:
+      - 02p1SZQAAAAAZRpW1U+v9QbTrQ7XP1jq3RVdSMzBFREdFMDUxNwA5MjdhYmZhNi0xOWY2LTRhZjEtYTA5ZC1jOTU5ZDlhMWU2NDQ=
       X-Cache:
       - CONFIG_NOCACHE
-      content-encoding:
-      - br
-      vary:
-      - Accept-Encoding
-      x-azure-ref:
-      - 20230614T163207Z-9khwnpca1h4qb8vkkchd1eunes00000002bg00000000q7q5
     status:
       code: 200
       message: OK
