@@ -1,4 +1,4 @@
-name: xpystac-broken
+name: xpystac
 channels:
   - conda-forge
   - nodefaults
