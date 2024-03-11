@@ -10,7 +10,7 @@ from xpystac.utils import _import_optional_dependency, _is_item_search
 @functools.singledispatch
 def to_xarray(
     obj,
-    stacking_library: Union[Literal["odc.stac", "stackstac"], None] = None,
+    stacking_library: Union[Literal["odc.stac", "stackstac", "xpystac"], None] = None,
     **kwargs,
 ) -> xarray.Dataset:
     """Given a PySTAC object return an xarray dataset.
@@ -42,10 +42,11 @@ def to_xarray(
 
 @to_xarray.register(pystac.Item)
 @to_xarray.register(pystac.ItemCollection)
+@to_xarray.register(list)
 def _(
     obj: Union[pystac.Item, pystac.ItemCollection],
     drop_variables: Union[str, List[str], None] = None,
-    stacking_library: Union[Literal["odc.stac", "stackstac"], None] = None,
+    stacking_library: Union[Literal["odc.stac", "stackstac", "xpystac"], None] = None,
     **kwargs,
 ) -> xarray.Dataset:
     if drop_variables is not None:
@@ -56,21 +57,40 @@ def _(
             _import_optional_dependency("odc.stac")
             stacking_library = "odc.stac"
         except ImportError:
-            _import_optional_dependency("stackstac")
-            stacking_library = "stackstac"
-    elif stacking_library not in ["odc.stac", "stackstac"]:
+            try:
+                _import_optional_dependency("stackstac")
+                stacking_library = "stackstac"
+            except ImportError:
+                stacking_library = "xpystac"
+    elif stacking_library not in ["odc.stac", "stackstac", "xpystac"]:
         raise ValueError(f"{stacking_library=} is not a valid option")
+
+    if isinstance(obj, pystac.Item):
+        items = [obj]
+    else:
+        items = [i for i in obj]
 
     if stacking_library == "odc.stac":
         odc_stac = _import_optional_dependency("odc.stac")
-        if isinstance(obj, pystac.Item):
-            items = [obj]
-        else:
-            items = [i for i in obj]
         return odc_stac.load(items, **{"chunks": {"x": 1024, "y": 1024}, **kwargs})
     elif stacking_library == "stackstac":
         stackstac = _import_optional_dependency("stackstac")
         return stackstac.stack(obj, **kwargs).to_dataset(dim="band", promote_attrs=True)
+    else:
+        media_type = kwargs.get("media_type")
+        role = kwargs.get("role")
+        combine_kwargs = {
+            "combine_attrs": "drop_conflicts",
+            **kwargs.pop("combine_kwargs", {}),
+        }
+        asset_kwargs = {**kwargs.pop("asset_kwargs", {}), **kwargs}
+
+        dataset_list = []
+        for item in items:
+            for asset in item.get_assets(media_type=media_type, role=role).values():
+                dataset_list.append(to_xarray(asset, **asset_kwargs))
+
+        return xarray.combine_by_coords(dataset_list, **combine_kwargs)
 
 
 @to_xarray.register
