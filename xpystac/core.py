@@ -75,7 +75,17 @@ def _(
         return odc_stac.load(items, **{"chunks": {"x": 1024, "y": 1024}, **kwargs})
     elif stacking_library == "stackstac":
         stackstac = _import_optional_dependency("stackstac")
-        return stackstac.stack(obj, **kwargs).to_dataset(dim="band", promote_attrs=True)
+        da = stackstac.stack(obj, **kwargs)
+        bands = {}
+        for band in da.band.values:
+            b = da.sel(band=band)
+            scalar_coords = {k: v.item() for k, v in b.coords.items() if v.shape == ()}
+            b = b.assign_attrs(
+                **{k: v for k, v in scalar_coords.items() if v is not None}
+            )
+            b = b.drop_vars(scalar_coords)
+            bands[band] = b
+        return xarray.Dataset(bands, attrs=da.attrs)
     else:
         media_type = kwargs.get("media_type")
         role = kwargs.get("role")
