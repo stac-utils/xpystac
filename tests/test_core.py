@@ -31,6 +31,7 @@ def test_to_xarray_with_pystac_client_search_passes_kwargs_through(simple_search
 def test_to_xarray_with_different_stacking_library(simple_search, stacking_library):
     ds = to_xarray(simple_search, stacking_library=stacking_library)
     assert isinstance(ds, xr.Dataset)
+    assert "band" not in ds.dims
 
 
 def test_to_xarray_with_drop_variables_raises(simple_search):
