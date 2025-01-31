@@ -1,4 +1,5 @@
-from typing import Any, Callable, Iterable, Literal, Union
+from collections.abc import Callable, Iterable
+from typing import Any, Literal
 
 import pystac
 from xarray.backends import BackendEntrypoint
@@ -15,9 +16,9 @@ class STACBackend(BackendEntrypoint):
     def open_dataset(
         self,
         filename_or_obj: Any,
-        drop_variables: Union[str, Iterable[str], None] = None,
-        stacking_library: Union[Literal["odc.stac", "stackstac"], None] = None,
-        patch_url: Union[None, Callable[[str], str]] = None,
+        drop_variables: str | Iterable[str] | None = None,
+        stacking_library: Literal["odc.stac", "stackstac"] | None = None,
+        patch_url: None | Callable[[str], str] = None,
         **kwargs,
     ):
         """Given a PySTAC object return an xarray dataset

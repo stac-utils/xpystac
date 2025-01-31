@@ -1,5 +1,6 @@
 import functools
-from typing import Callable, List, Literal, Mapping, Union
+from collections.abc import Callable, Mapping
+from typing import Literal
 
 import pystac
 import xarray
@@ -11,8 +12,8 @@ from xpystac.utils import _import_optional_dependency, _is_item_search
 def to_xarray(
     obj,
     *,
-    stacking_library: Union[Literal["odc.stac", "stackstac"], None] = None,
-    patch_url: Union[None, Callable[[str], str]] = None,
+    stacking_library: Literal["odc.stac", "stackstac"] | None = None,
+    patch_url: None | Callable[[str], str] = None,
     **kwargs,
 ) -> xarray.Dataset:
     """Given a PySTAC object return an xarray dataset.
@@ -55,10 +56,10 @@ def to_xarray(
 @to_xarray.register(pystac.Item)
 @to_xarray.register(pystac.ItemCollection)
 def _(
-    obj: Union[pystac.Item, pystac.ItemCollection],
-    drop_variables: Union[str, List[str], None] = None,
-    stacking_library: Union[Literal["odc.stac", "stackstac"], None] = None,
-    patch_url: Union[None, Callable[[str], str]] = None,
+    obj: pystac.Item | pystac.ItemCollection,
+    drop_variables: str | list[str] | None = None,
+    stacking_library: Literal["odc.stac", "stackstac"] | None = None,
+    patch_url: None | Callable[[str], str] = None,
     **kwargs,
 ) -> xarray.Dataset:
     if drop_variables is not None:
@@ -107,8 +108,8 @@ def _(
 @to_xarray.register
 def _(
     obj: pystac.Asset,
-    stacking_library: Union[Literal["odc.stac", "stackstac"], None] = None,
-    patch_url: Union[None, Callable[[str], str]] = None,
+    stacking_library: Literal["odc.stac", "stackstac"] | None = None,
+    patch_url: None | Callable[[str], str] = None,
     **kwargs,
 ) -> xarray.Dataset:
     default_kwargs: Mapping = {"chunks": {}}
