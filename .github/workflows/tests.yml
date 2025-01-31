@@ -24,7 +24,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest]
-        python-version: ["3.8", "3.9", "3.10", "3.11"]
+        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
         environment-file: ["environment.yaml"]
     defaults:
       run:
@@ -46,4 +46,4 @@ jobs:
 
       - name: run tests
         id: status
-        run: pytest -v --cov xpystac --cov-report term-missing --vcr-record=none .
+        run: pytest -v --cov xpystac --cov-report term-missing .
