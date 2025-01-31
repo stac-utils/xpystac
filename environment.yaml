@@ -5,7 +5,7 @@ channels:
 dependencies:
   - python
   # required
-  - pystac
+  - pystac<1.12
   - xarray
   # optional
   - adlfs
@@ -17,9 +17,8 @@ dependencies:
   - requests
   - rioxarray
   - stackstac
-  - urllib3<2 # temporary pin https://github.com/stac-utils/pystac-client/issues/509
-  - zarr
+  - urllib3
+  - zarr<3
   # testing
   - pytest
   - pytest-cov
-  - pytest-vcr
