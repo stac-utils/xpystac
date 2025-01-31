@@ -14,7 +14,7 @@ dependencies = [
     "xarray",
     "pystac>=1.0.1",
 ]
-requires-python = ">=3.8"
+requires-python = ">=3.10"
 description = "Extend xarray.open_dataset to accept pystac objects"
 license = {text = "MIT"}
 readme = "README.md"
