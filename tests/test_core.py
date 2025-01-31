@@ -1,7 +1,9 @@
 import dask.array
+import pystac_client
 import pytest
 import xarray as xr
 
+from tests.utils import STAC_URLS, requires_planetary_computer
 from xpystac.core import to_xarray
 
 
@@ -44,21 +46,52 @@ def test_to_xarray_with_bad_type():
         to_xarray("foo")
 
 
-def test_to_xarray_reference_file(simple_reference_file):
-    ds = to_xarray(simple_reference_file)
+@requires_planetary_computer
+def test_to_xarray_reference_file():
+    import planetary_computer
+
+    client = pystac_client.Client.open(
+        STAC_URLS["PLANETARY-COMPUTER"], modifier=planetary_computer.sign_inplace
+    )
+    collection = client.get_collection("nasa-nex-gddp-cmip6")
+    assert collection is not None
+    kerchunk_asset = collection.assets["ACCESS-CM2.historical"]
+
+    ds = to_xarray(kerchunk_asset)
     assert ds
     for da in ds.data_vars.values():
         if da.ndim >= 2:
             assert hasattr(da.data, "dask")
 
 
-def test_to_xarray_zarr(simple_zarr):
-    ds = to_xarray(simple_zarr)
+@requires_planetary_computer
+def test_to_xarray_zarr():
+    import planetary_computer
+
+    catalog = pystac_client.Client.open(
+        STAC_URLS["PLANETARY-COMPUTER"], modifier=planetary_computer.sign_inplace
+    )
+    collection = catalog.get_collection("daymet-daily-hi")
+    assert collection is not None
+    zarr_asset = collection.assets["zarr-abfs"]
+
+    ds = to_xarray(zarr_asset)
     for da in ds.data_vars.values():
         if da.ndim >= 2:
             assert hasattr(da.data, "dask"), da.name
 
 
-def test_to_xarray_zarr_with_open_kwargs_engine(complex_zarr):
-    ds = to_xarray(complex_zarr)
+@requires_planetary_computer
+def test_to_xarray_zarr_with_open_kwargs_engine():
+    import planetary_computer
+
+    catalog = pystac_client.Client.open(
+        STAC_URLS["PLANETARY-COMPUTER"], modifier=planetary_computer.sign_inplace
+    )
+    collection = catalog.get_collection("daymet-daily-hi")
+    assert collection is not None
+    zarr_asset = collection.assets["zarr-abfs"]
+    zarr_asset.extra_fields["xarray:open_kwargs"]["engine"] = "zarr"
+
+    ds = to_xarray(zarr_asset)
     assert ds
