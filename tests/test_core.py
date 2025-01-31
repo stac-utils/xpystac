@@ -1,7 +1,9 @@
 import dask.array
+import pystac_client
 import pytest
 import xarray as xr
 
+from tests.utils import STAC_URLS, requires_planetary_computer
 from xpystac.core import to_xarray
 
 
@@ -36,22 +38,29 @@ def test_to_xarray_with_pystac_client_search_passes_kwargs_through(simple_search
 def test_to_xarray_with_different_stacking_library(simple_search, stacking_library):
     ds = to_xarray(simple_search, stacking_library=stacking_library)
     assert isinstance(ds, xr.Dataset)
+    assert "band" not in ds.dims
 
 
+@requires_planetary_computer
 @pytest.mark.vcr
-def test_to_xarray_with_pystac_client_search_with_patch_url(simple_signed_search):
+def test_to_xarray_with_pystac_client_search_with_patch_url():
     import planetary_computer as pc
     from rasterio.errors import RasterioIOError
 
-    ds = to_xarray(
-        simple_signed_search, assets=["B4", "B3", "B2"], stacking_library="odc.stac"
+    client = pystac_client.Client.open(STAC_URLS["PLANETARY-COMPUTER"])
+    search = client.search(
+        intersects=dict(type="Point", coordinates=[-105.78, 35.79]),
+        collections=["sentinel-2-l2a"],
+        datetime="2020-05-01",
     )
+
+    ds = to_xarray(search, assets=["B4", "B3", "B2"], stacking_library="odc.stac")
 
     with pytest.raises(RasterioIOError, match="HTTP response code: 404"):
         ds.B01.max().compute()
 
     ds = to_xarray(
-        simple_signed_search,
+        search,
         assets=["B4", "B3", "B2"],
         stacking_library="odc.stac",
         patch_url=pc.sign,
@@ -71,36 +80,59 @@ def test_to_xarray_with_bad_type():
         to_xarray("foo")
 
 
+@requires_planetary_computer
 @pytest.mark.vcr
-def test_to_xarray_reference_file(simple_reference_file):
-    ds = to_xarray(simple_reference_file)
-    assert ds
+def test_to_xarray_reference_file():
+    import planetary_computer as pc
+    from fsspec.implementations.reference import ReferenceNotReachable
+
+    client = pystac_client.Client.open(
+        STAC_URLS["PLANETARY-COMPUTER"], modifier=pc.sign_inplace
+    )
+    collection = client.get_collection("nasa-nex-gddp-cmip6")
+    assert collection is not None
+    kerchunk_asset = collection.assets["ACCESS-CM2.historical"]
+
+    with pytest.raises(ReferenceNotReachable):
+        to_xarray(kerchunk_asset)
+
+    ds = to_xarray(kerchunk_asset, patch_url=pc.sign)
+    assert not ds.lon.isnull().all(), "Coordinates should be populated"
 
     for da in ds.data_vars.values():
         if da.ndim >= 2:
             assert hasattr(da.data, "dask")
 
 
+@requires_planetary_computer
 @pytest.mark.vcr
-def test_to_xarray_reference_file_needs_to_be_signed(simple_reference_file):
+def test_to_xarray_zarr():
     import planetary_computer as pc
 
-    ds = to_xarray(simple_reference_file)
-    assert ds.lon.isnull().all(), "Coordinates should not be populated"
+    catalog = pystac_client.Client.open(
+        STAC_URLS["PLANETARY-COMPUTER"], modifier=pc.sign_inplace
+    )
+    collection = catalog.get_collection("daymet-daily-hi")
+    assert collection is not None
+    zarr_asset = collection.assets["zarr-abfs"]
 
-    ds = to_xarray(simple_reference_file, patch_url=pc.sign)
-    assert not ds.lon.isnull().all(), "Coordinates should be populated"
-
-
-@pytest.mark.vcr
-def test_to_xarray_zarr(simple_zarr):
-    ds = to_xarray(simple_zarr)
+    ds = to_xarray(zarr_asset)
     for da in ds.data_vars.values():
         if da.ndim >= 2:
             assert hasattr(da.data, "dask"), da.name
 
 
+@requires_planetary_computer
 @pytest.mark.vcr
-def test_to_xarray_zarr_with_open_kwargs_engine(complex_zarr):
-    ds = to_xarray(complex_zarr)
-    assert ds
+def test_to_xarray_zarr_with_open_kwargs_engine():
+    import planetary_computer as pc
+
+    catalog = pystac_client.Client.open(
+        STAC_URLS["PLANETARY-COMPUTER"], modifier=pc.sign_inplace
+    )
+    collection = catalog.get_collection("daymet-daily-hi")
+    assert collection is not None
+    zarr_asset = collection.assets["zarr-abfs"]
+    zarr_asset.extra_fields["xarray:open_kwargs"]["engine"] = "zarr"
+
+    to_xarray(zarr_asset)

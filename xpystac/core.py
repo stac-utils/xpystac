@@ -91,7 +91,17 @@ def _(
                 obj = patch_url(obj)
             else:
                 obj = [patch_url(o) for o in obj]
-        return stackstac.stack(obj, **kwargs).to_dataset(dim="band", promote_attrs=True)
+        da = stackstac.stack(obj, **kwargs)
+        bands = {}
+        for band in da.band.values:
+            b = da.sel(band=band)
+            scalar_coords = {k: v.item() for k, v in b.coords.items() if v.shape == ()}
+            b = b.assign_attrs(
+                **{k: v for k, v in scalar_coords.items() if v is not None}
+            )
+            b = b.drop_vars(scalar_coords)
+            bands[band] = b
+        return xarray.Dataset(bands, attrs=da.attrs)
 
 
 @to_xarray.register
@@ -115,6 +125,7 @@ def _(
         fsspec = _import_optional_dependency("fsspec")
         r = requests.get(obj.href)
         r.raise_for_status()
+
         refs = r.json()
         if patch_url is not None:
             refs = patch_url(refs)
