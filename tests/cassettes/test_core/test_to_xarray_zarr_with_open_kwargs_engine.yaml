@@ -16,7 +16,7 @@ interactions:
     body:
       string: '{"type":"Catalog","id":"microsoft-pc","title":"Microsoft Planetary
         Computer STAC API","description":"Searchable spatiotemporal metadata describing
-        Earth science datasets hosted by the Microsoft Planetary Computer","stac_version":"1.0.0","conformsTo":["https://api.stacspec.org/v1.0.0/item-search#fields","https://api.stacspec.org/v1.0.0/item-search","http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/geojson","http://www.opengis.net/spec/cql2/1.0/conf/cql2-text","https://api.stacspec.org/v1.0.0/item-search#query","https://api.stacspec.org/v1.0.0/item-search#sort","http://www.opengis.net/spec/ogcapi-features-3/1.0/conf/filter","https://api.stacspec.org/v1.0.0/collections","http://www.opengis.net/spec/cql2/1.0/conf/cql2-json","https://api.stacspec.org/v1.0.0/ogcapi-features","https://api.stacspec.org/v1.0.0-rc.2/item-search#filter","http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/oas30","http://www.opengis.net/spec/cql2/1.0/conf/basic-cql2","https://api.stacspec.org/v1.0.0/core","http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/core"],"links":[{"rel":"self","type":"application/json","href":"https://planetarycomputer.microsoft.com/api/stac/v1/"},{"rel":"root","type":"application/json","href":"https://planetarycomputer.microsoft.com/api/stac/v1/"},{"rel":"data","type":"application/json","href":"https://planetarycomputer.microsoft.com/api/stac/v1/collections"},{"rel":"conformance","type":"application/json","title":"STAC/OGC
+        Earth science datasets hosted by the Microsoft Planetary Computer","stac_version":"1.0.0","conformsTo":["https://api.stacspec.org/v1.0.0/collections","https://api.stacspec.org/v1.0.0/ogcapi-features","https://api.stacspec.org/v1.0.0/item-search#fields","http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/oas30","http://www.opengis.net/spec/ogcapi-features-3/1.0/conf/filter","https://api.stacspec.org/v1.0.0/item-search","https://api.stacspec.org/v1.0.0/item-search#query","http://www.opengis.net/spec/cql2/1.0/conf/cql2-json","https://api.stacspec.org/v1.0.0-rc.2/item-search#filter","http://www.opengis.net/spec/cql2/1.0/conf/cql2-text","https://api.stacspec.org/v1.0.0/core","http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/core","http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/geojson","http://www.opengis.net/spec/cql2/1.0/conf/basic-cql2","https://api.stacspec.org/v1.0.0/item-search#sort"],"links":[{"rel":"self","type":"application/json","href":"https://planetarycomputer.microsoft.com/api/stac/v1/"},{"rel":"root","type":"application/json","href":"https://planetarycomputer.microsoft.com/api/stac/v1/"},{"rel":"data","type":"application/json","href":"https://planetarycomputer.microsoft.com/api/stac/v1/collections"},{"rel":"conformance","type":"application/json","title":"STAC/OGC
         conformance classes implemented by this server","href":"https://planetarycomputer.microsoft.com/api/stac/v1/conformance"},{"rel":"search","type":"application/geo+json","title":"STAC
         search","href":"https://planetarycomputer.microsoft.com/api/stac/v1/search","method":"GET"},{"rel":"search","type":"application/geo+json","title":"STAC
         search","href":"https://planetarycomputer.microsoft.com/api/stac/v1/search","method":"POST"},{"rel":"http://www.opengis.net/def/rel/ogc/1.0/queryables","type":"application/schema+json","title":"Queryables","href":"https://planetarycomputer.microsoft.com/api/stac/v1/queryables","method":"GET"},{"rel":"child","type":"application/json","title":"Daymet
@@ -159,11 +159,11 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '3404'
+      - '3391'
       Content-Type:
       - application/json
       Date:
-      - Mon, 03 Feb 2025 19:45:59 GMT
+      - Mon, 03 Feb 2025 19:58:35 GMT
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       X-Cache:
@@ -173,7 +173,7 @@ interactions:
       vary:
       - Accept-Encoding
       x-azure-ref:
-      - 20250203T194558Z-15b4d459cd4t5sdzhC1BOSuhen0000000au0000000003vcw
+      - 20250203T195835Z-15b4d459cd4chlpwhC1BOSvd4n0000000an0000000001cvw
     status:
       code: 200
       message: OK
@@ -194,7 +194,7 @@ interactions:
     body:
       string: '{"type":"Catalog","id":"microsoft-pc","title":"Microsoft Planetary
         Computer STAC API","description":"Searchable spatiotemporal metadata describing
-        Earth science datasets hosted by the Microsoft Planetary Computer","stac_version":"1.0.0","conformsTo":["https://api.stacspec.org/v1.0.0/item-search#fields","https://api.stacspec.org/v1.0.0/item-search","http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/geojson","http://www.opengis.net/spec/cql2/1.0/conf/cql2-text","https://api.stacspec.org/v1.0.0/item-search#query","https://api.stacspec.org/v1.0.0/item-search#sort","http://www.opengis.net/spec/ogcapi-features-3/1.0/conf/filter","https://api.stacspec.org/v1.0.0/collections","http://www.opengis.net/spec/cql2/1.0/conf/cql2-json","https://api.stacspec.org/v1.0.0/ogcapi-features","https://api.stacspec.org/v1.0.0-rc.2/item-search#filter","http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/oas30","http://www.opengis.net/spec/cql2/1.0/conf/basic-cql2","https://api.stacspec.org/v1.0.0/core","http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/core"],"links":[{"rel":"self","type":"application/json","href":"https://planetarycomputer.microsoft.com/api/stac/v1/"},{"rel":"root","type":"application/json","href":"https://planetarycomputer.microsoft.com/api/stac/v1/"},{"rel":"data","type":"application/json","href":"https://planetarycomputer.microsoft.com/api/stac/v1/collections"},{"rel":"conformance","type":"application/json","title":"STAC/OGC
+        Earth science datasets hosted by the Microsoft Planetary Computer","stac_version":"1.0.0","conformsTo":["https://api.stacspec.org/v1.0.0/collections","https://api.stacspec.org/v1.0.0/ogcapi-features","https://api.stacspec.org/v1.0.0/item-search#fields","http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/oas30","http://www.opengis.net/spec/ogcapi-features-3/1.0/conf/filter","https://api.stacspec.org/v1.0.0/item-search","https://api.stacspec.org/v1.0.0/item-search#query","http://www.opengis.net/spec/cql2/1.0/conf/cql2-json","https://api.stacspec.org/v1.0.0-rc.2/item-search#filter","http://www.opengis.net/spec/cql2/1.0/conf/cql2-text","https://api.stacspec.org/v1.0.0/core","http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/core","http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/geojson","http://www.opengis.net/spec/cql2/1.0/conf/basic-cql2","https://api.stacspec.org/v1.0.0/item-search#sort"],"links":[{"rel":"self","type":"application/json","href":"https://planetarycomputer.microsoft.com/api/stac/v1/"},{"rel":"root","type":"application/json","href":"https://planetarycomputer.microsoft.com/api/stac/v1/"},{"rel":"data","type":"application/json","href":"https://planetarycomputer.microsoft.com/api/stac/v1/collections"},{"rel":"conformance","type":"application/json","title":"STAC/OGC
         conformance classes implemented by this server","href":"https://planetarycomputer.microsoft.com/api/stac/v1/conformance"},{"rel":"search","type":"application/geo+json","title":"STAC
         search","href":"https://planetarycomputer.microsoft.com/api/stac/v1/search","method":"GET"},{"rel":"search","type":"application/geo+json","title":"STAC
         search","href":"https://planetarycomputer.microsoft.com/api/stac/v1/search","method":"POST"},{"rel":"http://www.opengis.net/def/rel/ogc/1.0/queryables","type":"application/schema+json","title":"Queryables","href":"https://planetarycomputer.microsoft.com/api/stac/v1/queryables","method":"GET"},{"rel":"child","type":"application/json","title":"Daymet
@@ -337,11 +337,11 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '3404'
+      - '3391'
       Content-Type:
       - application/json
       Date:
-      - Mon, 03 Feb 2025 19:45:59 GMT
+      - Mon, 03 Feb 2025 19:58:36 GMT
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       X-Cache:
@@ -351,7 +351,7 @@ interactions:
       vary:
       - Accept-Encoding
       x-azure-ref:
-      - 20250203T194559Z-15b4d459cd4xfl92hC1BOSqweg0000000adg000000007v83
+      - 20250203T195835Z-15b4d459cd48pd4fhC1BOS0gy40000000aa00000000031fc
     status:
       code: 200
       message: OK
@@ -457,7 +457,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Mon, 03 Feb 2025 19:46:00 GMT
+      - Mon, 03 Feb 2025 19:58:36 GMT
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       X-Cache:
@@ -467,7 +467,7 @@ interactions:
       vary:
       - Accept-Encoding
       x-azure-ref:
-      - 20250203T194559Z-15b4d459cd4wnmgjhC1BOSnvf00000000aq0000000009kz8
+      - 20250203T195836Z-15b4d459cd4fkqwnhC1BOSdwzw0000000ak0000000005n10
     status:
       code: 200
       message: OK
@@ -479,13 +479,13 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 7e4ced48-e267-11ef-8dec-286b35b704df
+      - 4134258c-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:00 GMT
+      - Mon, 03 Feb 2025 19:58:36 GMT
       x-ms-version:
       - '2025-01-05'
     method: HEAD
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/.zmetadata?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/.zmetadata?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: ''
@@ -505,7 +505,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:45:59 GMT
+      - Mon, 03 Feb 2025 19:58:35 GMT
       Etag:
       - '"0x8D92B5DCFE1B7CC"'
       Last-Modified:
@@ -519,7 +519,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 7e4ced48-e267-11ef-8dec-286b35b704df
+      - 4134258c-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:46:56 GMT
       x-ms-lease-state:
@@ -527,7 +527,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d914dd2-c01e-00a1-5a74-76a835000000
+      - 1dc5dc53-e01e-006d-1a76-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -543,15 +543,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 7e5d6bbe-e267-11ef-8dec-286b35b704df
+      - 41435cd2-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:00 GMT
+      - Mon, 03 Feb 2025 19:58:36 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/.zmetadata?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/.zmetadata?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: "{\n    \"metadata\": {\n        \".zattrs\": {\n            \"Conventions\":
@@ -747,7 +747,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:45:59 GMT
+      - Mon, 03 Feb 2025 19:58:35 GMT
       Etag:
       - '"0x8D92B5DCFE1B7CC"'
       Last-Modified:
@@ -759,7 +759,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 7e5d6bbe-e267-11ef-8dec-286b35b704df
+      - 41435cd2-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:46:56 GMT
       x-ms-lease-state:
@@ -767,7 +767,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d914def-c01e-00a1-7374-76a835000000
+      - 1dc5dc6a-e01e-006d-2e76-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -783,15 +783,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 7e6e5bd6-e267-11ef-8dec-286b35b704df
+      - 41537fe0-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:00 GMT
+      - Mon, 03 Feb 2025 19:58:36 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/0?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/0?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -819,7 +819,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:45:59 GMT
+      - Mon, 03 Feb 2025 19:58:35 GMT
       Etag:
       - '"0x8D92B5DF179BAFD"'
       Last-Modified:
@@ -831,7 +831,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 7e6e5bd6-e267-11ef-8dec-286b35b704df
+      - 41537fe0-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:47:53 GMT
       x-ms-lease-state:
@@ -839,7 +839,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d914dfd-c01e-00a1-8074-76a835000000
+      - 1dc5dc75-e01e-006d-3976-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -855,15 +855,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 7e7e4c30-e267-11ef-8dec-286b35b704df
+      - 4163297c-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:00 GMT
+      - Mon, 03 Feb 2025 19:58:36 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/40?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/40?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -891,7 +891,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:45:59 GMT
+      - Mon, 03 Feb 2025 19:58:35 GMT
       Etag:
       - '"0x8D92B5DBBC6FC36"'
       Last-Modified:
@@ -903,7 +903,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 7e7e4c30-e267-11ef-8dec-286b35b704df
+      - 4163297c-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:46:23 GMT
       x-ms-lease-state:
@@ -911,7 +911,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d914e12-c01e-00a1-1374-76a835000000
+      - 1dc5dc86-e01e-006d-4676-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -927,15 +927,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 7e8eaea4-e267-11ef-8dec-286b35b704df
+      - 4172ebdc-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:00 GMT
+      - Mon, 03 Feb 2025 19:58:36 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time_bnds/0.0?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time_bnds/0.0?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -967,7 +967,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:45:59 GMT
+      - Mon, 03 Feb 2025 19:58:36 GMT
       Etag:
       - '"0x8D92B5DE16A603B"'
       Last-Modified:
@@ -979,7 +979,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 7e8eaea4-e267-11ef-8dec-286b35b704df
+      - 4172ebdc-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:47:26 GMT
       x-ms-lease-state:
@@ -987,7 +987,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d914e27-c01e-00a1-2474-76a835000000
+      - 1dc5dc91-e01e-006d-5176-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -1003,15 +1003,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 7e9fe9a8-e267-11ef-8dec-286b35b704df
+      - 418702c0-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:00 GMT
+      - Mon, 03 Feb 2025 19:58:37 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time_bnds/40.0?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time_bnds/40.0?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -1043,7 +1043,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:45:59 GMT
+      - Mon, 03 Feb 2025 19:58:36 GMT
       Etag:
       - '"0x8D92B5DD8B6FE08"'
       Last-Modified:
@@ -1055,7 +1055,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 7e9fe9a8-e267-11ef-8dec-286b35b704df
+      - 418702c0-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:47:11 GMT
       x-ms-lease-state:
@@ -1063,7 +1063,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d914e35-c01e-00a1-3074-76a835000000
+      - 1dc5dc9c-e01e-006d-5b76-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -1079,15 +1079,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 7eb08100-e267-11ef-8dec-286b35b704df
+      - 4196dff6-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:00 GMT
+      - Mon, 03 Feb 2025 19:58:37 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/0?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/0?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -1115,7 +1115,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:45:59 GMT
+      - Mon, 03 Feb 2025 19:58:36 GMT
       Etag:
       - '"0x8D92B5DF179BAFD"'
       Last-Modified:
@@ -1127,7 +1127,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 7eb08100-e267-11ef-8dec-286b35b704df
+      - 4196dff6-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:47:53 GMT
       x-ms-lease-state:
@@ -1135,7 +1135,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d914e40-c01e-00a1-3b74-76a835000000
+      - 1dc5dcb0-e01e-006d-6b76-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -1151,15 +1151,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 7ec0a2f6-e267-11ef-8dec-286b35b704df
+      - 41a654a4-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:00 GMT
+      - Mon, 03 Feb 2025 19:58:37 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/1?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/1?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -1187,7 +1187,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:45:59 GMT
+      - Mon, 03 Feb 2025 19:58:36 GMT
       Etag:
       - '"0x8D92B5DD651EA51"'
       Last-Modified:
@@ -1199,7 +1199,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 7ec0a2f6-e267-11ef-8dec-286b35b704df
+      - 41a654a4-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:47:07 GMT
       x-ms-lease-state:
@@ -1207,7 +1207,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d914e4f-c01e-00a1-4a74-76a835000000
+      - 1dc5dcc1-e01e-006d-7976-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -1223,15 +1223,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 7ed20802-e267-11ef-8dec-286b35b704df
+      - 41b55972-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:00 GMT
+      - Mon, 03 Feb 2025 19:58:37 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/10?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/10?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -1259,7 +1259,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:45:59 GMT
+      - Mon, 03 Feb 2025 19:58:36 GMT
       Etag:
       - '"0x8D92B5DB7402BFE"'
       Last-Modified:
@@ -1271,7 +1271,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 7ed20802-e267-11ef-8dec-286b35b704df
+      - 41b55972-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:46:15 GMT
       x-ms-lease-state:
@@ -1279,7 +1279,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d914e61-c01e-00a1-5774-76a835000000
+      - 1dc5dcd2-e01e-006d-0876-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -1295,15 +1295,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 7ee2c138-e267-11ef-8dec-286b35b704df
+      - 41c44d9c-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:01 GMT
+      - Mon, 03 Feb 2025 19:58:37 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/11?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/11?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -1331,7 +1331,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:46:00 GMT
+      - Mon, 03 Feb 2025 19:58:36 GMT
       Etag:
       - '"0x8D92B5DA7B8B79F"'
       Last-Modified:
@@ -1343,7 +1343,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 7ee2c138-e267-11ef-8dec-286b35b704df
+      - 41c44d9c-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:45:49 GMT
       x-ms-lease-state:
@@ -1351,7 +1351,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d914e79-c01e-00a1-6d74-76a835000000
+      - 1dc5dcdc-e01e-006d-1276-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -1367,15 +1367,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 7ef3a1e2-e267-11ef-8dec-286b35b704df
+      - 41d37178-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:01 GMT
+      - Mon, 03 Feb 2025 19:58:37 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/12?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/12?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -1403,7 +1403,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:46:00 GMT
+      - Mon, 03 Feb 2025 19:58:36 GMT
       Etag:
       - '"0x8D92B5DDBC3E1DC"'
       Last-Modified:
@@ -1415,7 +1415,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 7ef3a1e2-e267-11ef-8dec-286b35b704df
+      - 41d37178-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:47:16 GMT
       x-ms-lease-state:
@@ -1423,7 +1423,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d914e96-c01e-00a1-0474-76a835000000
+      - 1dc5dce8-e01e-006d-1d76-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -1439,15 +1439,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 7f0354f2-e267-11ef-8dec-286b35b704df
+      - 41e2e900-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:01 GMT
+      - Mon, 03 Feb 2025 19:58:37 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/13?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/13?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -1475,7 +1475,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:46:00 GMT
+      - Mon, 03 Feb 2025 19:58:36 GMT
       Etag:
       - '"0x8D92B5DD5AEAEB4"'
       Last-Modified:
@@ -1487,7 +1487,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 7f0354f2-e267-11ef-8dec-286b35b704df
+      - 41e2e900-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:47:06 GMT
       x-ms-lease-state:
@@ -1495,7 +1495,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d914ea6-c01e-00a1-1174-76a835000000
+      - 1dc5dcf3-e01e-006d-2776-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -1511,15 +1511,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 7f13a3ac-e267-11ef-8dec-286b35b704df
+      - 41f26fce-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:01 GMT
+      - Mon, 03 Feb 2025 19:58:37 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/14?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/14?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -1547,7 +1547,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:46:00 GMT
+      - Mon, 03 Feb 2025 19:58:36 GMT
       Etag:
       - '"0x8D92B5DB8CCE08E"'
       Last-Modified:
@@ -1559,7 +1559,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 7f13a3ac-e267-11ef-8dec-286b35b704df
+      - 41f26fce-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:46:18 GMT
       x-ms-lease-state:
@@ -1567,7 +1567,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d914eb1-c01e-00a1-1a74-76a835000000
+      - 1dc5dcfe-e01e-006d-3176-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -1583,15 +1583,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 7f23bd6e-e267-11ef-8dec-286b35b704df
+      - 4201bac4-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:01 GMT
+      - Mon, 03 Feb 2025 19:58:37 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/15?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/15?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -1619,7 +1619,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:46:00 GMT
+      - Mon, 03 Feb 2025 19:58:36 GMT
       Etag:
       - '"0x8D92B5DC9AA2C3F"'
       Last-Modified:
@@ -1631,7 +1631,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 7f23bd6e-e267-11ef-8dec-286b35b704df
+      - 4201bac4-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:46:46 GMT
       x-ms-lease-state:
@@ -1639,7 +1639,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d914ec1-c01e-00a1-2774-76a835000000
+      - 1dc5dd07-e01e-006d-3876-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -1655,15 +1655,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 7f33c66e-e267-11ef-8dec-286b35b704df
+      - 4210eda0-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:01 GMT
+      - Mon, 03 Feb 2025 19:58:37 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/16?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/16?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -1691,7 +1691,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:46:00 GMT
+      - Mon, 03 Feb 2025 19:58:37 GMT
       Etag:
       - '"0x8D92B5DB34141E5"'
       Last-Modified:
@@ -1703,7 +1703,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 7f33c66e-e267-11ef-8dec-286b35b704df
+      - 4210eda0-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:46:08 GMT
       x-ms-lease-state:
@@ -1711,7 +1711,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d914ece-c01e-00a1-3474-76a835000000
+      - 1dc5dd0e-e01e-006d-3d76-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -1727,15 +1727,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 7f440bdc-e267-11ef-8dec-286b35b704df
+      - 42200128-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:01 GMT
+      - Mon, 03 Feb 2025 19:58:38 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/17?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/17?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -1763,7 +1763,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:46:00 GMT
+      - Mon, 03 Feb 2025 19:58:37 GMT
       Etag:
       - '"0x8D92B5DD2340234"'
       Last-Modified:
@@ -1775,7 +1775,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 7f440bdc-e267-11ef-8dec-286b35b704df
+      - 42200128-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:47:00 GMT
       x-ms-lease-state:
@@ -1783,7 +1783,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d914ee2-c01e-00a1-4274-76a835000000
+      - 1dc5dd18-e01e-006d-4776-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -1799,15 +1799,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 7f5509d2-e267-11ef-8dec-286b35b704df
+      - 422f92aa-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:01 GMT
+      - Mon, 03 Feb 2025 19:58:38 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/18?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/18?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -1835,7 +1835,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:46:00 GMT
+      - Mon, 03 Feb 2025 19:58:37 GMT
       Etag:
       - '"0x8D92B5DF3D7EFB4"'
       Last-Modified:
@@ -1847,7 +1847,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 7f5509d2-e267-11ef-8dec-286b35b704df
+      - 422f92aa-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:47:57 GMT
       x-ms-lease-state:
@@ -1855,7 +1855,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d914ef9-c01e-00a1-5674-76a835000000
+      - 1dc5dd24-e01e-006d-5376-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -1871,15 +1871,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 7f654388-e267-11ef-8dec-286b35b704df
+      - 423e9ebc-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:01 GMT
+      - Mon, 03 Feb 2025 19:58:38 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/19?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/19?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -1907,7 +1907,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:46:00 GMT
+      - Mon, 03 Feb 2025 19:58:37 GMT
       Etag:
       - '"0x8D92B5DBFF1FC45"'
       Last-Modified:
@@ -1919,7 +1919,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 7f654388-e267-11ef-8dec-286b35b704df
+      - 423e9ebc-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:46:30 GMT
       x-ms-lease-state:
@@ -1927,7 +1927,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d914f09-c01e-00a1-6574-76a835000000
+      - 1dc5dd2b-e01e-006d-5a76-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -1943,15 +1943,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 7f75c01e-e267-11ef-8dec-286b35b704df
+      - 424dd080-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:01 GMT
+      - Mon, 03 Feb 2025 19:58:38 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/2?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/2?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -1979,7 +1979,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:46:01 GMT
+      - Mon, 03 Feb 2025 19:58:37 GMT
       Etag:
       - '"0x8D92B5DE0EFE9D7"'
       Last-Modified:
@@ -1991,7 +1991,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 7f75c01e-e267-11ef-8dec-286b35b704df
+      - 424dd080-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:47:25 GMT
       x-ms-lease-state:
@@ -1999,7 +1999,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d914f1c-c01e-00a1-7774-76a835000000
+      - 1dc5dd3a-e01e-006d-6976-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -2015,15 +2015,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 7f8cdeac-e267-11ef-8dec-286b35b704df
+      - 425cee1c-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:02 GMT
+      - Mon, 03 Feb 2025 19:58:38 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/20?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/20?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -2051,7 +2051,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:46:01 GMT
+      - Mon, 03 Feb 2025 19:58:37 GMT
       Etag:
       - '"0x8D92B5DCCDA0659"'
       Last-Modified:
@@ -2063,7 +2063,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 7f8cdeac-e267-11ef-8dec-286b35b704df
+      - 425cee1c-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:46:51 GMT
       x-ms-lease-state:
@@ -2071,7 +2071,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d914f48-c01e-00a1-1f74-76a835000000
+      - 1dc5dd4f-e01e-006d-7c76-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -2087,15 +2087,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 7f9db9ca-e267-11ef-8dec-286b35b704df
+      - 426c302a-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:02 GMT
+      - Mon, 03 Feb 2025 19:58:38 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/21?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/21?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -2123,7 +2123,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:46:01 GMT
+      - Mon, 03 Feb 2025 19:58:37 GMT
       Etag:
       - '"0x8D92B5DAC7D1172"'
       Last-Modified:
@@ -2135,7 +2135,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 7f9db9ca-e267-11ef-8dec-286b35b704df
+      - 426c302a-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:45:57 GMT
       x-ms-lease-state:
@@ -2143,7 +2143,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d914f60-c01e-00a1-3674-76a835000000
+      - 1dc5dd60-e01e-006d-0c76-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -2159,15 +2159,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 7fbb5890-e267-11ef-8dec-286b35b704df
+      - 427c4cda-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:02 GMT
+      - Mon, 03 Feb 2025 19:58:38 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/22?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/22?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -2195,7 +2195,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:46:01 GMT
+      - Mon, 03 Feb 2025 19:58:37 GMT
       Etag:
       - '"0x8D92B5DBE83C18F"'
       Last-Modified:
@@ -2207,7 +2207,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 7fbb5890-e267-11ef-8dec-286b35b704df
+      - 427c4cda-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:46:27 GMT
       x-ms-lease-state:
@@ -2215,7 +2215,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d914f85-c01e-00a1-5b74-76a835000000
+      - 1dc5dd78-e01e-006d-2376-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -2231,15 +2231,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 7fcba66e-e267-11ef-8dec-286b35b704df
+      - 428c6ca0-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:02 GMT
+      - Mon, 03 Feb 2025 19:58:38 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/23?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/23?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -2267,7 +2267,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:46:01 GMT
+      - Mon, 03 Feb 2025 19:58:37 GMT
       Etag:
       - '"0x8D92B5DE7FF621A"'
       Last-Modified:
@@ -2279,7 +2279,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 7fcba66e-e267-11ef-8dec-286b35b704df
+      - 428c6ca0-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:47:37 GMT
       x-ms-lease-state:
@@ -2287,7 +2287,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d914f94-c01e-00a1-6774-76a835000000
+      - 1dc5dd86-e01e-006d-3176-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -2303,15 +2303,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 7feaaa00-e267-11ef-8dec-286b35b704df
+      - 429c8fa4-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:02 GMT
+      - Mon, 03 Feb 2025 19:58:38 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/24?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/24?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -2339,7 +2339,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:46:01 GMT
+      - Mon, 03 Feb 2025 19:58:37 GMT
       Etag:
       - '"0x8D92B5DB205C962"'
       Last-Modified:
@@ -2351,7 +2351,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 7feaaa00-e267-11ef-8dec-286b35b704df
+      - 429c8fa4-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:46:06 GMT
       x-ms-lease-state:
@@ -2359,7 +2359,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d914fb4-c01e-00a1-0574-76a835000000
+      - 1dc5dd9b-e01e-006d-4476-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -2375,15 +2375,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 7ffb49a0-e267-11ef-8dec-286b35b704df
+      - 42ac03c6-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:02 GMT
+      - Mon, 03 Feb 2025 19:58:38 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/25?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/25?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -2411,7 +2411,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:46:01 GMT
+      - Mon, 03 Feb 2025 19:58:38 GMT
       Etag:
       - '"0x8D92B5DF902E634"'
       Last-Modified:
@@ -2423,7 +2423,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 7ffb49a0-e267-11ef-8dec-286b35b704df
+      - 42ac03c6-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:48:05 GMT
       x-ms-lease-state:
@@ -2431,7 +2431,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d914fc5-c01e-00a1-1674-76a835000000
+      - 1dc5ddb2-e01e-006d-5976-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -2447,15 +2447,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 80191bd8-e267-11ef-8dec-286b35b704df
+      - 42bb9e80-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:03 GMT
+      - Mon, 03 Feb 2025 19:58:39 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/26?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/26?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -2483,7 +2483,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:46:02 GMT
+      - Mon, 03 Feb 2025 19:58:38 GMT
       Etag:
       - '"0x8D92B5DCE9AA4E9"'
       Last-Modified:
@@ -2495,7 +2495,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 80191bd8-e267-11ef-8dec-286b35b704df
+      - 42bb9e80-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:46:54 GMT
       x-ms-lease-state:
@@ -2503,7 +2503,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d914fef-c01e-00a1-3c74-76a835000000
+      - 1dc5ddc2-e01e-006d-6776-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -2519,15 +2519,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 80296628-e267-11ef-8dec-286b35b704df
+      - 42cb9ee8-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:03 GMT
+      - Mon, 03 Feb 2025 19:58:39 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/27?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/27?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -2555,7 +2555,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:46:02 GMT
+      - Mon, 03 Feb 2025 19:58:38 GMT
       Etag:
       - '"0x8D92B5DD08F06F3"'
       Last-Modified:
@@ -2567,7 +2567,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 80296628-e267-11ef-8dec-286b35b704df
+      - 42cb9ee8-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:46:58 GMT
       x-ms-lease-state:
@@ -2575,7 +2575,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d915001-c01e-00a1-4e74-76a835000000
+      - 1dc5ddd1-e01e-006d-7376-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -2591,15 +2591,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 803a2c4c-e267-11ef-8dec-286b35b704df
+      - 42f94898-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:03 GMT
+      - Mon, 03 Feb 2025 19:58:39 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/28?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/28?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -2627,7 +2627,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:46:02 GMT
+      - Mon, 03 Feb 2025 19:58:38 GMT
       Etag:
       - '"0x8D92B5DBD9C11D5"'
       Last-Modified:
@@ -2639,7 +2639,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 803a2c4c-e267-11ef-8dec-286b35b704df
+      - 42f94898-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:46:26 GMT
       x-ms-lease-state:
@@ -2647,7 +2647,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d91500c-c01e-00a1-5974-76a835000000
+      - 1dc5ddf4-e01e-006d-1376-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -2663,15 +2663,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 804a97b2-e267-11ef-8dec-286b35b704df
+      - 4308db96-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:03 GMT
+      - Mon, 03 Feb 2025 19:58:39 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/29?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/29?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -2699,7 +2699,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:46:02 GMT
+      - Mon, 03 Feb 2025 19:58:38 GMT
       Etag:
       - '"0x8D92B5DD0EEC46A"'
       Last-Modified:
@@ -2711,7 +2711,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 804a97b2-e267-11ef-8dec-286b35b704df
+      - 4308db96-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:46:58 GMT
       x-ms-lease-state:
@@ -2719,7 +2719,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d91501a-c01e-00a1-6774-76a835000000
+      - 1dc5de02-e01e-006d-2076-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -2735,15 +2735,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 805a411c-e267-11ef-8dec-286b35b704df
+      - 43190462-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:03 GMT
+      - Mon, 03 Feb 2025 19:58:39 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/3?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/3?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -2771,7 +2771,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:46:02 GMT
+      - Mon, 03 Feb 2025 19:58:38 GMT
       Etag:
       - '"0x8D92B5DEBF5BEE6"'
       Last-Modified:
@@ -2783,7 +2783,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 805a411c-e267-11ef-8dec-286b35b704df
+      - 43190462-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:47:44 GMT
       x-ms-lease-state:
@@ -2791,7 +2791,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d915033-c01e-00a1-7f74-76a835000000
+      - 1dc5de15-e01e-006d-3276-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -2807,15 +2807,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 806a5d18-e267-11ef-8dec-286b35b704df
+      - 43289062-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:03 GMT
+      - Mon, 03 Feb 2025 19:58:39 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/30?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/30?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -2843,7 +2843,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:46:02 GMT
+      - Mon, 03 Feb 2025 19:58:38 GMT
       Etag:
       - '"0x8D92B5DD70C0D8A"'
       Last-Modified:
@@ -2855,7 +2855,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 806a5d18-e267-11ef-8dec-286b35b704df
+      - 43289062-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:47:08 GMT
       x-ms-lease-state:
@@ -2863,7 +2863,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d915048-c01e-00a1-1474-76a835000000
+      - 1dc5de24-e01e-006d-4176-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -2879,15 +2879,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 807a101e-e267-11ef-8dec-286b35b704df
+      - 433804d4-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:03 GMT
+      - Mon, 03 Feb 2025 19:58:39 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/31?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/31?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -2915,7 +2915,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:46:02 GMT
+      - Mon, 03 Feb 2025 19:58:38 GMT
       Etag:
       - '"0x8D92B5DCC97E856"'
       Last-Modified:
@@ -2927,7 +2927,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 807a101e-e267-11ef-8dec-286b35b704df
+      - 433804d4-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:46:51 GMT
       x-ms-lease-state:
@@ -2935,7 +2935,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d915051-c01e-00a1-1d74-76a835000000
+      - 1dc5de2e-e01e-006d-4976-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -2951,15 +2951,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 8098dde6-e267-11ef-8dec-286b35b704df
+      - 4347a8a8-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:03 GMT
+      - Mon, 03 Feb 2025 19:58:39 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/32?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/32?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -2987,7 +2987,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:46:02 GMT
+      - Mon, 03 Feb 2025 19:58:39 GMT
       Etag:
       - '"0x8D92B5DB9154155"'
       Last-Modified:
@@ -2999,7 +2999,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 8098dde6-e267-11ef-8dec-286b35b704df
+      - 4347a8a8-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:46:18 GMT
       x-ms-lease-state:
@@ -3007,7 +3007,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d915076-c01e-00a1-3674-76a835000000
+      - 1dc5de37-e01e-006d-5276-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -3023,15 +3023,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 80a8deb2-e267-11ef-8dec-286b35b704df
+      - 4356943a-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:03 GMT
+      - Mon, 03 Feb 2025 19:58:40 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/33?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/33?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -3059,7 +3059,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:46:03 GMT
+      - Mon, 03 Feb 2025 19:58:39 GMT
       Etag:
       - '"0x8D92B5DDB0C572D"'
       Last-Modified:
@@ -3071,7 +3071,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 80a8deb2-e267-11ef-8dec-286b35b704df
+      - 4356943a-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:47:15 GMT
       x-ms-lease-state:
@@ -3079,7 +3079,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d91508d-c01e-00a1-4c74-76a835000000
+      - 1dc5de41-e01e-006d-5c76-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -3095,15 +3095,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 80b9b214-e267-11ef-8dec-286b35b704df
+      - 4365d346-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:04 GMT
+      - Mon, 03 Feb 2025 19:58:40 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/34?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/34?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -3131,7 +3131,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:46:03 GMT
+      - Mon, 03 Feb 2025 19:58:39 GMT
       Etag:
       - '"0x8D92B5DBB4929C9"'
       Last-Modified:
@@ -3143,7 +3143,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 80b9b214-e267-11ef-8dec-286b35b704df
+      - 4365d346-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:46:22 GMT
       x-ms-lease-state:
@@ -3151,7 +3151,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d9150a6-c01e-00a1-6074-76a835000000
+      - 1dc5de4b-e01e-006d-6676-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -3167,15 +3167,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 80cacc0c-e267-11ef-8dec-286b35b704df
+      - 4374b24e-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:04 GMT
+      - Mon, 03 Feb 2025 19:58:40 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/35?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/35?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -3203,7 +3203,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:46:03 GMT
+      - Mon, 03 Feb 2025 19:58:39 GMT
       Etag:
       - '"0x8D92B5DB73F417C"'
       Last-Modified:
@@ -3215,7 +3215,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 80cacc0c-e267-11ef-8dec-286b35b704df
+      - 4374b24e-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:46:15 GMT
       x-ms-lease-state:
@@ -3223,7 +3223,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d9150bc-c01e-00a1-6c74-76a835000000
+      - 1dc5de55-e01e-006d-7076-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -3239,15 +3239,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 80e43318-e267-11ef-8dec-286b35b704df
+      - 43844e02-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:04 GMT
+      - Mon, 03 Feb 2025 19:58:40 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/36?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/36?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -3275,7 +3275,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:46:03 GMT
+      - Mon, 03 Feb 2025 19:58:39 GMT
       Etag:
       - '"0x8D92B5DDC96254B"'
       Last-Modified:
@@ -3287,7 +3287,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 80e43318-e267-11ef-8dec-286b35b704df
+      - 43844e02-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:47:18 GMT
       x-ms-lease-state:
@@ -3295,7 +3295,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d9150d3-c01e-00a1-7f74-76a835000000
+      - 1dc5de70-e01e-006d-0976-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -3311,15 +3311,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 80f45900-e267-11ef-8dec-286b35b704df
+      - 439410c6-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:04 GMT
+      - Mon, 03 Feb 2025 19:58:40 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/37?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/37?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -3347,7 +3347,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:46:03 GMT
+      - Mon, 03 Feb 2025 19:58:39 GMT
       Etag:
       - '"0x8D92B5DCBAE96C5"'
       Last-Modified:
@@ -3359,7 +3359,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 80f45900-e267-11ef-8dec-286b35b704df
+      - 439410c6-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:46:49 GMT
       x-ms-lease-state:
@@ -3367,7 +3367,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d9150ec-c01e-00a1-1474-76a835000000
+      - 1dc5de84-e01e-006d-1b76-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -3383,15 +3383,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 8117c4bc-e267-11ef-8dec-286b35b704df
+      - 43a3208e-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:04 GMT
+      - Mon, 03 Feb 2025 19:58:40 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/38?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/38?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -3419,7 +3419,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:46:03 GMT
+      - Mon, 03 Feb 2025 19:58:39 GMT
       Etag:
       - '"0x8D92B5DEDF9DC42"'
       Last-Modified:
@@ -3431,7 +3431,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 8117c4bc-e267-11ef-8dec-286b35b704df
+      - 43a3208e-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:47:47 GMT
       x-ms-lease-state:
@@ -3439,7 +3439,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d915113-c01e-00a1-3974-76a835000000
+      - 1dc5de91-e01e-006d-2876-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -3455,15 +3455,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 812723bc-e267-11ef-8dec-286b35b704df
+      - 43b385d2-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:04 GMT
+      - Mon, 03 Feb 2025 19:58:40 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/39?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/39?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -3491,7 +3491,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:46:03 GMT
+      - Mon, 03 Feb 2025 19:58:39 GMT
       Etag:
       - '"0x8D92B5DDA4C66B6"'
       Last-Modified:
@@ -3503,7 +3503,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 812723bc-e267-11ef-8dec-286b35b704df
+      - 43b385d2-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:47:14 GMT
       x-ms-lease-state:
@@ -3511,7 +3511,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d915127-c01e-00a1-4c74-76a835000000
+      - 1dc5dea1-e01e-006d-3776-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -3527,15 +3527,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 81379ba2-e267-11ef-8dec-286b35b704df
+      - 43c447dc-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:04 GMT
+      - Mon, 03 Feb 2025 19:58:40 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/4?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/4?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -3563,7 +3563,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:46:03 GMT
+      - Mon, 03 Feb 2025 19:58:39 GMT
       Etag:
       - '"0x8D92B5DB5850BC1"'
       Last-Modified:
@@ -3575,7 +3575,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 81379ba2-e267-11ef-8dec-286b35b704df
+      - 43c447dc-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:46:12 GMT
       x-ms-lease-state:
@@ -3583,7 +3583,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d91513a-c01e-00a1-5f74-76a835000000
+      - 1dc5deb5-e01e-006d-4976-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -3599,15 +3599,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 81482166-e267-11ef-8dec-286b35b704df
+      - 43d3b1e0-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:05 GMT
+      - Mon, 03 Feb 2025 19:58:40 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/40?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/40?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -3635,7 +3635,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:46:05 GMT
+      - Mon, 03 Feb 2025 19:58:39 GMT
       Etag:
       - '"0x8D92B5DBBC6FC36"'
       Last-Modified:
@@ -3647,7 +3647,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 81482166-e267-11ef-8dec-286b35b704df
+      - 43d3b1e0-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:46:23 GMT
       x-ms-lease-state:
@@ -3655,7 +3655,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d91514a-c01e-00a1-6f74-76a835000000
+      - 1dc5dec5-e01e-006d-5876-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -3671,15 +3671,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 81587764-e267-11ef-8dec-286b35b704df
+      - 43e29980-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:05 GMT
+      - Mon, 03 Feb 2025 19:58:41 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/5?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/5?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -3707,7 +3707,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:46:05 GMT
+      - Mon, 03 Feb 2025 19:58:40 GMT
       Etag:
       - '"0x8D92B5DF6E4AC54"'
       Last-Modified:
@@ -3719,7 +3719,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 81587764-e267-11ef-8dec-286b35b704df
+      - 43e29980-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:48:02 GMT
       x-ms-lease-state:
@@ -3727,7 +3727,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d915159-c01e-00a1-7e74-76a835000000
+      - 1dc5ded5-e01e-006d-6876-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -3743,15 +3743,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 8169b754-e267-11ef-8dec-286b35b704df
+      - 43f1b546-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:05 GMT
+      - Mon, 03 Feb 2025 19:58:41 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/6?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/6?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -3779,7 +3779,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:46:05 GMT
+      - Mon, 03 Feb 2025 19:58:40 GMT
       Etag:
       - '"0x8D92B5DAD333C26"'
       Last-Modified:
@@ -3791,7 +3791,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 8169b754-e267-11ef-8dec-286b35b704df
+      - 43f1b546-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:45:58 GMT
       x-ms-lease-state:
@@ -3799,7 +3799,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d915164-c01e-00a1-0874-76a835000000
+      - 1dc5dee3-e01e-006d-7676-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -3815,15 +3815,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 817ad4e4-e267-11ef-8dec-286b35b704df
+      - 44010c4e-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:05 GMT
+      - Mon, 03 Feb 2025 19:58:41 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/7?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/7?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -3851,7 +3851,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:46:05 GMT
+      - Mon, 03 Feb 2025 19:58:40 GMT
       Etag:
       - '"0x8D92B5DD167175E"'
       Last-Modified:
@@ -3863,7 +3863,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 817ad4e4-e267-11ef-8dec-286b35b704df
+      - 44010c4e-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:46:59 GMT
       x-ms-lease-state:
@@ -3871,7 +3871,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d915174-c01e-00a1-1674-76a835000000
+      - 1dc5def7-e01e-006d-0876-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -3887,15 +3887,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 818bca7e-e267-11ef-8dec-286b35b704df
+      - 44106a04-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:05 GMT
+      - Mon, 03 Feb 2025 19:58:41 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/8?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/8?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -3923,7 +3923,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:46:05 GMT
+      - Mon, 03 Feb 2025 19:58:40 GMT
       Etag:
       - '"0x8D92B5DD53B3E77"'
       Last-Modified:
@@ -3935,7 +3935,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 818bca7e-e267-11ef-8dec-286b35b704df
+      - 44106a04-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:47:05 GMT
       x-ms-lease-state:
@@ -3943,7 +3943,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d915188-c01e-00a1-2874-76a835000000
+      - 1dc5df07-e01e-006d-1876-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -3959,15 +3959,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 819cd742-e267-11ef-8dec-286b35b704df
+      - 441fe39e-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:05 GMT
+      - Mon, 03 Feb 2025 19:58:41 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/9?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/time/9?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -3995,7 +3995,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:46:05 GMT
+      - Mon, 03 Feb 2025 19:58:40 GMT
       Etag:
       - '"0x8D92B5DE0A9D368"'
       Last-Modified:
@@ -4007,7 +4007,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 819cd742-e267-11ef-8dec-286b35b704df
+      - 441fe39e-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:47:25 GMT
       x-ms-lease-state:
@@ -4015,7 +4015,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d915194-c01e-00a1-3274-76a835000000
+      - 1dc5df1e-e01e-006d-2d76-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -4031,15 +4031,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 81aded20-e267-11ef-8dec-286b35b704df
+      - 443022fe-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:05 GMT
+      - Mon, 03 Feb 2025 19:58:41 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/x/0?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/x/0?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -4067,7 +4067,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:46:05 GMT
+      - Mon, 03 Feb 2025 19:58:40 GMT
       Etag:
       - '"0x8D92B5DF7CCECA0"'
       Last-Modified:
@@ -4079,7 +4079,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 81aded20-e267-11ef-8dec-286b35b704df
+      - 443022fe-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:48:03 GMT
       x-ms-lease-state:
@@ -4087,7 +4087,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d91519c-c01e-00a1-3974-76a835000000
+      - 1dc5df43-e01e-006d-4976-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
@@ -4103,15 +4103,15 @@ interactions:
       User-Agent:
       - azsdk-python-storage-blob/12.24.1 Python/3.13.1 (Linux-6.8.0-51-generic-x86_64-with-glibc2.35)
       x-ms-client-request-id:
-      - 81bdd168-e267-11ef-8dec-286b35b704df
+      - 44400d68-e269-11ef-a461-286b35b704df
       x-ms-date:
-      - Mon, 03 Feb 2025 19:46:05 GMT
+      - Mon, 03 Feb 2025 19:58:41 GMT
       x-ms-range:
       - bytes=0-33554431
       x-ms-version:
       - '2025-01-05'
     method: GET
-    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/y/0?st=2025-02-02T19:45:52Z&se=2025-02-03T20:30:52Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-02-02T00:02:58Z&ske=2025-02-09T00:02:58Z&sks=b&skv=2024-05-04&sig=cuXUkPVUkrPCXA2bnz5j/m0C/fArNfg4uybQ7cxRmAs%3D
+    uri: https://daymeteuwest.blob.core.windows.net/daymet-zarr/daily/hi.zarr/y/0?st=2025-02-02T19:58:29Z&se=2025-02-03T20:43:29Z&sp=rl&sv=2024-05-04&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2025-01-29T00:04:40Z&ske=2025-02-05T00:04:40Z&sks=b&skv=2024-05-04&sig=iPVOTaIgPS0w0dUKko0Or6kfO0jbgFfmp18rdiKAXG4%3D
   response:
     body:
       string: !!binary |
@@ -4153,7 +4153,7 @@ interactions:
       Content-Type:
       - application/octet-stream
       Date:
-      - Mon, 03 Feb 2025 19:46:05 GMT
+      - Mon, 03 Feb 2025 19:58:40 GMT
       Etag:
       - '"0x8D92B5DCE823678"'
       Last-Modified:
@@ -4165,7 +4165,7 @@ interactions:
       x-ms-blob-type:
       - BlockBlob
       x-ms-client-request-id:
-      - 81bdd168-e267-11ef-8dec-286b35b704df
+      - 44400d68-e269-11ef-a461-286b35b704df
       x-ms-creation-time:
       - Wed, 09 Jun 2021 15:46:54 GMT
       x-ms-lease-state:
@@ -4173,7 +4173,7 @@ interactions:
       x-ms-lease-status:
       - unlocked
       x-ms-request-id:
-      - 2d9151a3-c01e-00a1-3f74-76a835000000
+      - 1dc5df4b-e01e-006d-5076-76c703000000
       x-ms-server-encrypted:
       - 'true'
       x-ms-version:
