@@ -46,4 +46,4 @@ jobs:
 
       - name: run tests
         id: status
-        run: pytest -v --cov xpystac --cov-report term-missing .
+        run: pytest -v --cov xpystac --cov-report term-missing --block-network .
