@@ -19,6 +19,12 @@ def simple_cog(simple_item) -> pystac.Asset:
 
 
 @pytest.fixture(scope="module")
+def data_cube_kerchunk() -> pystac.ItemCollection:
+    path = "tests/data/data-cube-kerchunk-item-collection.json"
+    return pystac.ItemCollection.from_file(path)
+
+
+@pytest.fixture(scope="module")
 def simple_search() -> pystac_client.ItemSearch:
     client = pystac_client.Client.open(STAC_URLS["EARTH-SEARCH"])
     return client.search(

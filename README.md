@@ -62,6 +62,21 @@ xr.open_dataset(asset, patch_url=planetary_computer.sign)
 ```
 ref: https://planetarycomputer.microsoft.com/docs/quickstarts/reading-zarr-data/
 
+
+Here is an example using the new approach of storing kerchunked metadata within the data-cube extension:
+
+```python
+import pystac
+import xarray as xr
+
+path = "https://raw.githubusercontent.com/stac-utils/xpystac/main/tests/data/data-cube-kerchunk-item-collection.json"
+item_collection = pystac.ItemCollection.from_file(path)
+
+ds = xr.open_dataset(item_collection)
+ds
+```
+
+
 ## Install
 
 ```bash
