@@ -18,7 +18,7 @@ class STACBackend(BackendEntrypoint):
         filename_or_obj: Any,
         drop_variables: str | Iterable[str] | None = None,
         stacking_library: Literal["odc.stac", "stackstac"] | None = None,
-        patch_url: None | Callable[[str], str] = None,
+        patch_url: Callable[[str], str] | None = None,
         **kwargs,
     ):
         """Given a PySTAC object return an xarray dataset
