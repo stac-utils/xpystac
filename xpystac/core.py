@@ -1,5 +1,6 @@
 import functools
-from typing import List, Literal, Mapping, Union
+from collections.abc import Callable, Mapping
+from typing import Literal
 
 import pystac
 import xarray
@@ -11,25 +12,48 @@ from xpystac.utils import _import_optional_dependency, _is_item_search
 @functools.singledispatch
 def to_xarray(
     obj,
-    stacking_library: Union[Literal["odc.stac", "stackstac"], None] = None,
+    *,
+    stacking_library: Literal["odc.stac", "stackstac"] | None = None,
+    patch_url: None | Callable[[str], str] = None,
     allow_kerchunk: bool = True,
     **kwargs,
 ) -> xarray.Dataset:
-    """Given a pystac object return an xarray dataset
+    """Given a PySTAC object return an xarray dataset.
 
-    When stacking multiple items, an optional ``stacking_library`` argument
-    is accepted. It defaults to ``odc.stac`` if available and otherwise ``stackstac``.
-    Control the behavior by setting ``stacking_library``
+    The behavior of this method depends on the type of PySTAC object:
 
-    User ``allow_kerchunk`` (True by default) to control whether this reader tries to
-    interpret kerchunk attributes if provided (either in the data-cube extension or
-    as a full asset with ``references`` or ``index`` as the role).
+    * Asset: if the asset points to a kerchunk file or a zarr file,
+      reads the metadata in that file to construct the coordinates of the
+      dataset. If the asset points to a COG, read that.
+    * Item: stacks all the assets into a dataset with 1 more dimension than
+      any given asset.
+    * ItemCollection (output of pystac_client.search): stacks all the
+      assets in all the items into a dataset with 2 more dimensions than
+      any given asset.
+
+    Parameters
+    ----------
+    obj : PySTAC object (Item, ItemCollection, Asset)
+        The object from which to read data.
+    stacking_library : "odc.stac", "stackstac", optional
+        When stacking multiple items, this argument determines which library
+        to use. Defaults to ``odc.stac`` if available and otherwise ``stackstac``.
+    patch_url : Callable, optional
+        Function that takes a string or pystac object and returns an altered
+        version. Normally used to sign urls before trying to read data from
+        them. For instance when working with Planetary Computer this argument
+        should be set to ``pc.sign``.
+    allow_kerchunk : bool, (True by default)
+        Control whether this reader tries to interpret kerchunk attributes
+        if provided (either in the data-cube extension or as a regular asset
+        with ``references`` or ``index`` as the role).
     """
     if _is_item_search(obj):
         item_collection = obj.item_collection()
         return to_xarray(
             item_collection,
             stacking_library=stacking_library,
+            patch_url=patch_url,
             allow_kerchunk=allow_kerchunk,
             **kwargs,
         )
@@ -40,9 +64,10 @@ def to_xarray(
 @to_xarray.register(pystac.ItemCollection)
 @to_xarray.register(list)
 def _(
-    obj: Union[pystac.Item, pystac.ItemCollection, List[pystac.Item]],
-    drop_variables: Union[str, List[str], None] = None,
-    stacking_library: Union[Literal["odc.stac", "stackstac"], None] = None,
+    obj: pystac.Item | pystac.ItemCollection,
+    drop_variables: str | list[str] | None = None,
+    stacking_library: Literal["odc.stac", "stackstac"] | None = None,
+    patch_url: None | Callable[[str], str] = None,
     allow_kerchunk: bool = True,
     **kwargs,
 ) -> xarray.Dataset:
@@ -89,16 +114,35 @@ def _(
             items = [obj]
         else:
             items = [i for i in obj]
-        return odc_stac.load(items, **{"chunks": {"x": 1024, "y": 1024}, **kwargs})
+        return odc_stac.load(
+            items,
+            **{"chunks": {"x": 1024, "y": 1024}, "patch_url": patch_url, **kwargs},
+        )
     elif stacking_library == "stackstac":
         stackstac = _import_optional_dependency("stackstac")
-        return stackstac.stack(obj, **kwargs).to_dataset(dim="band", promote_attrs=True)
+        if patch_url:
+            if isinstance(obj, pystac.STACObject):
+                obj = patch_url(obj)
+            else:
+                obj = [patch_url(o) for o in obj]
+        da = stackstac.stack(obj, **kwargs)
+        bands = {}
+        for band in da.band.values:
+            b = da.sel(band=band)
+            scalar_coords = {k: v.item() for k, v in b.coords.items() if v.shape == ()}
+            b = b.assign_attrs(
+                **{k: v for k, v in scalar_coords.items() if v is not None}
+            )
+            b = b.drop_vars(scalar_coords)
+            bands[band] = b
+        return xarray.Dataset(bands, attrs=da.attrs)
 
 
 @to_xarray.register
 def _(
     obj: pystac.Asset,
-    stacking_library: Union[Literal["odc.stac", "stackstac"], None] = None,
+    stacking_library: Literal["odc.stac", "stackstac"] | None = None,
+    patch_url: None | Callable[[str], str] = None,
     allow_kerchunk: bool = True,
     **kwargs,
 ) -> xarray.Dataset:
@@ -118,12 +162,10 @@ def _(
         fsspec = _import_optional_dependency("fsspec")
         r = requests.get(obj.href)
         r.raise_for_status()
-        try:
-            import planetary_computer  # type: ignore
 
-            refs = planetary_computer.sign(r.json())
-        except ImportError:
-            refs = r.json()
+        refs = r.json()
+        if patch_url is not None:
+            refs = patch_url(refs)
 
         mapper = fsspec.filesystem("reference", fo=refs).get_mapper()
         default_kwargs = {
@@ -142,5 +184,9 @@ def _(
         _import_optional_dependency("zarr")
         default_kwargs = {**default_kwargs, "engine": "zarr"}
 
-    ds = xarray.open_dataset(obj.href, **{**default_kwargs, **open_kwargs, **kwargs})
+    href = obj.href
+    if patch_url is not None:
+        href = patch_url(href)
+
+    ds = xarray.open_dataset(href, **{**default_kwargs, **open_kwargs, **kwargs})
     return ds
