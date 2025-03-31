@@ -15,6 +15,7 @@ iterable of items, or output of pystac_client.Client.search.
 | COG | x | x | x |
 | zarr | x | | |
 | kerchunk | x | x* | x* |
+
 \* _if stored in item alongside the datacube extension properties_
 
 
