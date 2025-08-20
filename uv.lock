@@ -1844,7 +1844,7 @@ dev = [
     { name = "adlfs", specifier = ">=2024.12.0" },
     { name = "aiohttp", specifier = ">=3.11.13" },
     { name = "fsspec", specifier = ">=2025.3.0" },
-    { name = "kerchunk", specifier = ">=0.2.8" },
+    { name = "kerchunk", specifier = ">=0.2.7" },
     { name = "odc-stac", specifier = ">=0.3.11" },
     { name = "planetary-computer", specifier = ">=1.0.0" },
     { name = "pre-commit", specifier = ">=4.0.1" },
