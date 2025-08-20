@@ -50,7 +50,7 @@ def test_to_xarray_with_pystac_client_search_with_patch_url():
 
     ds = to_xarray(search, assets=["B4", "B3", "B2"], stacking_library="odc.stac")
 
-    with pytest.raises(RasterioIOError, match="HTTP response code: 404"):
+    with pytest.raises(RasterioIOError, match="HTTP response code: 409"):
         ds.B01.max().compute()
 
     ds = to_xarray(
