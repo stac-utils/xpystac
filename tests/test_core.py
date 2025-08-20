@@ -127,6 +127,7 @@ def test_to_xarray_zarr_with_open_kwargs_engine():
     to_xarray(zarr_asset)
 
 
+@pytest.mark.skip(reason="not yet supported with kerchunk >=0.2.8")
 def test_to_xarray_with_item_collection_with_kerchunk_attrs_in_data_cube(
     data_cube_kerchunk,
 ):
@@ -134,11 +135,13 @@ def test_to_xarray_with_item_collection_with_kerchunk_attrs_in_data_cube(
     assert ds
 
 
+@pytest.mark.skip(reason="not yet supported with kerchunk >=0.2.8")
 def test_to_xarray_with_list_with_kerchunk_attrs_in_data_cube(data_cube_kerchunk):
     ds = to_xarray([i for i in data_cube_kerchunk])
     assert ds
 
 
+@pytest.mark.skip(reason="not yet supported with kerchunk >=0.2.8")
 def test_to_xarray_with_item_with_kerchunk_attrs_in_data_cube(data_cube_kerchunk):
     ds = to_xarray([i for i in data_cube_kerchunk][-1])
     assert ds

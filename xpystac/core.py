@@ -159,7 +159,6 @@ def _(
         and {"index", "references"}.intersection(set(obj.roles) if obj.roles else set())
     ):
         requests = _import_optional_dependency("requests")
-        fsspec = _import_optional_dependency("fsspec")
         r = requests.get(obj.href)
         r.raise_for_status()
 
@@ -167,15 +166,11 @@ def _(
         if patch_url is not None:
             refs = patch_url(refs)
 
-        mapper = fsspec.filesystem("reference", fo=refs).get_mapper()
         default_kwargs = {
             **default_kwargs,
-            "engine": "zarr",
-            "consolidated": False,
+            "engine": "kerchunk",
         }
-        return xarray.open_dataset(
-            mapper, **{**default_kwargs, **open_kwargs, **kwargs}
-        )
+        return xarray.open_dataset(refs, **{**default_kwargs, **open_kwargs, **kwargs})
 
     if obj.media_type == pystac.MediaType.COG:
         _import_optional_dependency("rioxarray")
