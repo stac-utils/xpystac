@@ -182,8 +182,6 @@ def _(
             zarr_kwargs["consolidated"] = obj.extra_fields["zarr:consolidated"]
         if "zarr:zarr_format" in obj.extra_fields:
             zarr_kwargs["zarr_format"] = obj.extra_fields["zarr:zarr_format"]
-            if zarr_kwargs["zarr_format"] == 3:
-                raise ValueError("Zarr v3 is not supported by xpystac")
 
         default_kwargs = {**default_kwargs, **zarr_kwargs, "engine": "zarr"}
 
