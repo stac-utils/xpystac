@@ -9,6 +9,12 @@ jobs:
   build-n-publish:
     name: Build and publish to PyPI
     runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/x/xpystac
+    permissions:
+      id-token: write
+    if: ${{ github.repository }} == 'stac-utils/xpystac'
 
     steps:
       - name: checkout repo
@@ -26,7 +32,3 @@ jobs:
 
       - name: Publish distribution to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
-        with:
-          # Password is set in GitHub UI to an API secret for pypi
-          user: __token__
-          password: ${{ secrets.PYPI_API_KEY }}
