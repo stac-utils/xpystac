@@ -178,6 +178,10 @@ def _(
     elif obj.media_type == "application/vnd+zarr":
         _import_optional_dependency("zarr")
         default_kwargs = {**default_kwargs, "engine": "zarr"}
+    elif obj.media_type == "application/vnd.zarr+icechunk":
+        from xpystac._icechunk import read_icechunk
+
+        return read_icechunk(obj)
 
     href = obj.href
     if patch_url is not None:

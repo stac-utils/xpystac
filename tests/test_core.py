@@ -3,7 +3,7 @@ import pystac_client
 import pytest
 import xarray as xr
 
-from tests.utils import STAC_URLS, requires_planetary_computer
+from tests.utils import STAC_URLS, requires_icechunk, requires_planetary_computer
 from xpystac.core import to_xarray
 
 
@@ -145,3 +145,12 @@ def test_to_xarray_with_list_with_kerchunk_attrs_in_data_cube(data_cube_kerchunk
 def test_to_xarray_with_item_with_kerchunk_attrs_in_data_cube(data_cube_kerchunk):
     ds = to_xarray([i for i in data_cube_kerchunk][-1])
     assert ds
+
+
+@requires_icechunk
+def test_to_xarray_virtual_icechunk(virtual_icechunk):
+    # Get the latest version of the collection-level asset
+    assets = virtual_icechunk.get_assets(role="latest-version")
+    asset = next(iter(assets.values()))
+
+    to_xarray(asset)

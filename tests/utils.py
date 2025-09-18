@@ -30,6 +30,9 @@ has_planetary_computer, requires_planetary_computer = _importorskip(
 )
 
 
+has_icechunk, requires_icechunk = _importorskip("icechunk")
+
+
 # copied from https://github.com/stac-utils/pystac-client/blob/v0.6.0/tests/helpers.py#L7-L11
 STAC_URLS = {
     "PLANETARY-COMPUTER": "https://planetarycomputer.microsoft.com/api/stac/v1",
