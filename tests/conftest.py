@@ -25,6 +25,12 @@ def data_cube_kerchunk() -> pystac.ItemCollection:
 
 
 @pytest.fixture(scope="module")
+def virtual_icechunk() -> pystac.ItemCollection:
+    path = "tests/data/virtual-icechunk-collection.json"
+    return pystac.Collection.from_file(path)
+
+
+@pytest.fixture(scope="module")
 def simple_search() -> pystac_client.ItemSearch:
     client = pystac_client.Client.open(STAC_URLS["EARTH-SEARCH"])
     return client.search(

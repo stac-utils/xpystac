@@ -1,0 +1,402 @@
+{
+  "type": "Collection",
+  "id": "nldas-3",
+  "stac_version": "1.1.0",
+  "description": "NLDAS-3 provides a fine-scale (1 km) meteorological forcing (precipitation) in both retrospective and near real-time over North and Central America, including Alaska, Hawaii, and Puerto Rico, by leveraging high-quality gauge, satellite, and model datasets through advanced data assimilation methods. Read more: https://ldas.gsfc.nasa.gov/nldas/v3",
+  "links": [],
+  "stac_extensions": [
+    "https://stac-extensions.github.io/virtual-assets/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/datacube/v2.2.0/schema.json",
+    "https://stac-extensions.github.io/render/v2.0.0/schema.json",
+    "https://stac-extensions.github.io/storage/v2.0.0/schema.json",
+    "https://stac-extensions.github.io/version/v1.2.0/schema.json"
+  ],
+  "storage:schemes": {
+    "aws-s3-nasa-waterinsight": {
+      "type": "aws-s3",
+      "platform": "https://{bucket}.s3.{region}.amazonaws.com",
+      "bucket": "nasa-waterinsight",
+      "region": "us-west-2",
+      "anonymous": true
+    }
+  },
+  "cube:dimensions": {
+    "time": {
+      "extent": [
+        "2001-01-02T00:00:00Z",
+        "2024-01-01T00:00:00Z"
+      ],
+      "description": "time",
+      "type": "temporal"
+    },
+    "lon": {
+      "axis": "x",
+      "extent": [
+        -168.9949951171875,
+        -52.00499725341797
+      ],
+      "description": "longitude",
+      "reference_system": 4326,
+      "type": "spatial"
+    },
+    "lat": {
+      "axis": "y",
+      "extent": [
+        7.005000114440918,
+        71.9949951171875
+      ],
+      "description": "latitude",
+      "reference_system": 4326,
+      "type": "spatial"
+    }
+  },
+  "cube:variables": {
+    "Wind_N": {
+      "type": "data",
+      "description": "10-meter above ground Meridional wind speed",
+      "dimensions": [
+        "time",
+        "lat",
+        "lon"
+      ],
+      "unit": "m s-1",
+      "attrs": {
+        "units": "m s-1",
+        "standard_name": "Near surface northward wind component",
+        "long_name": "10-meter above ground Meridional wind speed",
+        "cell_methods": "time: mean",
+        "vmin": -10.617785453796387,
+        "vmax": 11.41434097290039
+      },
+      "shape": [
+        8399,
+        6500,
+        11700
+      ],
+      "chunks": [
+        1,
+        500,
+        900
+      ]
+    },
+    "Tair_max": {
+      "type": "data",
+      "description": "Daily maximum 2-meter above ground Temperature",
+      "dimensions": [
+        "time",
+        "lat",
+        "lon"
+      ],
+      "unit": "K",
+      "attrs": {
+        "units": "K",
+        "standard_name": "Daily maximum near surface air temperature",
+        "long_name": "Daily maximum 2-meter above ground Temperature",
+        "cell_methods": "time: maximum",
+        "vmin": 230.1659393310547,
+        "vmax": 312.7441711425781
+      },
+      "shape": [
+        8399,
+        6500,
+        11700
+      ],
+      "chunks": [
+        1,
+        500,
+        900
+      ]
+    },
+    "LWdown": {
+      "type": "data",
+      "description": "Longwave radiation flux downwards (surface)",
+      "dimensions": [
+        "time",
+        "lat",
+        "lon"
+      ],
+      "unit": "W m-2",
+      "attrs": {
+        "units": "W m-2",
+        "standard_name": "Surface incident longwave radiation",
+        "long_name": "Longwave radiation flux downwards (surface)",
+        "cell_methods": "time: mean",
+        "vmin": 126.3478012084961,
+        "vmax": 450.3310546875
+      },
+      "shape": [
+        8399,
+        6500,
+        11700
+      ],
+      "chunks": [
+        1,
+        500,
+        900
+      ]
+    },
+    "Rainf": {
+      "type": "data",
+      "description": "Total precipitation",
+      "dimensions": [
+        "time",
+        "lat",
+        "lon"
+      ],
+      "unit": "kg m-2",
+      "attrs": {
+        "units": "kg m-2",
+        "standard_name": "Total precipitation",
+        "long_name": "Total precipitation",
+        "cell_methods": "time: sum",
+        "vmin": 0.0,
+        "vmax": 60.617774963378906
+      },
+      "shape": [
+        8399,
+        6500,
+        11700
+      ],
+      "chunks": [
+        1,
+        500,
+        900
+      ]
+    },
+    "Tair_min": {
+      "type": "data",
+      "description": "Daily minimum 2-meter above ground Temperature",
+      "dimensions": [
+        "time",
+        "lat",
+        "lon"
+      ],
+      "unit": "K",
+      "attrs": {
+        "units": "K",
+        "standard_name": "Daily minimum near surface air temperature",
+        "long_name": "Daily minimum 2-meter above ground Temperature",
+        "cell_methods": "time: minimum",
+        "vmin": 227.1617889404297,
+        "vmax": 300.4527282714844
+      },
+      "shape": [
+        8399,
+        6500,
+        11700
+      ],
+      "chunks": [
+        1,
+        500,
+        900
+      ]
+    },
+    "Qair": {
+      "type": "data",
+      "description": "2-meter above ground Specific humidity",
+      "dimensions": [
+        "time",
+        "lat",
+        "lon"
+      ],
+      "unit": "kg kg-1",
+      "attrs": {
+        "units": "kg kg-1",
+        "standard_name": "Near surface specific humidity",
+        "long_name": "2-meter above ground Specific humidity",
+        "cell_methods": "time: mean",
+        "vmin": 5.8038440329255536e-05,
+        "vmax": 0.021006619557738304
+      },
+      "shape": [
+        8399,
+        6500,
+        11700
+      ],
+      "chunks": [
+        1,
+        500,
+        900
+      ]
+    },
+    "Wind_E": {
+      "type": "data",
+      "description": "10-meter above ground Zonal wind speed",
+      "dimensions": [
+        "time",
+        "lat",
+        "lon"
+      ],
+      "unit": "m s-1",
+      "attrs": {
+        "units": "m s-1",
+        "standard_name": "Near surface eastward wind component",
+        "long_name": "10-meter above ground Zonal wind speed",
+        "cell_methods": "time: mean",
+        "vmin": -12.775843620300293,
+        "vmax": 11.65600872039795
+      },
+      "shape": [
+        8399,
+        6500,
+        11700
+      ],
+      "chunks": [
+        1,
+        500,
+        900
+      ]
+    },
+    "Tair": {
+      "type": "data",
+      "description": "2-meter above ground Temperature",
+      "dimensions": [
+        "time",
+        "lat",
+        "lon"
+      ],
+      "unit": "K",
+      "attrs": {
+        "units": "K",
+        "standard_name": "Near surface air temperature",
+        "long_name": "2-meter above ground Temperature",
+        "cell_methods": "time: mean",
+        "vmin": 228.31163024902344,
+        "vmax": 304.30316162109375
+      },
+      "shape": [
+        8399,
+        6500,
+        11700
+      ],
+      "chunks": [
+        1,
+        500,
+        900
+      ]
+    },
+    "PSurf": {
+      "type": "data",
+      "description": "Surface pressure",
+      "dimensions": [
+        "time",
+        "lat",
+        "lon"
+      ],
+      "unit": "Pa",
+      "attrs": {
+        "units": "Pa",
+        "standard_name": "Surface pressure",
+        "long_name": "Surface pressure",
+        "cell_methods": "time: mean",
+        "vmin": 46024.41796875,
+        "vmax": 103161.1796875
+      },
+      "shape": [
+        8399,
+        6500,
+        11700
+      ],
+      "chunks": [
+        1,
+        500,
+        900
+      ]
+    },
+    "SWdown": {
+      "type": "data",
+      "description": "Shortwave radiation flux downwards (surface)",
+      "dimensions": [
+        "time",
+        "lat",
+        "lon"
+      ],
+      "unit": "W m-2",
+      "attrs": {
+        "units": "W m-2",
+        "standard_name": "Surface incident shortwave radiation",
+        "long_name": "Shortwave radiation flux downwards (surface)",
+        "cell_methods": "time: mean",
+        "vmin": 0.0,
+        "vmax": 288.2958068847656
+      },
+      "shape": [
+        8399,
+        6500,
+        11700
+      ],
+      "chunks": [
+        1,
+        500,
+        900
+      ]
+    }
+  },
+  "title": "NLDAS Forcing Data L4 Daily 0.01 x 0.01 degree V3.0 - *BETA*",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -168.9999951170962,
+          7.000000114825381,
+          -51.99999725350927,
+          71.99999511680303
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "2001-01-02T00:00:00Z",
+          "2024-01-01T00:00:00Z"
+        ]
+      ]
+    }
+  },
+  "license": "other",
+  "providers": [
+    {
+      "name": "NLDAS",
+      "roles": [
+        "producer",
+        "processor",
+        "licensor"
+      ],
+      "url": "https://ldas.gsfc.nasa.gov/nldas"
+    }
+  ],
+  "assets": {
+    "nldas-3@YTNGFY4WY9189GEH1FNG": {
+      "href": "s3://nasa-waterinsight/virtual-zarr-store/NLDAS-3-icechunk/",
+      "type": "application/vnd.zarr+icechunk",
+      "title": "NLDAS-3 Virtual Zarr Store",
+      "version": "YTNGFY4WY9189GEH1FNG",
+      "storage:refs": [
+        "aws-s3-nasa-waterinsight"
+      ],
+      "vrt:hrefs": [
+        {
+          "key": "nldas-3-legacy-bucket",
+          "href": "https://raw.githubusercontent.com/NASA-IMPACT/dse-virtual-zarr-workshop/refs/heads/main/docs/examples/collection.json#/assets/nldas-3-legacy-bucket"
+        }
+      ],
+      "roles": [
+        "data",
+        "references",
+        "virtual",
+        "latest-version"
+      ]
+    },
+    "nldas-3-legacy-bucket": {
+      "href": "s3://nasa-waterinsight/NLDAS3/forcing/daily/",
+      "type": "application/x-netcdf",
+      "title": "NLDAS-3 Legacy Bucket",
+      "storage:refs": [
+        "aws-s3-nasa-waterinsight"
+      ],
+      "roles": [
+        "data"
+      ]
+    }
+  }
+}

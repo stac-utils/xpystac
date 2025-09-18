@@ -13,8 +13,9 @@ iterable of items, or output of pystac_client.Client.search.
 | file format | one asset (item or collection-level) | one item | many items | 
 | ----------- | --------- | -------- | ---------- | 
 | COG | x | x | x |
-| zarr | x | | |
-| kerchunk | x | x* | x* |
+| Zarr | x | | |
+| Kerchunk | x | x* | x* |
+| virtual Icechunk | x | | |
 
 \* _if stored in item alongside the datacube extension properties_
 
@@ -39,6 +40,21 @@ item = pystac.Item.from_file(
     "https://raw.githubusercontent.com/stac-utils/pystac/v1.12.2/tests/data-files/examples/1.0.0/simple-item.json"
 )
 asset = item.assets["visual"]
+
+xr.open_dataset(asset)
+```
+
+Read from a virtual Icechunk store
+
+```python
+import pystac
+import xarray as xr
+
+collection = pystac.Collection.from_file("https://raw.githubusercontent.com/stac-utils/main/tests/data/virtual-icechunk-collection.json")
+
+# Get the latest version of the collection-level asset
+assets = collection.get_assets(role="latest-version")
+asset = next(iter(assets.values()))
 
 xr.open_dataset(asset)
 ```
