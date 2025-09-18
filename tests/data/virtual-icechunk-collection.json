@@ -7,7 +7,6 @@
   "stac_extensions": [
     "https://stac-extensions.github.io/virtual-assets/v1.0.0/schema.json",
     "https://stac-extensions.github.io/datacube/v2.2.0/schema.json",
-    "https://stac-extensions.github.io/render/v2.0.0/schema.json",
     "https://stac-extensions.github.io/storage/v2.0.0/schema.json",
     "https://stac-extensions.github.io/version/v1.2.0/schema.json"
   ],

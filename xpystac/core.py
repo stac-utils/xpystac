@@ -179,12 +179,10 @@ def _(
         _import_optional_dependency("zarr")
         default_kwargs = {**default_kwargs, "engine": "zarr"}
     elif obj.media_type == "application/vnd.zarr+icechunk":
-        from xpystac._icechunk import read_virtual_icechunk
+        from xpystac._icechunk import read_icechunk
 
-        if "virtual" in obj.roles:
-            return read_virtual_icechunk(obj)
-        else:
-            raise ValueError("Only virtual icechunk stores are currently supported")
+        return read_icechunk(obj)
+
     href = obj.href
     if patch_url is not None:
         href = patch_url(href)

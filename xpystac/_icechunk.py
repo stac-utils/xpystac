@@ -11,46 +11,14 @@ warnings.filterwarnings(
 )
 
 
-def read_virtual_icechunk(asset: pystac.Asset) -> xr.Dataset:
-    """Read a collection-level virtual icechunk asset
-
-    The asset's parent collection must contain:
-     * "storage:schemes" where at least one key matches "storage:ref" in the asset
-     * another asset that matches the key in the primary asset's ["vrt:hrefs"] list
-    """
-    virtual_asset = asset
-
-    # --- Get storage schemes off the parent collection
-    collection = asset.owner
-    storage_schemes = collection.extra_fields["storage:schemes"]
-
-    # --- Create icechunk storage for virtual store
-    virtual_storage_refs = virtual_asset.extra_fields["storage:refs"]
-    if len(virtual_storage_refs) != 1:
-        raise ValueError("Only supports one storage:ref per virtual asset")
-
-    virtual_storage_scheme = storage_schemes.get(virtual_storage_refs[0])
-    if not virtual_storage_scheme["type"] == "aws-s3":
-        raise ValueError("Only S3 buckets are currently supported")
-
-    virtual_bucket = virtual_storage_scheme["bucket"]
-    virtual_region = virtual_storage_scheme["region"]
-    virtual_anonymous = virtual_storage_scheme.get("anonymous", False)
-    virtual_prefix = virtual_asset.href.split(f"{virtual_bucket}/")[1]
-
-    storage = icechunk.s3_storage(
-        bucket=virtual_bucket,
-        prefix=virtual_prefix,
-        region=virtual_region,
-        anonymous=virtual_anonymous,
-        from_env=not virtual_anonymous,
-    )
-
+def construct_virtual_containers_config(
+    collection: pystac.Collection, asset: pystac.Asset
+):
     # --- Configure icechunk storage for data store
-    data_buckets = virtual_asset.extra_fields["vrt:hrefs"]
+    data_buckets = asset.extra_fields["vrt:hrefs"]
 
     if len(data_buckets) != 1:
-        raise ValueError("Only supports one vrt:href per virtual asset")
+        raise ValueError("Only supports one vrt:href per asset")
 
     data_asset = collection.assets[data_buckets[0]["key"]]
     data_href = data_asset.href
@@ -78,22 +46,67 @@ def read_virtual_icechunk(asset: pystac.Asset) -> xr.Dataset:
         credentials = icechunk.s3_from_env_credentials()
 
     virtual_credentials = icechunk.containers_credentials({data_href: credentials})
+    return config, virtual_credentials
 
-    repo = icechunk.Repository.open(
-        storage=storage,
-        config=config,
-        authorize_virtual_chunk_access=virtual_credentials,
+
+def read_icechunk(asset: pystac.Asset) -> xr.Dataset:
+    """Read a icechunk asset
+
+    The asset's parent must contain:
+     * "storage:schemes" where at least one key matches "storage:ref" in the asset
+
+    For virtual assets the parent must contain:
+     * another asset that matches the key in the primary asset's ["vrt:hrefs"] list
+    """
+    # --- Get storage schemes off the parent
+    collection = asset.owner
+    storage_schemes = collection.extra_fields["storage:schemes"]
+
+    # --- Create icechunk storage from asset fields
+    storage_refs = asset.extra_fields["storage:refs"]
+    if len(storage_refs) != 1:
+        raise ValueError("Only supports one storage:ref per asset")
+
+    storage_scheme = storage_schemes.get(storage_refs[0])
+    if not storage_scheme["type"] == "aws-s3":
+        raise ValueError("Only S3 buckets are currently supported")
+
+    bucket = storage_scheme["bucket"]
+    region = storage_scheme["region"]
+    anonymous = storage_scheme.get("anonymous", False)
+    prefix = asset.href.split(f"{bucket}/")[1]
+
+    storage = icechunk.s3_storage(
+        bucket=bucket,
+        prefix=prefix,
+        region=region,
+        anonymous=anonymous,
+        from_env=not anonymous,
     )
 
-    # --- Open icechunk session at a particular branch/tag/snapshot
-    if version := virtual_asset.extra_fields.get("version"):
-        if version in repo.list_branches():
-            icechunk_kwargs = {"branch": version}
-        elif version in repo.list_tags():
-            icechunk_kwargs = {"tag": version}
-        else:
-            icechunk_kwargs = {"snapshot_id": version}
+    if "virtual" in asset.roles:
+        config, virtual_credentials = construct_virtual_containers_config(
+            collection, asset
+        )
+        repo_kwargs = dict(
+            config=config, authorize_virtual_chunk_access=virtual_credentials
+        )
+    else:
+        repo_kwargs = dict(config=icechunk.RepositoryConfig.default())
 
-    session = repo.readonly_session(**icechunk_kwargs)
+    repo = icechunk.Repository.open(storage=storage, **repo_kwargs)
+
+    # --- Open icechunk session at a particular branch/tag/snapshot
+    if version := asset.extra_fields.get("version"):
+        if version in repo.list_branches():
+            session_kwargs = {"branch": version}
+        elif version in repo.list_tags():
+            session_kwargs = {"tag": version}
+        else:
+            session_kwargs = {"snapshot_id": version}
+    else:
+        session_kwargs = {"branch": "main"}
+
+    session = repo.readonly_session(**session_kwargs)
 
     return xr.open_zarr(session.store, zarr_format=3, consolidated=False)

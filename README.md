@@ -50,7 +50,9 @@ Read from a virtual Icechunk store
 import pystac
 import xarray as xr
 
-collection = pystac.Collection.from_file("https://raw.githubusercontent.com/stac-utils/main/tests/data/virtual-icechunk-collection.json")
+collection = pystac.Collection.from_file(
+    "https://raw.githubusercontent.com/stac-utils/xpystac/refs/heads/main/tests/data/virtual-icechunk-collection.json"
+)
 
 # Get the latest version of the collection-level asset
 assets = collection.get_assets(role="latest-version")
