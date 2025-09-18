@@ -184,6 +184,10 @@ def _(
             zarr_kwargs["zarr_format"] = obj.extra_fields["zarr:zarr_format"]
 
         default_kwargs = {**default_kwargs, **zarr_kwargs, "engine": "zarr"}
+    elif obj.media_type == "application/vnd.zarr+icechunk":
+        from xpystac._icechunk import read_icechunk
+
+        return read_icechunk(obj)
 
     href = obj.href
     if patch_url is not None:
