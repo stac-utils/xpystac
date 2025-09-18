@@ -175,9 +175,15 @@ def _(
     if obj.media_type == pystac.MediaType.COG:
         _import_optional_dependency("rioxarray")
         default_kwargs = {**default_kwargs, "engine": "rasterio"}
-    elif obj.media_type == "application/vnd+zarr":
+    elif obj.media_type in ["application/vnd+zarr", "application/vnd.zarr"]:
         _import_optional_dependency("zarr")
-        default_kwargs = {**default_kwargs, "engine": "zarr"}
+        zarr_kwargs = {}
+        if "zarr:consolidated" in obj.extra_fields:
+            zarr_kwargs["consolidated"] = obj.extra_fields["zarr:consolidated"]
+        if "zarr:zarr_format" in obj.extra_fields:
+            zarr_kwargs["zarr_format"] = obj.extra_fields["zarr:zarr_format"]
+
+        default_kwargs = {**default_kwargs, **zarr_kwargs, "engine": "zarr"}
     elif obj.media_type == "application/vnd.zarr+icechunk":
         from xpystac._icechunk import read_icechunk
 
