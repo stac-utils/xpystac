@@ -12,9 +12,9 @@ iterable of items, or output of pystac_client.Client.search.
 
 | file format | one asset (item or collection-level) | one item | many items | 
 | ----------- | --------- | -------- | ---------- | 
-| COG | x | x | x |
+| COG | x | | |
 | Zarr | x | | |
-| Kerchunk | x | x* | x* |
+| Kerchunk | x | x* | |
 | virtual Icechunk | x | | |
 
 \* _if stored in item alongside the datacube extension properties_
