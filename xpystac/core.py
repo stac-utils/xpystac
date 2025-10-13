@@ -1,19 +1,17 @@
 import functools
 from collections.abc import Callable, Mapping
-from typing import Literal
 
 import pystac
 import xarray
 
 from xpystac._xstac_kerchunk import _stac_to_kerchunk
-from xpystac.utils import _import_optional_dependency, _is_item_search
+from xpystac.utils import _import_optional_dependency
 
 
 @functools.singledispatch
 def to_xarray(
     obj,
     *,
-    stacking_library: Literal["odc.stac", "stackstac"] | None = None,
     patch_url: None | Callable[[str], str] = None,
     allow_kerchunk: bool = True,
     **kwargs,
@@ -27,17 +25,11 @@ def to_xarray(
       dataset. If the asset points to a COG, read that.
     * Item: stacks all the assets into a dataset with 1 more dimension than
       any given asset.
-    * ItemCollection (output of pystac_client.search): stacks all the
-      assets in all the items into a dataset with 2 more dimensions than
-      any given asset.
 
     Parameters
     ----------
     obj : PySTAC object (Item, ItemCollection, Asset)
         The object from which to read data.
-    stacking_library : "odc.stac", "stackstac", optional
-        When stacking multiple items, this argument determines which library
-        to use. Defaults to ``odc.stac`` if available and otherwise ``stackstac``.
     patch_url : Callable, optional
         Function that takes a string or pystac object and returns an altered
         version. Normally used to sign urls before trying to read data from
@@ -48,25 +40,13 @@ def to_xarray(
         if provided (either in the data-cube extension or as a regular asset
         with ``references`` or ``index`` as the role).
     """
-    if _is_item_search(obj):
-        item_collection = obj.item_collection()
-        return to_xarray(
-            item_collection,
-            stacking_library=stacking_library,
-            patch_url=patch_url,
-            allow_kerchunk=allow_kerchunk,
-            **kwargs,
-        )
     raise TypeError
 
 
 @to_xarray.register(pystac.Item)
-@to_xarray.register(pystac.ItemCollection)
-@to_xarray.register(list)
 def _(
-    obj: pystac.Item | pystac.ItemCollection,
+    obj: pystac.Item,
     drop_variables: str | list[str] | None = None,
-    stacking_library: Literal["odc.stac", "stackstac"] | None = None,
     patch_url: None | Callable[[str], str] = None,
     allow_kerchunk: bool = True,
     **kwargs,
@@ -98,50 +78,10 @@ def _(
 
             return xarray.open_dataset(mapper, **{**default_kwargs, **kwargs})
 
-    if stacking_library is None:
-        try:
-            _import_optional_dependency("odc.stac")
-            stacking_library = "odc.stac"
-        except ImportError:
-            _import_optional_dependency("stackstac")
-            stacking_library = "stackstac"
-    elif stacking_library not in ["odc.stac", "stackstac"]:
-        raise ValueError(f"{stacking_library=} is not a valid option")
-
-    if stacking_library == "odc.stac":
-        odc_stac = _import_optional_dependency("odc.stac")
-        if isinstance(obj, pystac.Item):
-            items = [obj]
-        else:
-            items = [i for i in obj]
-        return odc_stac.load(
-            items,
-            **{"chunks": {"x": 1024, "y": 1024}, "patch_url": patch_url, **kwargs},
-        )
-    elif stacking_library == "stackstac":
-        stackstac = _import_optional_dependency("stackstac")
-        if patch_url:
-            if isinstance(obj, pystac.STACObject):
-                obj = patch_url(obj)
-            else:
-                obj = [patch_url(o) for o in obj]
-        da = stackstac.stack(obj, **kwargs)
-        bands = {}
-        for band in da.band.values:
-            b = da.sel(band=band)
-            scalar_coords = {k: v.item() for k, v in b.coords.items() if v.shape == ()}
-            b = b.assign_attrs(
-                **{k: v for k, v in scalar_coords.items() if v is not None}
-            )
-            b = b.drop_vars(scalar_coords)
-            bands[band] = b
-        return xarray.Dataset(bands, attrs=da.attrs)
-
 
 @to_xarray.register
 def _(
     obj: pystac.Asset,
-    stacking_library: Literal["odc.stac", "stackstac"] | None = None,
     patch_url: None | Callable[[str], str] = None,
     allow_kerchunk: bool = True,
     **kwargs,

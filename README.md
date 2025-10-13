@@ -96,23 +96,6 @@ xr.open_dataset(asset, patch_url=planetary_computer.sign)
 
 Note that this zarr asset uses the xarray-assets extension to store `open_kwargs` and `storage_options` which xpystac can then pass along to `xr.open_dataset`.
 
-### Open a single item
-
-A single item containing many COGs:
-
-```python
-import pystac
-import xarray as xr
-
-
-item = pystac.Item.from_file(
-    "https://earth-search.aws.element84.com/v1/collections/landsat-c2-l2/items/LC09_L2SR_081108_20250311_02_T2"
-)
-
-xr.open_dataset(item)
-```
-This takes advantage of a stacking library (either
-[odc-stac](https://github.com/opendatacube/odc-stac) or [stackstac](https://github.com/gjoseph92/stackstac) - configurable via the `stacking_library` option)
 
 ### Open many items
 
@@ -152,9 +135,8 @@ xr.open_dataset(item_collection)
 ## How it works
 
 When you call ``xarray.open_dataset(object, engine="stac")`` this library maps that `open` call to the correct library.
-Depending on the ``type`` of ``object`` that might be a stacking library (either
-[odc-stac](https://github.com/opendatacube/odc-stac) or [stackstac](https://github.com/gjoseph92/stackstac))
-or back to ``xarray.open_dataset`` itself but with the engine and other options pulled from the pystac object.
+Depending on the ``type`` of ``object`` that might be
+back to ``xarray.open_dataset`` itself but with the engine and other options pulled from the pystac object.
 
 ## Prior Art
 

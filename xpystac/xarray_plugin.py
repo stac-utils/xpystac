@@ -1,11 +1,10 @@
 from collections.abc import Callable, Iterable
-from typing import Any, Literal
+from typing import Any
 
 import pystac
 from xarray.backends import BackendEntrypoint
 
 from xpystac.core import to_xarray
-from xpystac.utils import _is_item_search
 
 
 class STACBackend(BackendEntrypoint):
@@ -17,7 +16,6 @@ class STACBackend(BackendEntrypoint):
         self,
         filename_or_obj: Any,
         drop_variables: str | Iterable[str] | None = None,
-        stacking_library: Literal["odc.stac", "stackstac"] | None = None,
         patch_url: Callable[[str], str] | None = None,
         **kwargs,
     ):
@@ -38,9 +36,6 @@ class STACBackend(BackendEntrypoint):
         ----------
         filename_or_obj : PySTAC object (Item, ItemCollection, Asset)
             The object from which to read data.
-        stacking_library : "odc.stac", "stackstac", optional
-            When stacking multiple items, this argument determines which library
-            to use. Defaults to ``odc.stac`` if available and otherwise ``stackstac``.
         patch_url : Callable, optional
             Function that takes a string or pystac object and returns an altered
             version. Normally used to sign urls before trying to read data from
@@ -50,12 +45,9 @@ class STACBackend(BackendEntrypoint):
         return to_xarray(
             filename_or_obj,
             drop_variables=drop_variables,
-            stacking_library=stacking_library,
             patch_url=patch_url,
             **kwargs,
         )
 
     def guess_can_open(self, filename_or_obj: Any):
-        return isinstance(
-            filename_or_obj, (pystac.Asset, pystac.Item, pystac.ItemCollection)
-        ) or _is_item_search(filename_or_obj)
+        return isinstance(filename_or_obj, (pystac.Asset, pystac.Item))
