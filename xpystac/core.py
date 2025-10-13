@@ -1,5 +1,5 @@
 import functools
-from collections.abc import Callable, Mapping
+from collections.abc import Callable
 
 import pystac
 import xarray
@@ -71,7 +71,6 @@ def _(
 
             mapper = fsspec.filesystem("reference", fo=refs).get_mapper()
             default_kwargs = {
-                "chunks": {},
                 "engine": "zarr",
                 "consolidated": False,
             }
@@ -86,7 +85,6 @@ def _(
     allow_kerchunk: bool = True,
     **kwargs,
 ) -> xarray.Dataset:
-    default_kwargs: Mapping = {"chunks": {}}
     open_kwargs = obj.extra_fields.get("xarray:open_kwargs", {})
 
     storage_options = obj.extra_fields.get("xarray:storage_options", None)
@@ -107,14 +105,13 @@ def _(
             refs = patch_url(refs)
 
         default_kwargs = {
-            **default_kwargs,
             "engine": "kerchunk",
         }
         return xarray.open_dataset(refs, **{**default_kwargs, **open_kwargs, **kwargs})
 
     if obj.media_type == pystac.MediaType.COG:
         _import_optional_dependency("rioxarray")
-        default_kwargs = {**default_kwargs, "engine": "rasterio"}
+        default_kwargs = {"engine": "rasterio"}
     elif obj.media_type in ["application/vnd+zarr", "application/vnd.zarr"]:
         _import_optional_dependency("zarr")
         zarr_kwargs = {}
@@ -122,8 +119,7 @@ def _(
             zarr_kwargs["consolidated"] = obj.extra_fields["zarr:consolidated"]
         if "zarr:zarr_format" in obj.extra_fields:
             zarr_kwargs["zarr_format"] = obj.extra_fields["zarr:zarr_format"]
-
-        default_kwargs = {**default_kwargs, **zarr_kwargs, "engine": "zarr"}
+        default_kwargs = {**zarr_kwargs, "engine": "zarr"}
     elif obj.media_type == "application/vnd.zarr+icechunk":
         from xpystac._icechunk import read_icechunk
 

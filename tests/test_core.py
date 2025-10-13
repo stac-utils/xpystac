@@ -50,7 +50,7 @@ def test_to_xarray_reference_file():
     with pytest.raises(ReferenceNotReachable):
         to_xarray(kerchunk_asset)
 
-    ds = to_xarray(kerchunk_asset, patch_url=pc.sign)
+    ds = to_xarray(kerchunk_asset, patch_url=pc.sign, chunks={})
     assert not ds.lon.isnull().all(), "Coordinates should be populated"
 
     for da in ds.data_vars.values():
@@ -69,7 +69,7 @@ def test_to_xarray_zarr():
     assert collection is not None
     zarr_asset = collection.assets["zarr-abfs"]
 
-    ds = to_xarray(zarr_asset)
+    ds = to_xarray(zarr_asset, chunks={})
     for da in ds.data_vars.values():
         if da.ndim >= 2:
             assert hasattr(da.data, "dask"), da.name
