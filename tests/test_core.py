@@ -115,9 +115,18 @@ def test_to_xarray_with_item_with_kerchunk_attrs_in_data_cube(data_cube_kerchunk
 
 
 @requires_icechunk
-def test_to_xarray_virtual_icechunk(virtual_icechunk):
+def test_to_xarray_virtual_icechunk_collection(virtual_icechunk_collection):
     # Get the latest version of the collection-level asset
-    assets = virtual_icechunk.get_assets(role="latest-version")
+    assets = virtual_icechunk_collection.get_assets(role="latest-version")
+    asset = next(iter(assets.values()))
+
+    to_xarray(asset)
+
+
+@requires_icechunk
+def test_to_xarray_virtual_icechunk_item(virtual_icechunk_item):
+    # Get the latest version of the collection-level asset
+    assets = virtual_icechunk_item.get_assets(role="latest-version")
     asset = next(iter(assets.values()))
 
     to_xarray(asset)

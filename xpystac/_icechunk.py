@@ -12,7 +12,7 @@ warnings.filterwarnings(
 
 
 def construct_virtual_containers_config(
-    collection: pystac.Collection, asset: pystac.Asset
+    owner: pystac.Collection | pystac.Item, asset: pystac.Asset
 ):
     # --- Configure icechunk storage for data store
     data_buckets = asset.extra_fields["vrt:hrefs"]
@@ -20,16 +20,18 @@ def construct_virtual_containers_config(
     if len(data_buckets) != 1:
         raise ValueError("Only supports one vrt:href per asset")
 
-    data_asset = collection.assets[data_buckets[0]["key"]]
+    data_asset = owner.assets[data_buckets[0]["key"]]
     data_href = data_asset.href
 
     data_storage_refs = data_asset.extra_fields["storage:refs"]
     if len(data_storage_refs) != 1:
         raise ValueError("Only supports one storage:ref per data asset")
 
-    data_storage_scheme = collection.extra_fields["storage:schemes"].get(
-        data_storage_refs[0]
-    )
+    if isinstance(owner, pystac.Item):
+        fields = owner.properties
+    else:
+        fields = owner.extra_fields
+    data_storage_scheme = fields["storage:schemes"].get(data_storage_refs[0])
     if not data_storage_scheme["type"] == "aws-s3":
         raise ValueError("Only S3 buckets are currently supported")
 
@@ -59,8 +61,12 @@ def read_icechunk(asset: pystac.Asset) -> xr.Dataset:
      * another asset that matches the key in the primary asset's ["vrt:hrefs"] list
     """
     # --- Get storage schemes off the parent
-    collection = asset.owner
-    storage_schemes = collection.extra_fields["storage:schemes"]
+    owner = asset.owner
+    if isinstance(owner, pystac.Item):
+        fields = owner.properties
+    else:
+        fields = owner.extra_fields
+    storage_schemes = fields["storage:schemes"]
 
     # --- Create icechunk storage from asset fields
     storage_refs = asset.extra_fields["storage:refs"]
@@ -85,9 +91,7 @@ def read_icechunk(asset: pystac.Asset) -> xr.Dataset:
     )
 
     if "virtual" in asset.roles:
-        config, virtual_credentials = construct_virtual_containers_config(
-            collection, asset
-        )
+        config, virtual_credentials = construct_virtual_containers_config(owner, asset)
         repo_kwargs = dict(
             config=config, authorize_virtual_chunk_access=virtual_credentials
         )
