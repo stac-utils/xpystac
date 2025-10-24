@@ -30,20 +30,33 @@ def construct_virtual_containers_config(
     data_storage_scheme = collection.extra_fields["storage:schemes"].get(
         data_storage_refs[0]
     )
-    if not data_storage_scheme["type"] == "aws-s3":
-        raise ValueError("Only S3 buckets are currently supported")
+    if data_storage_scheme["type"] == "aws-s3":
+        data_region = data_storage_scheme["region"]
+        data_anonymous = data_storage_scheme.get("anonymous", False)
 
-    data_region = data_storage_scheme["region"]
-    data_anonymous = data_storage_scheme.get("anonymous", False)
+        config = icechunk.RepositoryConfig.default()
+        config.set_virtual_chunk_container(
+            icechunk.VirtualChunkContainer(
+                data_href, icechunk.s3_store(region=data_region)
+            )
+        )
+        if data_anonymous:
+            credentials = icechunk.s3_anonymous_credentials()
+        else:
+            credentials = icechunk.s3_from_env_credentials()
+    elif data_storage_scheme["type"] == "ms-azure":
+        data_account = data_storage_scheme["account"]
 
-    config = icechunk.RepositoryConfig.default()
-    config.set_virtual_chunk_container(
-        icechunk.VirtualChunkContainer(data_href, icechunk.s3_store(region=data_region))
-    )
-    if data_anonymous:
-        credentials = icechunk.s3_anonymous_credentials()
+        config = icechunk.RepositoryConfig.default()
+        config.set_virtual_chunk_container(
+            icechunk.VirtualChunkContainer(
+                data_href,
+                icechunk.ObjectStoreConfig.Azure(dict(account_name=data_account)),
+            )
+        )
+        credentials = icechunk.azure_from_env_credentials()
     else:
-        credentials = icechunk.s3_from_env_credentials()
+        raise ValueError("Only S3 and Azure are currently supported")
 
     virtual_credentials = icechunk.containers_credentials({data_href: credentials})
     return config, virtual_credentials
@@ -68,21 +81,35 @@ def read_icechunk(asset: pystac.Asset) -> xr.Dataset:
         raise ValueError("Only supports one storage:ref per asset")
 
     storage_scheme = storage_schemes.get(storage_refs[0])
-    if not storage_scheme["type"] == "aws-s3":
-        raise ValueError("Only S3 buckets are currently supported")
+    if storage_scheme["type"] == "aws-s3":
+        bucket = storage_scheme["bucket"]
+        region = storage_scheme["region"]
+        anonymous = storage_scheme.get("anonymous", False)
+        prefix = asset.href.split(f"{bucket}/")[1]
 
-    bucket = storage_scheme["bucket"]
-    region = storage_scheme["region"]
-    anonymous = storage_scheme.get("anonymous", False)
-    prefix = asset.href.split(f"{bucket}/")[1]
+        storage = icechunk.s3_storage(
+            bucket=bucket,
+            prefix=prefix,
+            region=region,
+            anonymous=anonymous,
+            from_env=not anonymous,
+        )
+    elif storage_scheme["type"] == "ms-azure":
+        account = storage_scheme["account"]
+        container = storage_scheme["container"]
+        platform = storage_scheme["platform"].format(
+            account=account, container=container
+        )
+        prefix = asset.href.replace(f"{platform}/", "")
 
-    storage = icechunk.s3_storage(
-        bucket=bucket,
-        prefix=prefix,
-        region=region,
-        anonymous=anonymous,
-        from_env=not anonymous,
-    )
+        storage = icechunk.azure_storage(
+            account=account,
+            container=container,
+            prefix=prefix,
+            from_env=True,
+        )
+    else:
+        raise ValueError("Only S3 and Azure are currently supported")
 
     if "virtual" in asset.roles:
         config, virtual_credentials = construct_virtual_containers_config(
