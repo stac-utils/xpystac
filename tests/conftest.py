@@ -25,9 +25,15 @@ def data_cube_kerchunk() -> pystac.ItemCollection:
 
 
 @pytest.fixture(scope="module")
-def virtual_icechunk() -> pystac.ItemCollection:
+def virtual_icechunk_collection() -> pystac.Collection:
     path = "tests/data/virtual-icechunk-collection.json"
     return pystac.Collection.from_file(path)
+
+
+@pytest.fixture(scope="module")
+def virtual_icechunk_item() -> pystac.Item:
+    path = "tests/data/virtual-icechunk-item.json"
+    return pystac.Item.from_file(path)
 
 
 @pytest.fixture(scope="module")
