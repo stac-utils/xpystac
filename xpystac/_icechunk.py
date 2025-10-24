@@ -75,7 +75,17 @@ def construct_virtual_containers_config(
             credentials = icechunk.s3_anonymous_credentials()
         else:
             credentials = icechunk.s3_from_env_credentials()
+    elif data_storage_scheme["type"] == "ms-azure":
+        data_account = data_storage_scheme["account"]
 
+        config = icechunk.RepositoryConfig.default()
+        config.set_virtual_chunk_container(
+            icechunk.VirtualChunkContainer(
+                data_href,
+                icechunk.ObjectStoreConfig.Azure(dict(account_name=data_account)),
+            )
+        )
+        credentials = icechunk.azure_from_env_credentials()
     elif data_scheme_type == "local":
         path = unquote(urlparse(data_href).path)
         config = icechunk.RepositoryConfig.default()
@@ -87,10 +97,9 @@ def construct_virtual_containers_config(
         )
         # icechunk>=2 expects an explicit no-auth sentinel instead of None
         credentials = getattr(icechunk.credentials, "LocalFileSystemAccess", None)
-
     else:
         raise ValueError(
-            "Only S3, S3-compatible, and local storage are currently supported"
+            "Only S3, S3-compatible, Azure, and local storage are currently supported"
         )
 
     virtual_credentials = icechunk.containers_credentials({data_href: credentials})
@@ -136,16 +145,28 @@ def read_icechunk(asset: pystac.Asset) -> xr.Dataset:
             from_env=not anonymous,
             **scheme_kwargs,
         )
+    elif storage_scheme["type"] == "ms-azure":
+        account = storage_scheme["account"]
+        container = storage_scheme["container"]
+        platform = storage_scheme["platform"].format(
+            account=account, container=container
+        )
+        prefix = asset.href.replace(f"{platform}/", "")
 
+        storage = icechunk.azure_storage(
+            account=account,
+            container=container,
+            prefix=prefix,
+            from_env=True,
+        )
     elif scheme_type == "local":
         # Resolve relative hrefs against the owner's self href
         href = asset.get_absolute_href() or asset.href
         path = unquote(urlparse(href).path)
         storage = icechunk.local_filesystem_storage(path=path)
-
     else:
         raise ValueError(
-            "Only S3, S3-compatible, and local storage are currently supported"
+            "Only S3, S3-compatible, Azure, and local storage are currently supported"
         )
 
     if "virtual" in asset.roles:
