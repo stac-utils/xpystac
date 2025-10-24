@@ -104,10 +104,7 @@ def read_icechunk(asset: pystac.Asset) -> xr.Dataset:
     elif storage_scheme["type"] == "ms-azure":
         account = storage_scheme["account"]
         container = storage_scheme["container"]
-        platform = storage_scheme["platform"].format(
-            account=account, container=container
-        )
-        prefix = asset.href.replace(f"{platform}/", "")
+        prefix = asset.href.split(f"{container}/")[1]
 
         storage = icechunk.azure_storage(
             account=account,
