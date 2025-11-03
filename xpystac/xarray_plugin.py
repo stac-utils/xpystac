@@ -49,5 +49,19 @@ class STACBackend(BackendEntrypoint):
             **kwargs,
         )
 
+    def open_datatree(
+        self,
+        filename_or_obj: Any,
+        drop_variables: str | Iterable[str] | None = None,
+        patch_url: Callable[[str], str] | None = None,
+        **kwargs,
+    ):
+        return to_xarray_datatree(
+            filename_or_obj,
+            drop_variables=drop_variables,
+            patch_url=patch_url,
+            **kwargs,
+        )
+
     def guess_can_open(self, filename_or_obj: Any):
         return isinstance(filename_or_obj, (pystac.Asset, pystac.Item))
