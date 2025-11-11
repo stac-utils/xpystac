@@ -53,8 +53,8 @@ def construct_virtual_containers_config(
         config = icechunk.RepositoryConfig.default()
         config.set_virtual_chunk_container(
             icechunk.VirtualChunkContainer(
-                data_href,
-                icechunk.ObjectStoreConfig.Azure(dict(account_name=data_account)),
+                url_prefix=data_href,
+                store=icechunk.storage.azure_store(account=data_account),
             )
         )
         credentials = icechunk.azure_from_env_credentials()
