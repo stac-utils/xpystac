@@ -90,38 +90,22 @@ def _(
     alternate: str | None = None,
     **kwargs,
 ) -> xarray.Dataset:
+    # extract extensions
     info = extensions._extract_alternate_asset(obj, alternate)
     href = info.href
-    if patch_url is not None:
-        href = patch_url(href)
 
-    storage_refs = cast(list[str] | None, info.properties.get("storage:refs"))
-    if storage_refs is not None:
-        storage_schemes = cast(
-            dict[str, JSON],
-            extensions._extract_parent_attribute(obj, "storage:schemes"),
-        )
-        if storage_schemes is None:
-            raise ValueError(
-                "storage:refs found but no storage:schemes on the parent object"
-            )
-
-        selected_storage: list[JSON] = extensions._resolve_refs(
-            storage_refs, storage_schemes
-        )
-        if len(storage_refs) != 1:
-            raise NotImplementedError(
-                "Only one storage:ref per asset is currently supported"
-            )
-
-        [storage_scheme] = selected_storage
-        # TODO: figure out how to best pass along the storage scheme
+    storage = extensions.extract_scheme(info, kind="storage")
+    auth = extensions.extract_scheme(info, kind="auth")
 
     open_kwargs = cast(dict[str, JSON], info.properties.get("xarray:open_kwargs", {}))
-
     storage_options = cast(
         dict[str, JSON] | None, info.properties.get("xarray:storage_options", None)
     )
+
+    # use extension data
+    # FIXME: these should be replaced by the authentication, zarr and storage extensions
+    if patch_url is not None:
+        href = patch_url(href)
     if storage_options:
         open_kwargs["storage_options"] = storage_options
 
