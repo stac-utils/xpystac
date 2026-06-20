@@ -16,12 +16,12 @@ class AssetInfo:
 
 
 def _extract_alternate_asset(asset: pystac.Asset, alternate: str | None) -> AssetInfo:
-    excludes = {"href", "alternate:name"}
+    excludes = {"href", "alternate"}
 
-    asset_name = asset.extra_fields.get("alternate:name")
-    if alternate is None or alternate == asset_name:
+    properties = {k: v for k, v in asset.extra_fields.items() if k not in excludes}
+    if alternate is None:
         href = asset.href
-        properties = {k: v for k, v in asset.extra_fields.items() if k not in excludes}
+        additional_properties = {}
     else:
         alternate_assets = asset.extra_fields.get("alternate")
         if alternate_assets is None:
@@ -37,13 +37,11 @@ def _extract_alternate_asset(asset: pystac.Asset, alternate: str | None) -> Asse
             )
 
         href = alternate_asset["href"]
-        properties = {
-            k: v
-            for k, v in (asset.extra_fields | alternate_asset).items()
-            if k not in excludes
+        additional_properties = {
+            k: v for k, v in alternate_asset.items() if k not in excludes
         }
 
-    return AssetInfo(href, properties)
+    return AssetInfo(href, properties | additional_properties)
 
 
 def _resolve_scheme(
