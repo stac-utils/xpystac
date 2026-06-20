@@ -44,9 +44,7 @@ def _extract_alternate_asset(asset: pystac.Asset, alternate: str | None) -> Asse
     return AssetInfo(href, properties | additional_properties)
 
 
-def _extract_parent_attribute(
-    obj: pystac.Asset, attr: str
-) -> dict[str, dict[str, JSON]] | None:
+def _extract_parent_attribute(obj: pystac.Asset, attr: str) -> JSON:
     if isinstance(obj.owner, pystac.Item):
         fields = obj.owner.properties
     else:
@@ -55,12 +53,7 @@ def _extract_parent_attribute(
     return fields.get(attr)
 
 
-def _resolve_refs(
-    refs: list[str] | None, schemes: dict[str, dict[str, JSON]]
-) -> list[dict[str, JSON]] | None:
-    if refs is None:
-        return None
-
+def _resolve_refs(refs: list[str], schemes: dict[str, JSON]) -> list[JSON]:
     missing_refs = [ref for ref in refs if ref not in schemes]
     if missing_refs:
         raise ValueError("selected unknown refs: {', '.join(missing_refs)}")
