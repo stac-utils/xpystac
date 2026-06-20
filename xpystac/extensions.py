@@ -44,7 +44,7 @@ def _extract_alternate_asset(asset: pystac.Asset, alternate: str | None) -> Asse
     return AssetInfo(href, properties | additional_properties)
 
 
-def _resolve_scheme(
+def _resolve_refs(
     refs: list[str] | None, schemes: dict[str, dict[str, JSON]]
 ) -> list[dict[str, JSON]] | None:
     if refs is None:

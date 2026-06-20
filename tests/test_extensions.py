@@ -8,7 +8,7 @@ from xpystac import extensions
 from xpystac.extensions import JSON, AssetInfo
 
 
-@pytest.fixture
+@pytest.fixture(scope="module")
 def alternate_asset_item(request):
     root = pathlib.Path(__file__).parent / "data"
     path = root / "alternate_asset.json"
@@ -46,3 +46,27 @@ def test_extract_alternate_asset(
 
     assert actual.href == expected_href
     assert actual.properties == expected_properties
+
+
+@pytest.mark.parametrize(
+    ["refs", "expected"],
+    (
+        pytest.param(None, None, id="none"),
+        pytest.param(["minio"], [{"type": "custom-s3"}], id="one"),
+        pytest.param(
+            ["minio", "aws-us-west-2"],
+            [{"type": "custom-s3"}, {"type": "aws-s3"}],
+            id="two",
+        ),
+    ),
+)
+def test_resolve_refs(
+    refs: list[str] | None, expected: list[dict[str, JSON]] | None
+) -> None:
+    schemes: dict[str, dict[str, JSON]] = {
+        "minio": {"type": "custom-s3"},
+        "aws-us-west-2": {"type": "aws-s3"},
+    }
+
+    actual = extensions._resolve_refs(refs, schemes)
+    assert actual == expected
