@@ -1,0 +1,99 @@
+{
+  "stac_version": "1.0.0",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/storage/v2.0.0/schema.json",
+    "https://stac-extensions.github.io/version/v1.2.0/schema.json",
+    "https://stac-extensions.github.io/alternate-assets/v1.1.0/schema.json"
+  ],
+  "id": "m_3009743_sw_14_1_20160928_20161129",
+  "bbox": [
+    -97.75,
+    30.25,
+    -97.6875,
+    30.312499999999996
+  ],
+  "type": "Feature",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          -97.75,
+          30.312499999999996
+        ],
+        [
+          -97.75,
+          30.25
+        ],
+        [
+          -97.6875,
+          30.25
+        ],
+        [
+          -97.6875,
+          30.312499999999996
+        ],
+        [
+          -97.75,
+          30.312499999999996
+        ]
+      ]
+    ]
+  },
+  "properties": {
+    "datetime": "2016-09-28T00:00:00+00:00",
+    "mission": "NAIP",
+    "gsd": 1,
+    "storage:schemes": {
+      "az-wus2-ar": {
+        "type": "ms-azure",
+        "platform": "https://{account}.blob.core.windows.net",
+        "account": "jon-doe-123",
+        "region": "westus2"
+      },
+      "aws-std": {
+        "type": "aws-s3",
+        "platform": "https://{bucket}.s3.{region}.amazonaws.com",
+        "bucket": "naip-visualization",
+        "region": "us-west-2",
+        "requester_pays": true
+      },
+      "minio": {
+        "type": "custom-s3",
+        "platform": "https://play.min.io:9000"
+      }
+    }
+  },
+  "assets": {
+    "CO_GEOTIFF_RGB": {
+      "href": "s3://naip-visualization/tx/2016/100cm/rgb/30097/m_3009743_sw_14_1_20160928.tif",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "storage:refs": [
+        "aws-std"
+      ],
+      "alternate:name": "Amazon S3",
+      "alternate": {
+        "minio": {
+          "href": "s3://mybucket/tx/2016/100cm/rgb/30097/m_3009743_sw_14_1_20160928.tif",
+          "alternate:name": "MinIO",
+          "storage:refs": [
+            "minio"
+          ]
+        }
+      }
+    },
+    "GEOTIFF_AZURE_RGBIR": {
+      "href": "https://naip-nsl.blob.core.windows.net/tx/2016/100cm/rgb/30097/m_3009743_sw_14_1_20160928.tif",
+      "type": "image/tiff; application=geotiff",
+      "storage:refs": [
+        "az-wus2-ar"
+      ]
+    }
+  },
+  "links": [
+    {
+      "href": "https://example.com/examples/item-naip.json",
+      "rel": "self"
+    }
+  ]
+}
