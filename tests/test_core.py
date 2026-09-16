@@ -145,3 +145,12 @@ def test_to_xarray_virtual_icechunk_item(virtual_icechunk_item):
     asset = next(iter(assets.values()))
 
     to_xarray(asset)
+
+
+@requires_icechunk
+def test_to_xarray_virtual_icechunk_item_gcs(virtual_icechunk_item_gcs):
+    # Get the latest version of the item-level asset
+    assets = virtual_icechunk_item_gcs.get_assets(role="latest-version")
+    asset = next(iter(assets.values()))
+
+    to_xarray(asset)

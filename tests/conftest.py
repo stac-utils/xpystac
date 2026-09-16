@@ -37,6 +37,12 @@ def virtual_icechunk_item() -> pystac.Item:
 
 
 @pytest.fixture(scope="module")
+def virtual_icechunk_item_gcs() -> pystac.Item:
+    path = "tests/data/virtual-icechunk-item-gcs.json"
+    return pystac.Item.from_file(path)
+
+
+@pytest.fixture(scope="module")
 def simple_search() -> pystac_client.ItemSearch:
     client = pystac_client.Client.open(STAC_URLS["EARTH-SEARCH"])
     return client.search(

@@ -152,7 +152,7 @@ def _(
     elif obj.media_type == "application/vnd.zarr+icechunk":
         from xpystac._icechunk import read_icechunk
 
-        return read_icechunk(obj)
+        return read_icechunk(obj, **kwargs)
 
     href = obj.href
     if patch_url is not None:

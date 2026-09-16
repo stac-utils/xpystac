@@ -1,0 +1,121 @@
+{
+  "type": "Feature",
+  "stac_version": "1.1.0",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/storage/v2.0.0/schema.json",
+    "https://stac-extensions.github.io/version/v1.2.0/schema.json",
+    "https://stac-extensions.github.io/zarr/v1.1.0/schema.json",
+    "https://stac-extensions.github.io/datacube/v2.2.0/schema.json"
+  ],
+  "id": "weatherbench2-era5-icechunk-gcs",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [-180.0, -90.0],
+        [-180.0, 90.0],
+        [180.0, 90.0],
+        [180.0, -90.0],
+        [-180.0, -90.0]
+      ]
+    ]
+  },
+  "bbox": [-180.0, -90.0, 180.0, 90.0],
+  "properties": {
+    "title": "Weatherbench2 ERA5 - Icechunk 1x721x1440 Tensor Store",
+    "description": "Weatherbench2 copy of the ERA5 reanalysis dataset optimized for machine learning weather forecasting benchmarks, deployed via the Icechunk transactional tensor storage engine on Google Cloud Storage.",
+    "storage:schemes": {
+      "gcs-icechunk-public": {
+        "type": "gcs",
+        "platform": "https://storage.googleapis.com",
+        "bucket": "xpystac-test-data-icechunk",
+        "anonymous": true
+      }
+    },
+    "providers": [
+      {
+        "name": "ECMWF",
+        "roles": ["producer"],
+        "url": "https://www.ecmwf.int/"
+      },
+      {
+        "name": "Earthmover",
+        "roles": ["host"],
+        "url": "https://earthmover.io"
+      }
+    ],
+    "start_datetime": "1959-01-01T00:00:00Z",
+    "end_datetime": "2023-01-10T18:00:00Z",
+    "cube:dimensions": {
+      "time": {
+        "extent": ["1959-01-01T00:00:00Z", "2023-01-10T18:00:00Z"],
+        "description": "6-hourly time series steps from 1959 to early 2023",
+        "type": "temporal"
+      },
+      "lon": {
+        "axis": "x",
+        "extent": [0.0, 360.0],
+        "description": "longitude",
+        "reference_system": 4326,
+        "type": "spatial"
+      },
+      "lat": {
+        "axis": "y",
+        "extent": [-90.0, 90.0],
+        "description": "latitude",
+        "reference_system": 4326,
+        "type": "spatial"
+      }
+    },
+    "cube:variables": {
+      "2m_temperature": {
+        "type": "data",
+        "description": "Temperature of air at 2m above the surface of the Earth",
+        "dimensions": ["time", "lat", "lon"],
+        "unit": "K",
+        "attrs": {
+          "units": "K",
+          "long_name": "2 metre temperature",
+          "short_name": "t2m"
+        },
+        "shape": [100, 721, 1440],
+        "chunks": [1, 721, 1440]
+      },
+      "10m_u_component_of_wind": {
+        "type": "data",
+        "description": "Eastward component of the wind at a height of 10 metres above the surface of the Earth",
+        "dimensions": ["time", "lat", "lon"],
+        "unit": "m s-1",
+        "attrs": {
+          "units": "m s-1",
+          "long_name": "10 metre U wind component",
+          "short_name": "u10"
+        },
+        "shape": [100, 721, 1440],
+        "chunks": [1, 721, 1440]
+      }
+    },
+    "datetime": null
+  },
+  "links": [],
+  "assets": {
+    "weatherbench2-era5-1x721x1440": {
+      "href": "gs://xpystac-test-data-icechunk/test-fixtures/weatherbench2-mock-v2/",
+      "type": "application/vnd.zarr+icechunk",
+      "title": "Weatherbench2 ERA5 Icechunk Store",
+      "zarr:consolidated": false,
+      "zarr:zarr_format": 3,
+      "icechunk:branch": "main",
+      "xarray:open_kwargs": {
+        "group": "1x721x1440"
+      },
+      "storage:refs": [
+        "gcs-icechunk-public"
+      ],
+      "roles": [
+        "data",
+        "latest-version"
+      ]
+    }
+  }
+}
