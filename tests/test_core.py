@@ -35,6 +35,21 @@ def test_to_xarray_with_bad_type():
         to_xarray("foo")
 
 
+def test_to_xarray_item_with_no_openable_asset_raises(simple_item):
+    """An Item whose assets are not Zarr/kerchunk (e.g. only COG + thumbnail,
+    like NAIP) must raise a clear ValueError instead of silently returning
+    None and exploding inside xarray's backend later (gh-68)."""
+    with pytest.raises(ValueError, match="no Zarr or kerchunk asset"):
+        to_xarray(simple_item)
+
+
+def test_to_xarray_item_with_cog_only_error_points_at_stackstac(simple_item):
+    """COG-only items should point users at stackstac / odc-stac in the
+    error message (gh-68)."""
+    with pytest.raises(ValueError, match="stackstac or odc-stac"):
+        to_xarray(simple_item)
+
+
 @requires_planetary_computer
 def test_to_xarray_reference_file():
     import planetary_computer as pc
