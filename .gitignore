@@ -2,9 +2,12 @@ __pycache__
 .coverage
 htmlcov
 dist
+build
 .direnv
 .mypy_cache
 .pytest_cache
 .ruff_cache
 *.egg-info/
 .venv
+*.tar
+*.zarr
