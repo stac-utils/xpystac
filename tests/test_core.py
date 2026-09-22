@@ -1,13 +1,20 @@
 import pystac_client
 import pytest
+import xarray as xr
 
 from tests.utils import STAC_URLS, requires_icechunk, requires_planetary_computer
-from xpystac.core import to_xarray
+from xpystac.core import to_xarray, to_xarray_datatree
 
 
 def test_to_xarray_with_cog_asset(simple_cog):
     ds = to_xarray(simple_cog)
     assert ds
+
+
+@pytest.mark.skip(reason="rasterio does not implement open_datatree")
+def test_to_xarray_with_cog_asset_datatree(simple_cog):
+    tree = to_xarray_datatree(simple_cog)
+    assert isinstance(tree, xr.DataTree)
 
 
 @requires_planetary_computer
@@ -33,6 +40,11 @@ def test_to_xarray_with_pystac_client_search_with_patch_url():
 def test_to_xarray_with_bad_type():
     with pytest.raises(TypeError):
         to_xarray("foo")
+
+
+def test_to_xarray_datatree_with_bad_type():
+    with pytest.raises(TypeError):
+        to_xarray_datatree("foo")
 
 
 @requires_planetary_computer
@@ -73,6 +85,21 @@ def test_to_xarray_zarr():
     for da in ds.data_vars.values():
         if da.ndim >= 2:
             assert hasattr(da.data, "dask"), da.name
+
+
+@requires_planetary_computer
+def test_to_xarray_zarr_datatree():
+    import planetary_computer as pc
+
+    catalog = pystac_client.Client.open(
+        STAC_URLS["PLANETARY-COMPUTER"], modifier=pc.sign_inplace
+    )
+    collection = catalog.get_collection("daymet-daily-hi")
+    assert collection is not None
+    zarr_asset = collection.assets["zarr-abfs"]
+
+    tree = to_xarray_datatree(zarr_asset, chunks={})
+    assert isinstance(tree, xr.DataTree)
 
 
 @requires_planetary_computer
