@@ -4,7 +4,7 @@ from typing import Any
 import pystac
 from xarray.backends import BackendEntrypoint
 
-from xpystac.core import to_xarray
+from xpystac.core import to_xarray, to_xarray_datatree
 
 
 class STACBackend(BackendEntrypoint):
