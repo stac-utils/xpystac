@@ -1,10 +1,13 @@
 import functools
 from collections.abc import Callable
+from typing import cast
 
 import pystac
 import xarray
 
+from xpystac import extensions
 from xpystac._xstac_kerchunk import _stac_to_kerchunk
+from xpystac.extensions import JSON
 from xpystac.utils import _import_optional_dependency
 
 
@@ -112,11 +115,26 @@ def _(
     obj: pystac.Asset,
     patch_url: None | Callable[[str], str] = None,
     allow_kerchunk: bool = True,
+    *,
+    alternate: str | None = None,
     **kwargs,
 ) -> xarray.Dataset:
-    open_kwargs = obj.extra_fields.get("xarray:open_kwargs", {})
+    # extract extensions
+    info = extensions._extract_alternate_asset(obj, alternate)
+    href = info.href
 
-    storage_options = obj.extra_fields.get("xarray:storage_options", None)
+    storage = extensions.extract_scheme(info, kind="storage")
+    auth = extensions.extract_scheme(info, kind="auth")
+
+    open_kwargs = cast(dict[str, JSON], info.properties.get("xarray:open_kwargs", {}))
+    storage_options = cast(
+        dict[str, JSON] | None, info.properties.get("xarray:storage_options", None)
+    )
+
+    # use extension data
+    # FIXME: these should be replaced by the authentication, zarr and storage extensions
+    if patch_url is not None:
+        href = patch_url(href)
     if storage_options:
         open_kwargs["storage_options"] = storage_options
 
@@ -126,7 +144,7 @@ def _(
         and {"index", "references"}.intersection(set(obj.roles) if obj.roles else set())
     ):
         requests = _import_optional_dependency("requests")
-        r = requests.get(obj.href)
+        r = requests.get(href)
         r.raise_for_status()
 
         refs = r.json()
@@ -153,10 +171,6 @@ def _(
         from xpystac._icechunk import read_icechunk
 
         return read_icechunk(obj)
-
-    href = obj.href
-    if patch_url is not None:
-        href = patch_url(href)
 
     ds = xarray.open_dataset(href, **{**default_kwargs, **open_kwargs, **kwargs})
     return ds
