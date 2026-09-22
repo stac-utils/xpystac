@@ -1,4 +1,5 @@
 import functools
+import warnings
 from collections.abc import Callable
 
 import pystac
@@ -75,6 +76,13 @@ def _(
         if "zarr:zarr_format" in obj.extra_fields:
             zarr_kwargs["zarr_format"] = obj.extra_fields["zarr:zarr_format"]
         default_kwargs = {**zarr_kwargs, "engine": "zarr"}
+    else:
+        warnings.warn(
+            UserWarning(
+                "unsupported file format detected. xarray's format guessing machinery"
+                " might still make this work, though."
+            )
+        )
 
     href = obj.href
     if patch_url is not None:
