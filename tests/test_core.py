@@ -11,7 +11,6 @@ def test_to_xarray_with_cog_asset(simple_cog):
     assert ds
 
 
-@pytest.mark.skip(reason="rasterio does not implement open_datatree")
 def test_to_xarray_with_cog_asset_datatree(simple_cog):
     tree = to_xarray_datatree(simple_cog)
     assert isinstance(tree, xr.DataTree)

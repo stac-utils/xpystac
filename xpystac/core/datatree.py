@@ -2,7 +2,7 @@ import functools
 from collections.abc import Callable
 
 import pystac
-import xarray
+import xarray as xr
 
 from xpystac.utils import _import_optional_dependency
 
@@ -14,7 +14,7 @@ def to_xarray_datatree(
     patch_url: None | Callable[[str], str] = None,
     allow_kerchunk: bool = True,
     **kwargs,
-) -> xarray.DataTree:
+) -> xr.DataTree:
     """Given a PySTAC object return an xarray DataTree.
 
     The behavior of this method depends on the type of PySTAC object:
@@ -44,7 +44,7 @@ def _(
     patch_url: None | Callable[[str], str] = None,
     allow_kerchunk: bool = True,
     **kwargs,
-) -> xarray.Dataset:
+) -> xr.Dataset:
     raise NotImplementedError("to be done")
 
 
@@ -52,9 +52,8 @@ def _(
 def _(
     obj: pystac.Asset,
     patch_url: None | Callable[[str], str] = None,
-    allow_kerchunk: bool = True,
     **kwargs,
-) -> xarray.Dataset:
+) -> xr.Dataset:
     open_kwargs = obj.extra_fields.get("xarray:open_kwargs", {})
 
     storage_options = obj.extra_fields.get("xarray:storage_options", None)
@@ -62,8 +61,12 @@ def _(
         open_kwargs["storage_options"] = storage_options
 
     if obj.media_type == pystac.MediaType.COG:
-        _import_optional_dependency("rioxarray")
-        default_kwargs = {"engine": "rasterio"}
+        from xpystac.core.dataset import to_xarray
+
+        # COG doesn't support groups
+        return xr.DataTree.from_dict(
+            {"/": to_xarray(obj, patch_url=patch_url, **kwargs)}
+        )
     elif obj.media_type in ["application/vnd+zarr", "application/vnd.zarr"]:
         _import_optional_dependency("zarr")
         zarr_kwargs = {}
@@ -77,5 +80,5 @@ def _(
     if patch_url is not None:
         href = patch_url(href)
 
-    ds = xarray.open_datatree(href, **{**default_kwargs, **open_kwargs, **kwargs})
+    ds = xr.open_datatree(href, **{**default_kwargs, **open_kwargs, **kwargs})
     return ds
