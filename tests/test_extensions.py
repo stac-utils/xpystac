@@ -5,7 +5,7 @@ import pystac
 import pytest
 
 from xpystac import extensions
-from xpystac.extensions import JSON, AssetInfo
+from xpystac.extensions.common import JSON, AssetInfo
 
 
 @pytest.fixture(scope="module")
@@ -42,7 +42,7 @@ def test_extract_alternate_asset(
 ) -> None:
     asset = alternate_asset_item.assets["CO_GEOTIFF_RGB"]
 
-    actual: AssetInfo = extensions._extract_alternate_asset(asset, alternate)
+    actual: AssetInfo = extensions.extract_alternate_asset(asset, alternate)
 
     assert actual.href == expected_href
     assert actual.properties == expected_properties
@@ -51,7 +51,7 @@ def test_extract_alternate_asset(
 @pytest.mark.parametrize(
     ["refs", "expected"],
     (
-        pytest.param(None, None, id="none"),
+        pytest.param([], [], id="none"),
         pytest.param(["minio"], [{"type": "custom-s3"}], id="one"),
         pytest.param(
             ["minio", "aws-us-west-2"],
@@ -60,13 +60,11 @@ def test_extract_alternate_asset(
         ),
     ),
 )
-def test_resolve_refs(
-    refs: list[str] | None, expected: list[dict[str, JSON]] | None
-) -> None:
+def test_resolve_refs(refs: list[str], expected: list[dict[str, JSON]]) -> None:
     schemes: dict[str, dict[str, JSON]] = {
         "minio": {"type": "custom-s3"},
         "aws-us-west-2": {"type": "aws-s3"},
     }
 
-    actual = extensions._resolve_refs(refs, schemes)
+    actual = extensions.schemes._resolve_refs(refs, schemes)
     assert actual == expected
