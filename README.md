@@ -1,24 +1,12 @@
 # xpystac
-xpystac provides the glue that allows `xarray.open_dataset` to accept pystac objects.
+xpystac provides the glue that allows `xarray.open_dataset` and `xarray.open_datatree` to accept pystac assets.
 
 The goal is that as long as this library is in your env, you should never need to think about it.
+It will read data for an asset pointing to a COG, a zarr store, a virtual icechunk store, or a kerchunk reference file.
 
-- **Open one asset**: Reads data for an asset pointing to a COG, a zarr store, or a kerchunk reference file.
-- **Open one item**: Reads data for all the assets in a particular item (commonly each COG represents a band).
- - **Open many items**: Reads all the assets in all the items for a particular item collection
-iterable of items, or output of pystac_client.Client.search.
-
-## What works
-
-| file format | one asset (item or collection-level) | one item | many items | 
-| ----------- | --------- | -------- | ---------- | 
-| COG | x | | |
-| Zarr | x | | |
-| Kerchunk | x | x* | |
-| virtual Icechunk | x | | |
-
-\* _if stored in item alongside the datacube extension properties_
-
+This library does not try to replace the need for the stacking and mosaicing that odc-stac and stackstac provide.
+When loading a pystac item where each asset contains a COG representing a particular band you are better off using 
+those libraries directly.
 
 ## Install
 
@@ -28,9 +16,7 @@ pip install xpystac
 
 ## Examples
 
-### Open a single asset
-
-Read from a COG
+### Read from a COG
 
 ```python
 import pystac
@@ -44,7 +30,7 @@ asset = item.assets["visual"]
 xr.open_dataset(asset)
 ```
 
-Read from a virtual Icechunk store
+### Read from a virtual Icechunk store
 
 ```python
 import pystac
@@ -76,7 +62,7 @@ catalog = pystac_client.Client.open(
 )
 ```
 
-Read from a kerchunk reference file ([ref](https://planetarycomputer.microsoft.com/dataset/nasa-nex-gddp-cmip6#Example-Notebook)):
+### Read from a kerchunk reference file ([ref](https://planetarycomputer.microsoft.com/dataset/nasa-nex-gddp-cmip6#Example-Notebook)):
 
 ```python
 collection = catalog.get_collection("nasa-nex-gddp-cmip6")
@@ -85,7 +71,7 @@ asset = collection.assets["ACCESS-CM2.historical"]
 xr.open_dataset(asset, patch_url=planetary_computer.sign)
 ```
 
-Read from a zarr file ([ref](https://planetarycomputer.microsoft.com/docs/quickstarts/reading-zarr-data/))
+### Read from a zarr file ([ref](https://planetarycomputer.microsoft.com/docs/quickstarts/reading-zarr-data/))
 
 ```python
 collection = catalog.get_collection("daymet-daily-hi")
@@ -96,40 +82,19 @@ xr.open_dataset(asset, patch_url=planetary_computer.sign)
 
 Note that this zarr asset uses the xarray-assets extension to store `open_kwargs` and `storage_options` which xpystac can then pass along to `xr.open_dataset`.
 
-
-### Open many items
-
-Read all the data from the search results for a collection of COGs:
+### Open as a datatree
 
 ```python
+import xarray as xr
 import pystac_client
-import xarray as xr
 
 
-catalog = pystac_client.Client.open(
-    "https://earth-search.aws.element84.com/v1",
-)
+client = pystac_client.Client.open("https://stac-api.grid4earth.eu")
+items = client.search(collections=["sentinel-2-l2a"]).item_collection()
+item = items.items[0]
+asset = item.assets["product"]
 
-search = catalog.search(
-    intersects=dict(type="Point", coordinates=[-105.78, 35.79]),
-    collections=['sentinel-2-l2a'],
-    datetime="2022-04-01/2022-05-01",
-)
-
-xr.open_dataset(search, engine="stac")
-```
-
-Read data from an item collection that uses the exploratory approach of storing kerchunked metadata within the datacube extension metadata:
-
-```python
-import pystac
-import xarray as xr
-
-item_collection = pystac.ItemCollection.from_file(
-    "https://raw.githubusercontent.com/stac-utils/xpystac/main/tests/data/data-cube-kerchunk-item-collection.json"
-)
-
-xr.open_dataset(item_collection)
+tree = xr.open_datatree(asset, engine="stac")
 ```
 
 ## How it works
