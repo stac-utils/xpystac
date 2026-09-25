@@ -77,19 +77,30 @@ def _(
 
             return xarray.open_dataset(mapper, **{**default_kwargs, **kwargs})
 
-    # No kerchunk reference on the item itself: fall back to opening a Zarr /
-    # icechunk asset directly. xpystac dispatches Zarr-like assets in the
-    # registered ``pystac.Asset`` handler below.
+    # See if the item has just one kerchunk/zarr/icechunk asset and if so open that
+    # asset directly.
     dataset_media_types = {
         "application/vnd+zarr",
         "application/vnd.zarr",
         "application/vnd.zarr+icechunk",
     }
     dataset_assets = [
-        a for a in obj.assets.values() if a.media_type in dataset_media_types
+        a
+        for a in obj.assets.values()
+        if a.media_type in dataset_media_types
+        or (
+            allow_kerchunk
+            and a.media_type == pystac.MediaType.JSON
+            and {"index", "references"}.intersection(set(a.roles) if a.roles else set())
+        )
     ]
-    if dataset_assets:
+    if len(dataset_assets) == 1:
         return to_xarray(dataset_assets[0], patch_url=patch_url, **kwargs)
+    elif len(dataset_assets) > 1:
+        raise ValueError(
+            f"Item {obj.id!r} has multiple Zarr/icechunk/kerchunk"
+            "assets; xpystac can only open one asset."
+        )
 
     observed = sorted({a.media_type or "(unset)" for a in obj.assets.values()})
     has_cog = any(a.media_type == pystac.MediaType.COG for a in obj.assets.values())
