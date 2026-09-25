@@ -1,0 +1,92 @@
+import functools
+import warnings
+from collections.abc import Callable
+
+import pystac
+import xarray as xr
+
+from xpystac.utils import _import_optional_dependency
+
+
+@functools.singledispatch
+def to_xarray_datatree(
+    obj,
+    *,
+    patch_url: None | Callable[[str], str] = None,
+    allow_kerchunk: bool = True,
+    **kwargs,
+) -> xr.DataTree:
+    """Given a PySTAC object return an xarray DataTree.
+
+    The behavior of this method depends on the type of PySTAC object:
+
+    * Asset: if the asset points to a zarr file,
+      reads the metadata in that file to construct the coordinates of the
+      dataset. If the asset points to a COG, read that.
+    * Item: assemble all the assets as siblings in a big datatree object.
+
+    Parameters
+    ----------
+    obj : PySTAC object (Item, ItemCollection, Asset)
+        The object from which to read data.
+    patch_url : Callable, optional
+        Function that takes a string or pystac object and returns an altered
+        version. Normally used to sign urls before trying to read data from
+        them. For instance when working with Planetary Computer this argument
+        should be set to ``pc.sign``.
+    """
+    raise TypeError
+
+
+@to_xarray_datatree.register(pystac.Item)
+def _(
+    obj: pystac.Item,
+    drop_variables: str | list[str] | None = None,
+    patch_url: None | Callable[[str], str] = None,
+    allow_kerchunk: bool = True,
+    **kwargs,
+) -> xr.Dataset:
+    raise NotImplementedError("to be done")
+
+
+@to_xarray_datatree.register
+def _(
+    obj: pystac.Asset,
+    patch_url: None | Callable[[str], str] = None,
+    **kwargs,
+) -> xr.Dataset:
+    open_kwargs = obj.extra_fields.get("xarray:open_kwargs", {})
+
+    storage_options = obj.extra_fields.get("xarray:storage_options", None)
+    if storage_options:
+        open_kwargs["storage_options"] = storage_options
+
+    if obj.media_type == pystac.MediaType.COG:
+        from xpystac.core.dataset import to_xarray
+
+        # COG doesn't support groups
+        return xr.DataTree.from_dict(
+            {"/": to_xarray(obj, patch_url=patch_url, **kwargs)}
+        )
+    elif obj.media_type in ["application/vnd+zarr", "application/vnd.zarr"]:
+        _import_optional_dependency("zarr")
+        zarr_kwargs = {}
+        if "zarr:consolidated" in obj.extra_fields:
+            zarr_kwargs["consolidated"] = obj.extra_fields["zarr:consolidated"]
+        if "zarr:zarr_format" in obj.extra_fields:
+            zarr_kwargs["zarr_format"] = obj.extra_fields["zarr:zarr_format"]
+        default_kwargs = {**zarr_kwargs, "engine": "zarr"}
+    else:
+        warnings.warn(
+            UserWarning(
+                "unsupported file format detected. xarray's format guessing machinery"
+                " might still make this work, though."
+            )
+        )
+
+    href = obj.href
+    if patch_url is not None:
+        href = patch_url(href)
+
+    ds = xr.open_datatree(href, **{**default_kwargs, **open_kwargs, **kwargs})
+    return ds

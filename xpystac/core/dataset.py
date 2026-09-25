@@ -92,17 +92,14 @@ def _(
         return to_xarray(dataset_assets[0], patch_url=patch_url, **kwargs)
 
     observed = sorted({a.media_type or "(unset)" for a in obj.assets.values()})
-    has_cog = any(
-        a.media_type == pystac.MediaType.COG for a in obj.assets.values()
-    )
+    has_cog = any(a.media_type == pystac.MediaType.COG for a in obj.assets.values())
     msg = (
         f"Item {obj.id!r} has no Zarr or kerchunk asset that xpystac can open "
         f"as a dataset; observed asset media_types: {observed}."
     )
     if has_cog:
         msg += (
-            " For COG / image assets, use stackstac or odc-stac to stack "
-            "across items."
+            " For COG / image assets, use stackstac or odc-stac to stack across items."
         )
     raise ValueError(msg)
 

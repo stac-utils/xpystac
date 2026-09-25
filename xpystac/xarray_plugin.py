@@ -4,7 +4,7 @@ from typing import Any
 import pystac
 from xarray.backends import BackendEntrypoint
 
-from xpystac.core import to_xarray
+from xpystac.core import to_xarray, to_xarray_datatree
 
 
 class STACBackend(BackendEntrypoint):
@@ -43,6 +43,20 @@ class STACBackend(BackendEntrypoint):
             should be set to ``pc.sign``.
         """
         return to_xarray(
+            filename_or_obj,
+            drop_variables=drop_variables,
+            patch_url=patch_url,
+            **kwargs,
+        )
+
+    def open_datatree(
+        self,
+        filename_or_obj: Any,
+        drop_variables: str | Iterable[str] | None = None,
+        patch_url: Callable[[str], str] | None = None,
+        **kwargs,
+    ):
+        return to_xarray_datatree(
             filename_or_obj,
             drop_variables=drop_variables,
             patch_url=patch_url,
