@@ -98,7 +98,7 @@ def _(
         return to_xarray(dataset_assets[0], patch_url=patch_url, **kwargs)
     elif len(dataset_assets) > 1:
         raise ValueError(
-            f"Item {obj.id!r} has multiple Zarr/icechunk/kerchunk"
+            f"Item {obj.id!r} has multiple Zarr/icechunk/kerchunk "
             "assets; xpystac can only open one asset."
         )
 
