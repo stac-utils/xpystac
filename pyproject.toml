@@ -36,7 +36,7 @@ dev = [
     "kerchunk>=0.2.7",
     "planetary-computer>=1.0.0",
     "pre-commit>=4.0.1",
-    "pystac<1.12",
+    "pystac<1.16",
     "pystac-client>=0.8.6",
     "pytest>=8.3.3",
     "pytest-cov>=6.0.0",
