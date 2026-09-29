@@ -61,6 +61,20 @@ def test_to_xarray_item_with_cog_only_error_points_at_stackstac(simple_item):
         to_xarray(simple_item)
 
 
+@requires_icechunk
+def test_to_xarray_item_with_one_dataset_asset_works(virtual_icechunk_item):
+    to_xarray(virtual_icechunk_item)
+
+
+@requires_icechunk
+def test_to_xarray_item_with_multiple_dataset_assets_raises(virtual_icechunk_item):
+    item = virtual_icechunk_item
+    assets = item.get_assets(role="latest-version")
+    item.assets["copy"] = next(iter(assets.values()))
+    with pytest.raises(ValueError, match="xpystac can only open one asset"):
+        to_xarray(item)
+
+
 @requires_planetary_computer
 def test_to_xarray_reference_file():
     import planetary_computer as pc

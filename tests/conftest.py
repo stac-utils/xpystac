@@ -30,7 +30,7 @@ def virtual_icechunk_collection() -> pystac.Collection:
     return pystac.Collection.from_file(path)
 
 
-@pytest.fixture(scope="module")
+@pytest.fixture(scope="function")
 def virtual_icechunk_item() -> pystac.Item:
     path = "tests/data/virtual-icechunk-item.json"
     return pystac.Item.from_file(path)
