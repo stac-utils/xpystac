@@ -1,5 +1,5 @@
 import warnings
-from urllib.parse import urlparse, unquote
+from urllib.parse import unquote, urlparse
 
 import icechunk
 import pystac
@@ -41,7 +41,9 @@ def construct_virtual_containers_config(
 
         config = icechunk.RepositoryConfig.default()
         config.set_virtual_chunk_container(
-            icechunk.VirtualChunkContainer(data_href, icechunk.s3_store(region=data_region))
+            icechunk.VirtualChunkContainer(
+                data_href, icechunk.s3_store(region=data_region)
+            )
         )
         if data_anonymous:
             credentials = icechunk.s3_anonymous_credentials()
@@ -99,9 +101,7 @@ def read_icechunk(asset: pystac.Asset) -> xr.Dataset:
 
     elif scheme_type == "local":
         path = unquote(urlparse(asset.href).path)
-        storage = icechunk.local_filesystem_storage(
-            path=path
-        )
+        storage = icechunk.local_filesystem_storage(path=path)
 
     else:
         raise ValueError("Only S3 buckets and local storage are currently supported")
