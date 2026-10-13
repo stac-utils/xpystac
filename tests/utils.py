@@ -33,6 +33,13 @@ has_planetary_computer, requires_planetary_computer = _importorskip(
 has_icechunk, requires_icechunk = _importorskip("icechunk")
 
 
+# icechunk 2.x dropped Python 3.11 wheels, so CI's 3.11 job is stuck on the
+# last 3.11-compatible release (1.1.21), which can only read Icechunk v1
+# repositories. A fixture built with a newer icechunk (v2 format) needs this
+# stricter gate, not just "icechunk is importable".
+has_icechunk_v2, requires_icechunk_v2 = _importorskip("icechunk", minversion="2.0")
+
+
 has_rustac, requires_rustac = _importorskip("rustac")
 
 
