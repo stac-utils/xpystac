@@ -8,3 +8,4 @@ dist
 .ruff_cache
 *.egg-info/
 .venv
+scripts/fixtures_data/

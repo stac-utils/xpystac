@@ -43,6 +43,7 @@ dev = [
     "pytest-xdist>=3.8.0",
     "requests>=2.32.3",
     "rioxarray>=0.18.2",
+    "rustac>=0.9.17",
     "urllib3>=2.3.0",
     "zarr>2",
 ]
@@ -59,6 +60,7 @@ include = [
 line-length = 88
 lint.select = ["E", "F", "W", "I", "TID252" ]
 target-version = "py310"
+extend-exclude = ["scripts"]
 
 [tool.ruff.lint.flake8-tidy-imports]
 ban-relative-imports = "all"
