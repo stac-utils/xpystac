@@ -50,8 +50,7 @@ xr.open_dataset(asset)
 Icechunk assets on S3-compatible object stores that aren't AWS (e.g. MinIO,
 other self-hosted S3 gateways) are also supported, via a `storage:schemes`
 entry of type
-[`custom-s3`](https://github.com/stac-extensions/storage/blob/main/platforms/custom-s3.md)
-with a path-style `platform` endpoint URL (no `{bucket}` placeholder):
+[`custom-s3`](https://github.com/stac-extensions/storage/blob/main/platforms/custom-s3.md):
 
 ```json
 "storage:schemes": {

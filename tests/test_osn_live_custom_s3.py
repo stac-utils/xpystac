@@ -13,23 +13,17 @@ The fixture data (7 NERACOOS wave buoy NetCDF4 files + their virtual
 Icechunk stores + this catalog) was generated once with scripts/ in this
 repo and lives at s3://esip/rsignell/icechunk_demo/ (OSN, publicly
 anonymously readable — no credentials needed to run this test).
-
-The fixture's Icechunk repositories are v2 format, so this needs
-icechunk>=2.0 to read (not just "icechunk is importable") — see
-requires_icechunk_v2 in tests/utils.py. CI's Python 3.11 job is stuck on
-icechunk 1.1.21 (icechunk 2.x dropped 3.11 wheels), which can only read v1
-repositories, so this test is skipped there rather than failing.
 """
 
 import pystac
 import xarray as xr
 
-from tests.utils import requires_icechunk_v2, requires_rustac
+from tests.utils import requires_icechunk, requires_rustac
 
 CATALOG_URL = "https://usgs.osn.mghpcc.org/esip/rsignell/icechunk_demo/catalog.parquet"
 
 
-@requires_icechunk_v2
+@requires_icechunk
 @requires_rustac
 def test_read_virtual_icechunk_item_from_geoparquet_catalog_on_osn():
     import rustac

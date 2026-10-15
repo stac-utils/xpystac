@@ -12,28 +12,14 @@ warnings.filterwarnings(
 
 
 def _s3_scheme_kwargs(storage_scheme: dict) -> dict:
-    """Map a storage:schemes entry to the kwargs icechunk's s3 constructors share.
-
-    Only affects the "custom-s3" path (https://github.com/stac-extensions/storage/
-    blob/main/platforms/custom-s3.md); "aws-s3" keeps today's exact behavior
-    (region required, no endpoint_url/force_path_style/allow_http) so existing
-    aws-s3 users see no change.
-
-    Only path-style custom-s3 addressing is supported: a "platform" containing
-    a "{bucket}" placeholder (virtual-hosted-style addressing) is not yet
-    implemented.
-    """
+    """Map a storage:schemes entry to the kwargs icechunk's s3 constructors share."""
     scheme_type = storage_scheme["type"]
     if scheme_type == "aws-s3":
         return {"region": storage_scheme["region"]}
     if scheme_type == "custom-s3":
         platform = storage_scheme["platform"]
-        if "{bucket}" in platform:
-            raise NotImplementedError(
-                "custom-s3 storage schemes with a '{bucket}' placeholder in "
-                "'platform' (virtual-hosted-style addressing) are not yet "
-                "supported by xpystac; only path-style custom-s3 is supported."
-            )
+        if "{bucket}" in platform or "{region}" in platform:
+            platform = platform.format(**storage_scheme)
         return {
             "region": storage_scheme.get("region"),
             "endpoint_url": platform,
