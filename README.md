@@ -47,6 +47,21 @@ asset = next(iter(assets.values()))
 xr.open_dataset(asset)
 ```
 
+Icechunk assets on S3-compatible object stores that aren't AWS (e.g. MinIO,
+other self-hosted S3 gateways) are also supported, via a `storage:schemes`
+entry of type
+[`custom-s3`](https://github.com/stac-extensions/storage/blob/main/platforms/custom-s3.md):
+
+```json
+"storage:schemes": {
+  "my-minio": {
+    "type": "custom-s3",
+    "platform": "https://minio.example.com",
+    "bucket": "my-bucket"
+  }
+}
+```
+
 Here are a few examples from the [Planetary Computer Docs](https://planetarycomputer.microsoft.com/docs/overview/about) which has some good examples of collection-level assets used to catalog zarr stores and
 kerchunk reference files.
 
