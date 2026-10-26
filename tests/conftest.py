@@ -1,3 +1,6 @@
+import datetime
+
+import numpy as np
 import pystac
 import pystac_client
 import pytest
@@ -44,3 +47,54 @@ def simple_search() -> pystac_client.ItemSearch:
         collections=["sentinel-2-l2a"],
         datetime="2020-05-01",
     )
+
+
+@pytest.fixture(scope="function")
+def local_virtual_icechunk_item(tmp_path) -> pystac.Item:
+    icechunk = pytest.importorskip("icechunk")
+    import zarr
+
+    # The virtual chunk is a raw file holding [1.0, 2.0, 3.0] as float64 (24 bytes)
+    (tmp_path / "foo.bin").write_bytes(np.array([1.0, 2.0, 3.0]).tobytes())
+    data_href = tmp_path.as_uri() + "/"
+
+    config = icechunk.RepositoryConfig.default()
+    config.set_virtual_chunk_container(
+        icechunk.VirtualChunkContainer(
+            data_href, icechunk.local_filesystem_store(str(tmp_path))
+        )
+    )
+    storage = icechunk.local_filesystem_storage(str(tmp_path / "repo"))
+    session = icechunk.Repository.create(storage, config).writable_session("main")
+    zarr.create_array(
+        session.store,
+        name="foo",
+        shape=(3,),
+        dtype="f8",
+        compressors=None,
+        dimension_names=["x"],
+    )
+    session.store.set_virtual_ref("foo/c/0", data_href + "foo.bin", offset=0, length=24)
+    session.commit("add virtual foo")
+
+    item = pystac.Item(
+        id="local-virtual-icechunk",
+        geometry=None,
+        bbox=None,
+        datetime=datetime.datetime(2020, 1, 1),
+        properties={"storage:schemes": {"local": {"type": "local"}}},
+    )
+    item.add_asset(
+        "repo",
+        pystac.Asset(
+            href=(tmp_path / "repo").as_uri(),
+            media_type="application/vnd.zarr+icechunk",
+            roles=["data", "virtual"],
+            extra_fields={"storage:refs": ["local"], "vrt:hrefs": [{"key": "data"}]},
+        ),
+    )
+    item.add_asset(
+        "data",
+        pystac.Asset(href=data_href, extra_fields={"storage:refs": ["local"]}),
+    )
+    return item
