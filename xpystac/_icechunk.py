@@ -12,6 +12,28 @@ warnings.filterwarnings(
 )
 
 
+def _s3_scheme_kwargs(storage_scheme: dict) -> dict:
+    """Map a storage:schemes entry to the kwargs icechunk's s3 constructors share."""
+    scheme_type = storage_scheme["type"]
+    if scheme_type == "aws-s3":
+        return {"region": storage_scheme["region"]}
+    if scheme_type == "custom-s3":
+        platform = storage_scheme["platform"]
+        if "{bucket}" in platform or "{region}" in platform:
+            platform = platform.format(**storage_scheme)
+        return {
+            "region": storage_scheme.get("region"),
+            "endpoint_url": platform,
+            "force_path_style": True,
+            "allow_http": platform.startswith("http://"),
+        }
+
+    raise ValueError(
+        f"Unsupported storage scheme type {scheme_type!r}; xpystac currently "
+        "supports 'aws-s3', 'custom-s3', and 'local'"
+    )
+
+
 def construct_virtual_containers_config(
     owner: pystac.Collection | pystac.Item, asset: pystac.Asset
 ):
@@ -22,7 +44,7 @@ def construct_virtual_containers_config(
         raise ValueError("Only supports one vrt:href per asset")
 
     data_asset = owner.assets[data_buckets[0]["key"]]
-    data_href = data_asset.href
+    data_href = data_asset.get_absolute_href()
 
     data_storage_refs = data_asset.extra_fields["storage:refs"]
     if len(data_storage_refs) != 1:
@@ -35,14 +57,18 @@ def construct_virtual_containers_config(
     data_storage_scheme = fields["storage:schemes"].get(data_storage_refs[0])
     data_scheme_type = data_storage_scheme["type"]
 
-    if data_scheme_type == "aws-s3":
-        data_region = data_storage_scheme["region"]
+    if data_scheme_type in {"aws-s3", "custom-s3"}:
+        data_scheme_kwargs = _s3_scheme_kwargs(data_storage_scheme)
         data_anonymous = data_storage_scheme.get("anonymous", False)
 
         config = icechunk.RepositoryConfig.default()
         config.set_virtual_chunk_container(
             icechunk.VirtualChunkContainer(
-                data_href, icechunk.s3_store(region=data_region)
+                data_href,
+                icechunk.s3_store(
+                    s3_compatible=(data_storage_scheme["type"] == "custom-s3"),
+                    **data_scheme_kwargs,
+                ),
             )
         )
         if data_anonymous:
@@ -51,17 +77,21 @@ def construct_virtual_containers_config(
             credentials = icechunk.s3_from_env_credentials()
 
     elif data_scheme_type == "local":
+        path = unquote(urlparse(data_href).path)
         config = icechunk.RepositoryConfig.default()
         config.set_virtual_chunk_container(
             icechunk.VirtualChunkContainer(
                 data_href,
-                icechunk.local_filesystem_store(unquote(urlparse(data_href).path)),
+                icechunk.local_filesystem_store(path),
             )
         )
         # icechunk>=2 expects an explicit no-auth sentinel instead of None
         credentials = getattr(icechunk.credentials, "LocalFileSystemAccess", None)
+
     else:
-        raise ValueError("Only S3 buckets and local storage are currently supported")
+        raise ValueError(
+            "Only S3, S3-compatible, and local storage are currently supported"
+        )
 
     virtual_credentials = icechunk.containers_credentials({data_href: credentials})
     return config, virtual_credentials
@@ -92,18 +122,19 @@ def read_icechunk(asset: pystac.Asset) -> xr.Dataset:
     storage_scheme = storage_schemes.get(storage_refs[0])
     scheme_type = storage_scheme["type"]
 
-    if scheme_type == "aws-s3":
+    if scheme_type in {"aws-s3", "custom-s3"}:
+        scheme_kwargs = _s3_scheme_kwargs(storage_scheme)
+
         bucket = storage_scheme["bucket"]
-        region = storage_scheme["region"]
         anonymous = storage_scheme.get("anonymous", False)
         prefix = asset.href.split(f"{bucket}/")[1]
 
         storage = icechunk.s3_storage(
             bucket=bucket,
             prefix=prefix,
-            region=region,
             anonymous=anonymous,
             from_env=not anonymous,
+            **scheme_kwargs,
         )
 
     elif scheme_type == "local":
@@ -113,7 +144,9 @@ def read_icechunk(asset: pystac.Asset) -> xr.Dataset:
         storage = icechunk.local_filesystem_storage(path=path)
 
     else:
-        raise ValueError("Only S3 buckets and local storage are currently supported")
+        raise ValueError(
+            "Only S3, S3-compatible, and local storage are currently supported"
+        )
 
     if "virtual" in asset.roles:
         config, virtual_credentials = construct_virtual_containers_config(owner, asset)
