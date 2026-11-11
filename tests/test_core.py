@@ -185,3 +185,9 @@ def test_to_xarray_virtual_icechunk_item(virtual_icechunk_item):
     asset = next(iter(assets.values()))
 
     to_xarray(asset)
+
+
+@requires_icechunk
+def test_to_xarray_local_virtual_icechunk(local_virtual_icechunk_item):
+    ds = to_xarray(local_virtual_icechunk_item.assets["repo"])
+    assert ds.foo.values.tolist() == [1.0, 2.0, 3.0]
