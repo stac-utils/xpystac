@@ -2,20 +2,36 @@
 # Please run `pre-commit run --all-files` when adding or changing entries.
 
 repos:
--   repo: https://github.com/asottile/pyupgrade
-    rev: v3.19.1
+  - repo: local
     hooks:
       - id: pyupgrade
-        args:
-          - --py310-plus
--   repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: 'v0.9.10'
-    hooks:
-    - id: ruff
-      args: [--fix, --unsafe-fixes, --exit-non-zero-on-fix]
-    - id: ruff-format
--   repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.15.0
-    hooks:
+        name: pyupgrade
+        entry: pyupgrade
+        language: system
+        types: [python]
+        args: [--py312-plus]
+
+      - id: ruff
+        name: ruff
+        entry: ruff check --force-exclude --fix --exit-non-zero-on-fix
+        language: system
+        types_or: [python, pyi, jupyter]
+        require_serial: true
+
+      - id: ruff-format
+        name: ruff-format
+        entry: ruff format --force-exclude
+        language: system
+        stages: [pre-commit]
+        types_or: [python, pyi, jupyter]
+        require_serial: true
+      
       - id: mypy
-        files: ".*\\.py$"
+        name: mypy
+        entry: mypy
+        args: [--no-incremental]
+        language: system
+        stages: [pre-commit]
+        types: [python]
+        exclude: conftest\.py$
+        require_serial: true

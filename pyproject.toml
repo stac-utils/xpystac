@@ -7,7 +7,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "xpystac"
 authors = [
-    {name = "Julia Signell", email = "jsignell@element84.com"}
+    {name = "Julia Signell", email = "jsignell@gmail.com"}
 ]
 classifiers = [ "License :: OSI Approved :: MIT License",]
 dependencies = [
@@ -34,6 +34,7 @@ dev = [
     "ipdb>=0.13.13",
     "ipython>=9.5.0",
     "kerchunk>=0.2.7",
+    "mypy>=2.4.1",
     "planetary-computer>=1.0.0",
     "pre-commit>=4.0.1",
     "pystac>=1.16",
@@ -41,8 +42,10 @@ dev = [
     "pytest>=8.3.3",
     "pytest-cov>=6.0.0",
     "pytest-xdist>=3.8.0",
+    "pyupgrade>=3.22.0",
     "requests>=2.32.3",
     "rioxarray>=0.18.2",
+    "ruff>=0.17.4",
     "rustac>=0.9.17",
     "urllib3>=2.3.0",
     "zarr>2",
@@ -59,7 +62,11 @@ include = [
 [tool.ruff]
 line-length = 88
 lint.select = ["E", "F", "W", "I", "TID252" ]
-target-version = "py310"
+target-version = "py312"
 
 [tool.ruff.lint.flake8-tidy-imports]
 ban-relative-imports = "all"
+
+[[tool.mypy.overrides]]
+module = ["planetary_computer", "rasterio.*", "fsspec.*"]
+ignore_missing_imports = true
