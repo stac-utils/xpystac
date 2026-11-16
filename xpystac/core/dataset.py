@@ -115,7 +115,7 @@ def _(
     raise ValueError(msg)
 
 
-@to_xarray.register
+@to_xarray.register(pystac.Asset)
 def _(
     obj: pystac.Asset,
     patch_url: None | Callable[[str], str] = None,

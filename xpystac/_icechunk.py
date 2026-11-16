@@ -43,8 +43,12 @@ def construct_virtual_containers_config(
     if len(data_buckets) != 1:
         raise ValueError("Only supports one vrt:href per asset")
 
+    credentials: (
+        icechunk.AnyS3Credential | icechunk.Credentials.LocalFileSystemAccess | None
+    ) = None
+
     data_asset = owner.assets[data_buckets[0]["key"]]
-    data_href = data_asset.get_absolute_href()
+    data_href = data_asset.get_absolute_href() or data_asset.href
 
     data_storage_refs = data_asset.extra_fields["storage:refs"]
     if len(data_storage_refs) != 1:
@@ -110,8 +114,11 @@ def read_icechunk(asset: pystac.Asset) -> xr.Dataset:
     owner = asset.owner
     if isinstance(owner, pystac.Item):
         fields = owner.properties
-    else:
+    elif isinstance(owner, pystac.Collection):
         fields = owner.extra_fields
+    else:
+        raise ValueError("Asset must have an owner when reading icechunk.")
+
     storage_schemes = fields["storage:schemes"]
 
     # --- Create icechunk storage from asset fields
@@ -148,7 +155,7 @@ def read_icechunk(asset: pystac.Asset) -> xr.Dataset:
             "Only S3, S3-compatible, and local storage are currently supported"
         )
 
-    if "virtual" in asset.roles:
+    if "virtual" in (asset.roles or []):
         config, virtual_credentials = construct_virtual_containers_config(owner, asset)
         repo_kwargs = dict(
             config=config, authorize_virtual_chunk_access=virtual_credentials

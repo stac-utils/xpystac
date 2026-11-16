@@ -45,16 +45,16 @@ def _(
     patch_url: None | Callable[[str], str] = None,
     allow_kerchunk: bool = True,
     **kwargs,
-) -> xr.Dataset:
+) -> xr.DataTree:
     raise NotImplementedError("to be done")
 
 
-@to_xarray_datatree.register
+@to_xarray_datatree.register(pystac.Asset)
 def _(
     obj: pystac.Asset,
     patch_url: None | Callable[[str], str] = None,
     **kwargs,
-) -> xr.Dataset:
+) -> xr.DataTree:
     open_kwargs = obj.extra_fields.get("xarray:open_kwargs", {})
 
     storage_options = obj.extra_fields.get("xarray:storage_options", None)
