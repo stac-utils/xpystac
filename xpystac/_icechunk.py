@@ -44,7 +44,12 @@ def construct_virtual_containers_config(
         raise ValueError("Only supports one vrt:href per asset")
 
     credentials: (
-        icechunk.AnyS3Credential | icechunk.Credentials.LocalFileSystemAccess | None
+        icechunk.AnyS3Credential
+        | icechunk.AnyGcsCredential
+        | icechunk.AnyAzureCredential
+        | icechunk.Credentials.LocalFileSystemAccess
+        | icechunk.Credentials.HttpAccess
+        | None
     ) = None
 
     data_asset = owner.assets[data_buckets[0]["key"]]
