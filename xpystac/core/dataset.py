@@ -123,6 +123,7 @@ def _(
     **kwargs,
 ) -> xarray.Dataset:
     open_kwargs = obj.extra_fields.get("xarray:open_kwargs", {})
+    default_kwargs = {}
 
     storage_options = obj.extra_fields.get("xarray:storage_options", None)
     if storage_options:
